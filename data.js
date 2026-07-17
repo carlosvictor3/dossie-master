@@ -1,3 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOSSIÊ MASTER — Mapa da Investigação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#efe9dc;
+  --paper-dark:#e3dcc9;
+  --ink:#1d1a14;
+  --ink-soft:#4a463c;
+  --red:#8c2a20;
+  --red-bright:#b3231c;
+  --line:#c8bfa6;
+  --line-strong:#9c9070;
+  --stamp:#7a3b2e;
+  --financeiro:#8a6d3b;
+  --politico:#1f4e5f;
+  --judiciario:#5b3a8e;
+  --seguranca:#2e2e2e;
+  --familia:#a14e2e;
+  --instituicao:#3c6e47;
+  --fato:#6b6b6b;
+  --central:#b3231c;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  background-image:
+    radial-gradient(circle at 10% 5%, rgba(0,0,0,0.025) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0,0,0,0.03) 0%, transparent 45%);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, serif;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--red-bright); color:var(--paper);}
+
+/* ===== TOP MASTHEAD ===== */
+.masthead{
+  border-bottom:3px double var(--ink);
+  padding:22px 32px 14px;
+  position:relative;
+}
+.masthead-row{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  flex-wrap:wrap; gap:10px;
+}
+.masthead-tag{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--red); font-weight:600;
+}
+.masthead-title{
+  font-family:'Source Serif 4', serif;
+  font-weight:700; font-size:clamp(34px, 5vw, 56px);
+  letter-spacing:.01em; margin:2px 0 0; line-height:1;
+}
+.masthead-title span{ color:var(--red-bright); font-style:italic; font-weight:600;}
+.masthead-meta{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; color:var(--ink-soft); text-align:right;
+  line-height:1.6;
+}
+.masthead-sub{
+  margin-top:10px; font-size:13.5px; color:var(--ink-soft);
+  font-style:italic; max-width:760px; line-height:1.5;
+}
+.confidential-stamp{
+  position:absolute; top:18px; right:32px;
+  border:2px solid var(--stamp); color:var(--stamp);
+  font-family:'IBM Plex Mono', monospace; font-weight:700;
+  font-size:10px; letter-spacing:.12em; padding:5px 10px;
+  transform:rotate(4deg); opacity:.8; border-radius:2px;
+  background:rgba(122,59,46,0.03);
+}
+
+/* ===== NAV TABS ===== */
+.tabs{
+  display:flex; gap:0; border-bottom:1px solid var(--line-strong);
+  padding:0 32px; background:var(--paper-dark);
+  overflow-x:auto;
+}
+.tab{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; padding:13px 20px; cursor:pointer;
+  color:var(--ink-soft); border-right:1px solid var(--line);
+  white-space:nowrap; user-select:none; transition:background .15s, color .15s;
+  position:relative;
+}
+.tab:hover{ background:rgba(0,0,0,0.03); color:var(--ink);}
+.tab.active{ color:var(--red-bright); font-weight:600; background:var(--paper);}
+.tab.active::after{
+  content:""; position:absolute; bottom:-1px; left:0; right:0; height:2px;
+  background:var(--red-bright);
+}
+
+.view{ display:none; padding:28px 32px 60px; max-width:1400px; margin:0 auto;}
+.view.active{ display:block; animation:fadeIn .25s ease;}
+@keyframes fadeIn{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+/* ===== INTRO / OVERVIEW ===== */
+.intro-grid{
+  display:grid; grid-template-columns:1.4fr 1fr; gap:28px; margin-bottom:30px;
+}
+@media(max-width:880px){ .intro-grid{ grid-template-columns:1fr; } }
+.intro-card{
+  background:var(--paper); border:1px solid var(--line-strong);
+  padding:22px 24px; position:relative;
+}
+.intro-card h2{
+  font-size:14px; font-family:'IBM Plex Mono', monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--red); margin:0 0 14px; border-bottom:1px solid var(--line); padding-bottom:8px;
+}
+.intro-card p{ line-height:1.7; font-size:15px; color:var(--ink); margin:0 0 12px;}
+.stat-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px;}
+.stat-box{ border:1px solid var(--line); padding:14px 12px; text-align:center; background:var(--paper-dark);}
+.stat-num{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:22px; color:var(--red-bright);}
+.stat-label{ font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-top:4px;}
+
+.legend-list{ display:flex; flex-direction:column; gap:9px; }
+.legend-item{ display:flex; align-items:center; gap:10px; font-size:13px; }
+.legend-dot{ width:13px; height:13px; border-radius:50%; flex-shrink:0; border:1.5px solid rgba(0,0,0,.25);}
+.legend-name{ font-weight:600;}
+.legend-desc{ color:var(--ink-soft); font-size:12px;}
+
+.disclaimer-box{
+  border:1px dashed var(--stamp); background:rgba(122,59,46,0.05);
+  padding:14px 18px; font-size:12.5px; line-height:1.6; color:var(--ink-soft);
+  margin-bottom:26px; font-family:'IBM Plex Mono', monospace;
+}
+.disclaimer-box strong{ color:var(--stamp); }
+
+/* ===== GRAPH VIEW ===== */
+.graph-toolbar{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--line);
+}
+.filter-chip{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.04em;
+  padding:6px 12px; border:1px solid var(--line-strong); cursor:pointer;
+  background:var(--paper); color:var(--ink-soft); user-select:none;
+  transition:all .15s; display:flex; align-items:center; gap:6px;
+}
+.filter-chip .dot{ width:8px; height:8px; border-radius:50%;}
+.filter-chip.active{ background:var(--ink); color:var(--paper); border-color:var(--ink);}
+.search-box{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; padding:7px 12px;
+  border:1px solid var(--line-strong); background:var(--paper); color:var(--ink);
+  width:220px; outline:none;
+}
+.search-box:focus{ border-color:var(--red-bright); }
+
+.graph-wrap{
+  position:relative; border:1px solid var(--line-strong);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,0.018) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,0.013) 40px),
+    var(--paper);
+  height:680px; overflow:hidden; cursor:grab; touch-action:none;
+}
+.graph-wrap.panning{ cursor:grabbing; }
+.graph-wrap.node-dragging{ cursor:crosshair; }
+.graph-wrap.fullscreen{
+  position:fixed; inset:0; height:100vh; width:100vw; z-index:500; border:none;
+}
+.graph-controls{
+  position:absolute; bottom:16px; right:16px;
+  display:flex; flex-direction:column; gap:5px; z-index:10;
+}
+.graph-controls button{
+  width:36px; height:36px; border:1px solid var(--line-strong); background:rgba(239,233,220,.93);
+  font-family:'IBM Plex Mono',monospace; font-size:16px; cursor:pointer; color:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  backdrop-filter:blur(4px); transition:background .12s,color .12s;
+}
+.graph-controls button:hover{ background:var(--ink); color:var(--paper);}
+.graph-hint{
+  position:absolute; top:12px; left:50%; transform:translateX(-50%);
+  font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-soft);
+  background:rgba(239,233,220,.88); padding:4px 12px; border:1px solid var(--line);
+  white-space:nowrap; pointer-events:none; z-index:10;
+}
+/* Tooltip de aresta */
+#edge-tooltip{
+  position:fixed; background:var(--ink); color:var(--paper);
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  padding:6px 11px; pointer-events:none; z-index:600;
+  max-width:280px; line-height:1.4; border-radius:1px;
+  opacity:0; transition:opacity .15s; white-space:normal;
+}
+#edge-tooltip.visible{ opacity:1; }
+
+/* ===== DETAIL PANEL ===== */
+.detail-panel{
+  position:fixed; top:0; right:0; height:100%; width:420px; max-width:92vw;
+  background:var(--paper); border-left:2px solid var(--ink);
+  box-shadow:-12px 0 30px rgba(0,0,0,0.18);
+  transform:translateX(100%); transition:transform .28s ease; z-index:100;
+  overflow-y:auto;
+}
+.detail-panel.open{ transform:translateX(0); }
+.detail-header{
+  padding:20px 22px 14px; border-bottom:1px solid var(--line); position:relative;
+}
+.detail-close{
+  position:absolute; top:16px; right:18px; cursor:pointer; font-family:'IBM Plex Mono',monospace;
+  font-size:13px; color:var(--ink-soft); border:1px solid var(--line-strong); width:26px; height:26px;
+  display:flex; align-items:center; justify-content:center;
+}
+.detail-close:hover{ background:var(--ink); color:var(--paper);}
+.detail-type{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.1em;
+  font-weight:600; margin-bottom:8px;
+}
+.detail-name{ font-size:24px; font-weight:700; line-height:1.2; margin:0 0 4px; padding-right:30px;}
+.detail-role{ font-size:13px; color:var(--ink-soft); font-style:italic;}
+.detail-body{ padding:18px 22px 30px;}
+.detail-summary{ font-size:14.5px; line-height:1.75; margin-bottom:18px;}
+.detail-section-title{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--red); margin:0 0 10px; border-top:1px solid var(--line); padding-top:14px;
+}
+.detail-list{ list-style:none; padding:0; margin:0;}
+.detail-list li{
+  font-size:13.5px; line-height:1.6; padding:8px 0 8px 16px; border-bottom:1px solid var(--line);
+  position:relative; color:var(--ink);
+}
+.detail-list li::before{ content:"—"; position:absolute; left:0; color:var(--red);}
+.connections-list{ display:flex; flex-direction:column; gap:8px; margin-top:10px;}
+.connection-item{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+  font-size:12.5px; padding:9px 11px; background:var(--paper-dark); cursor:pointer;
+  border:1px solid var(--line); transition:border-color .15s;
+}
+.connection-item:hover{ border-color:var(--red-bright);}
+.connection-name{ font-weight:600;}
+.connection-edge-label{ color:var(--ink-soft); font-size:11px; font-style:italic; flex-shrink:0; text-align:right;}
+.overlay-bg{
+  position:fixed; inset:0; background:rgba(20,18,12,0.35); opacity:0; pointer-events:none;
+  transition:opacity .25s; z-index:99;
+}
+.overlay-bg.open{ opacity:1; pointer-events:auto;}
+
+/* ===== TIMELINE VIEW ===== */
+.timeline-toolbar{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+.timeline-wrap{ position:relative; padding-left:28px; }
+.timeline-wrap::before{
+  content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line-strong);
+}
+.tl-entry{ position:relative; padding-bottom:30px; }
+.tl-entry::before{
+  content:""; position:absolute; left:-28px; top:4px; width:13px; height:13px; border-radius:50%;
+  background:var(--paper); border:2.5px solid var(--red-bright); z-index:2;
+}
+.tl-date{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600; color:var(--red-bright);
+  letter-spacing:.04em; display:flex; align-items:center; gap:10px; margin-bottom:6px;
+}
+.tl-phase-badge{
+  font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; padding:2px 7px;
+  border:1px solid var(--line-strong); color:var(--ink-soft); font-weight:500;
+}
+.tl-title{ font-size:18px; font-weight:700; margin:0 0 6px; }
+.tl-summary{ font-size:14px; line-height:1.65; color:var(--ink); max-width:760px; margin:0 0 10px;}
+.tl-actors{ display:flex; gap:7px; flex-wrap:wrap; }
+.tl-actor-chip{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; padding:3px 9px;
+  border:1px solid var(--line-strong); cursor:pointer; color:var(--ink-soft); background:var(--paper-dark);
+}
+.tl-actor-chip:hover{ border-color:var(--red-bright); color:var(--red-bright);}
+
+/* ===== DIRECTORY VIEW ===== */
+.directory-toolbar{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; align-items:center;}
+.directory-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:14px;
+}
+.dir-card{
+  border:1px solid var(--line-strong); background:var(--paper); padding:16px 17px;
+  cursor:pointer; transition:box-shadow .15s, border-color .15s; position:relative;
+}
+.dir-card:hover{ box-shadow:3px 3px 0 var(--line-strong); border-color:var(--ink);}
+.dir-type-bar{ position:absolute; top:0; left:0; bottom:0; width:4px;}
+.dir-name{ font-weight:700; font-size:15px; margin:0 0 4px; padding-left:8px;}
+.dir-role{ font-size:12px; color:var(--ink-soft); font-style:italic; padding-left:8px; margin-bottom:8px;}
+.dir-summary{ font-size:12.5px; line-height:1.55; padding-left:8px; color:var(--ink); 
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
+
+/* footer */
+.footer-note{
+  text-align:center; padding:30px 20px 50px; font-family:'IBM Plex Mono',monospace;
+  font-size:11px; color:var(--ink-soft); border-top:1px solid var(--line); margin-top:10px;
+}
+
+::-webkit-scrollbar{ width:9px; height:9px;}
+::-webkit-scrollbar-track{ background:var(--paper-dark);}
+::-webkit-scrollbar-thumb{ background:var(--line-strong);}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="confidential-stamp">EM APURAÇÃO</div>
+  <div class="masthead-row">
+    <div>
+      <div class="masthead-tag">Jornalismo de dados · Investigação em andamento</div>
+      <h1 class="masthead-title">DOSSIÊ <span>MASTER</span></h1>
+    </div>
+    <div class="masthead-meta">
+      Atualizado pela última vez em<br>
+      <strong id="last-update">17 de julho de 2026</strong>
+    </div>
+  </div>
+  <p class="masthead-sub">Mapa investigativo do escândalo do Banco Master: atores, conexões e cronologia da Operação Compliance Zero. Estrutura viva — alimentada à medida que novas fases, decisões e reportagens vêm a público.</p>
+</header>
+
+<nav class="tabs" id="tabs">
+  <div class="tab active" data-view="overview">Visão geral</div>
+  <div class="tab" data-view="graph">Mapa de conexões</div>
+  <div class="tab" data-view="timeline">Linha do tempo</div>
+  <div class="tab" data-view="directory">Dossiê de agentes</div>
+  <div class="tab" data-view="sources">Metodologia &amp; fontes</div>
+</nav>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="view active" id="view-overview">
+  <div class="disclaimer-box">
+    <strong>NOTA EDITORIAL —</strong> Este material reúne informações tornadas públicas por decisões judiciais, relatórios da Polícia Federal, do Banco Central, do COAF, do TCU e por veículos de imprensa. Fatos atribuídos a investigados estão sob apuração e amparados pela presunção de inocência. Expressões como <em>"segundo a PF"</em>, <em>"supostamente"</em>, <em>"teria recebido"</em> e <em>"é apontado como"</em> indicam alegação não definitivamente julgada, e não fato consumado.
+  </div>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h2>O que é o caso Master</h2>
+      <p>O escândalo do Banco Master é apontado pela Polícia Federal como a maior fraude já registrada contra o Sistema Financeiro Nacional brasileiro. A investigação — batizada <strong>Operação Compliance Zero</strong> — começou em 2024 apurando títulos de crédito sem lastro e, ao longo de oito fases, ampliou-se para alcançar corrupção institucional, lavagem de dinheiro, influência política e um núcleo paralelo de vigilância e intimidação conhecido como <strong>"A Turma"</strong>.</p>
+      <p>No centro está <strong>Daniel Vorcaro</strong>, controlador do banco, preso pela primeira vez em 17 de novembro de 2025. A partir dele, a apuração se ramifica em direção a políticos, ministros do Banco Central, magistrados do STF e uma estrutura paralela de operadores financeiros e de segurança.</p>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">Fases da operação</div></div>
+        <div class="stat-box"><div class="stat-num">21+</div><div class="stat-label">Prisões decretadas</div></div>
+        <div class="stat-box"><div class="stat-num">116+</div><div class="stat-label">Mandados de busca</div></div>
+        <div class="stat-box"><div class="stat-num">R$ 27,7 bi</div><div class="stat-label">Bens bloqueados (até fase 6)</div></div>
+        <div class="stat-box"><div class="stat-num">R$ 50-56 bi</div><div class="stat-label">Rombo estimado / custo ao FGC</div></div>
+        <div class="stat-box"><div class="stat-num">73</div><div class="stat-label">Nós já mapeados no dossiê</div></div>
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <h2>Legenda do mapa</h2>
+      <div class="legend-list" id="legend-list"></div>
+    </div>
+  </div>
+
+  <div class="intro-card">
+    <h2>As cinco frentes que já se desdobraram do caso</h2>
+    <p style="margin-bottom:6px;"><strong>1. Fraude financeira no Master</strong> — títulos sem lastro, fundos da Reag usados para inflar o balanço, caixa paralelo.</p>
+    <p style="margin-bottom:6px;"><strong>2. Captura do BRB</strong> — venda de carteiras fictícias ao banco estatal, propina a Paulo Henrique Costa, triangulação via fundo Celeno.</p>
+    <p style="margin-bottom:6px;"><strong>3. Influência política</strong> — Ciro Nogueira e a "Emenda Master", pagamentos a Flávio e Eduardo Bolsonaro, Jaques Wagner, ACM Neto, Temer, Antônio de Rueda.</p>
+    <p style="margin-bottom:6px;"><strong>4. Captura institucional</strong> — servidores do BC, relação de Vorcaro com Toffoli e com o entorno de Alexandre de Moraes.</p>
+    <p style="margin-bottom:0;"><strong>5. Núcleo de intimidação ("A Turma")</strong> — vigilância, ameaças a jornalistas, conexões com jogo do bicho e milícia.</p>
+  </div>
+
+  <div class="intro-card">
+    <h2>Como navegar este dossiê</h2>
+    <p style="margin-bottom:6px;"><strong>Mapa de conexões</strong> — grafo interativo. Clique em qualquer nó para abrir seu perfil completo; arraste para explorar; use os filtros por núcleo para isolar uma camada da rede.</p>
+    <p style="margin-bottom:6px;"><strong>Linha do tempo</strong> — cronologia fato a fato, da origem da investigação (2024) até os desdobramentos mais recentes, com resumo e atores de cada evento.</p>
+    <p style="margin-bottom:0;"><strong>Dossiê de agentes</strong> — lista navegável de todas as pessoas, empresas e instituições já mapeadas, com busca e filtro.</p>
+  </div>
+</section>
+
+<!-- ===== GRAPH ===== -->
+<section class="view" id="view-graph">
+  <div class="graph-toolbar" id="graph-filters"></div>
+  <input class="search-box" id="graph-search" placeholder="Buscar agente ou fato…" />
+  <div class="graph-wrap" id="graph-wrap">
+    <div class="graph-canvas" id="graph-canvas">
+      <svg class="edges-layer" id="edges-layer"></svg>
+      <div id="nodes-layer"></div>
+    </div>
+    <div class="graph-controls">
+      <button id="zoom-in">+</button>
+      <button id="zoom-out">–</button>
+      <button id="zoom-reset">⟲</button>
+    </div>
+    <div class="graph-hint">Arraste · scroll para zoom · clique para detalhes · toque e arraste no mobile</div>
+  </div>
+<div id="edge-tooltip"></div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="view" id="view-timeline">
+  <div class="timeline-toolbar" id="timeline-filters"></div>
+  <div class="timeline-wrap" id="timeline-list"></div>
+</section>
+
+<!-- ===== DIRECTORY ===== -->
+<section class="view" id="view-directory">
+  <div class="directory-toolbar">
+    <input class="search-box" id="dir-search" placeholder="Buscar no dossiê…" style="width:280px;" />
+    <div id="dir-filters" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+  </div>
+  <div class="directory-grid" id="directory-grid"></div>
+</section>
+
+<!-- ===== SOURCES ===== -->
+<section class="view" id="view-sources">
+  <div class="intro-card" style="max-width:760px;">
+    <h2>Metodologia</h2>
+    <p>Cada nó e cada conexão deste dossiê é derivado de fontes públicas verificáveis: decisões do STF, relatórios da Polícia Federal citados em decisões judiciais, comunicados do Banco Central, dados do COAF tornados públicos pela imprensa, processos do TCU e reportagens de veículos com produção jornalística própria.</p>
+    <p>Este protótipo foi montado a partir de uma pesquisa inicial e <strong>deve ser revisado, expandido e corrigido</strong> à medida que o projeto avança — é um esqueleto de trabalho, não uma versão final.</p>
+    <h2 style="margin-top:24px;">Fontes consultadas nesta primeira varredura</h2>
+    <ul class="detail-list">
+      <li>Wikipédia — "Escândalo do Banco Master" (verbete consolidado, atualizado continuamente)</li>
+      <li>Agência Brasil — cobertura das 8 fases da Operação Compliance Zero</li>
+      <li>CNN Brasil — revelações sobre "A Turma" e mensagens periciadas</li>
+      <li>Metrópoles — perfil dos integrantes de "A Turma" e movimentações financeiras</li>
+      <li>Brasil de Fato — reconstrução cronológica detalhada (minuto a minuto da 1ª prisão)</li>
+      <li>Jornal Grande Bahia (JGB) — cronologia fase a fase</li>
+      <li>Times Brasil / CNBC — linhas do tempo e antecedentes (2021–2024)</li>
+      <li>STF (notícias oficiais) — decisões de prisão e medidas cautelares</li>
+      <li>Diário do Rio de Janeiro — apuração sobre Cláudio Castro e a Rioprevidência</li>
+      <li>Revista Fórum — detalhamento de "A Turma"</li>
+    </ul>
+    <p style="margin-top:18px; font-size:12.5px; color:var(--ink-soft);">Próximo passo recomendado: cada nó deveria ganhar um campo de <em>fontes individuais com link</em>, para que cada alegação no site aponte diretamente ao documento ou reportagem de origem — essencial para credibilidade editorial e para blindagem jurídica do projeto.</p>
+  </div>
+</section>
+
+<div class="overlay-bg" id="overlay"></div>
+<aside class="detail-panel" id="detail-panel">
+  <div class="detail-header">
+    <div class="detail-close" id="detail-close">✕</div>
+    <div id="detail-avatar" style="margin-bottom:12px"></div>
+    <div class="detail-type" id="detail-type"></div>
+    <h3 class="detail-name" id="detail-name"></h3>
+    <div class="detail-role" id="detail-role"></div>
+  </div>
+  <div class="detail-body">
+    <p class="detail-summary" id="detail-summary"></p>
+    <div id="detail-extra"></div>
+    <div class="detail-section-title">Conexões mapeadas</div>
+    <div class="connections-list" id="detail-connections"></div>
+  </div>
+</aside>
+
+<div class="footer-note">DOSSIÊ MASTER — protótipo de arquitetura · construído para fins de organização editorial · não constitui acusação ou conclusão judicial</div>
+
+<script>
 // ============================================================
 // DOSSIÊ MASTER — base de dados do mapa investigativo
 // Todas as informações são apresentadas em caráter investigativo
@@ -1322,7 +1772,640 @@ const TIMELINE = [
     actors: ["vorcaro", "fbi_interpol", "cayman"]
   },
 ];
+</script>
+<script>
+const nodeById = Object.fromEntries(NODES.map(n => [n.id, n]));
 
-if (typeof module !== "undefined") {
-  module.exports = { NODE_TYPES, NODES, EDGES, TIMELINE };
+function getInitials(name) {
+  return name.split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase() || '?';
 }
+function typeColor(type) { return (NODE_TYPES[type]||{color:'#888'}).color; }
+
+// TABS
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('view-'+tab.dataset.view).classList.add('active');
+    if (tab.dataset.view === 'graph') setTimeout(initGraph, 40);
+  });
+});
+
+// LEGEND
+document.getElementById('legend-list').innerHTML =
+  Object.entries(NODE_TYPES).map(([,t]) =>
+    '<div class="legend-item"><span class="legend-dot" style="background:'+t.color+'"></span><span class="legend-name">'+t.label+'</span></div>'
+  ).join('');
+
+// DETAIL PANEL
+const detailPanel = document.getElementById('detail-panel');
+const overlay = document.getElementById('overlay');
+
+function openDetail(id) {
+  const n = nodeById[id]; if (!n) return;
+  const t = NODE_TYPES[n.type] || {label:'Agente', color:'#888'};
+  const color = t.color;
+  const initials = getInitials(n.name);
+  document.getElementById('detail-avatar').innerHTML =
+    '<div style="width:72px;height:72px;border-radius:50%;background:'+color+';display:flex;align-items:center;justify-content:center;border:3px solid var(--paper);box-shadow:0 2px 10px rgba(0,0,0,.22);overflow:hidden;flex-shrink:0">' +
+    (n.photo ? '<img src="'+n.photo+'" alt="'+n.name+'" style="width:100%;height:100%;object-fit:cover">' : '') +
+    '<span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;font-size:22px;color:rgba(255,255,255,.92);'+(n.photo?'display:none':'')+'">' + initials + '</span>' +
+    '</div>';
+  document.getElementById('detail-type').textContent = t.label;
+  document.getElementById('detail-type').style.color = color;
+  document.getElementById('detail-name').textContent = n.name;
+  document.getElementById('detail-role').textContent = n.role || '';
+  document.getElementById('detail-summary').textContent = n.summary || '';
+  const extra = document.getElementById('detail-extra');
+  extra.innerHTML = (n.details && n.details.length)
+    ? '<div class="detail-section-title">Pontos levantados pela apuração</div><ul class="detail-list">'+n.details.map(d=>'<li>'+d+'</li>').join('')+'</ul>'
+    : '';
+  const conns = EDGES.filter(e => e.from===id || e.to===id);
+  const connEl = document.getElementById('detail-connections');
+  if (conns.length) {
+    connEl.innerHTML = conns.map(e => {
+      const oid = e.from===id ? e.to : e.from;
+      const o = nodeById[oid]; if (!o) return '';
+      const oc = typeColor(o.type);
+      return '<div class="connection-item" data-id="'+oid+'"><span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:'+oc+';flex-shrink:0"></span><span class="connection-name">'+o.name+'</span></span><span class="connection-edge-label">'+e.label+'</span></div>';
+    }).filter(Boolean).join('');
+    connEl.querySelectorAll('.connection-item').forEach(item =>
+      item.addEventListener('click', () => openDetail(item.dataset.id))
+    );
+  } else {
+    connEl.innerHTML = '<p style="font-size:12.5px;color:var(--ink-soft)">Nenhuma conexão mapeada.</p>';
+  }
+  detailPanel.classList.add('open');
+  overlay.classList.add('open');
+  detailPanel.scrollTop = 0;
+}
+document.getElementById('detail-close').addEventListener('click', closeDetail);
+overlay.addEventListener('click', closeDetail);
+function closeDetail() {
+  detailPanel.classList.remove('open');
+  overlay.classList.remove('open');
+}
+
+// ============================================================
+// GRAPH ENGINE — force-directed
+// ============================================================
+const graphWrap = document.getElementById('graph-wrap');
+let graphInited=false, simNodes=[], simEdges=[], domNodes={}, svgLines=[];
+let svgEl2, nodesDiv2;
+let zoom=0.65, panX=0, panY=0;
+let isPanning=false, panStart={x:0,y:0}, panOrigin={x:0,y:0};
+// inércia
+let lastPanDx=0, lastPanDy=0, inertiaId=null;
+let dragNode=null, dragMoved=false;
+let activeFilters=new Set(Object.keys(NODE_TYPES)), graphSearch='';
+let rafId=null;
+// touch
+let touches={}, pinchDist0=0, pinchZoom0=0, pinchPanX0=0, pinchPanY0=0;
+const edgeTip=document.getElementById('edge-tooltip');
+
+function initGraph(){
+  if(graphInited) return;
+  graphInited=true;
+  buildGraph();
+}
+
+function buildGraph(){
+  graphWrap.innerHTML=
+    '<svg id="gsv" style="position:absolute;top:0;left:0;overflow:visible;pointer-events:none" width="100%" height="100%">'+
+      '<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9c9070" opacity="0.5"/></marker>'+
+      '<marker id="arr-hi" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#b3231c"/></marker></defs>'+
+    '</svg>'+
+    '<div id="gnodes" style="position:absolute;top:0;left:0;width:0;height:0;pointer-events:none"></div>'+
+    '<div class="graph-controls">'+
+      '<button id="g-zi" title="Zoom +">+</button>'+
+      '<button id="g-zo" title="Zoom \u2212">\u2212</button>'+
+      '<button id="g-rs" title="Resetar">\u27F2</button>'+
+      '<button id="g-ft" title="Encaixar tudo">\u2922</button>'+
+      '<button id="g-fs" title="Tela cheia">\u26F6</button>'+
+    '</div>'+
+    '<div class="graph-hint">Arraste \u00b7 scroll para zoom \u00b7 clique para detalhes \u00b7 toque no mobile</div>';
+
+  svgEl2=document.getElementById('gsv');
+  nodesDiv2=document.getElementById('gnodes');
+  const W=graphWrap.clientWidth, H=graphWrap.clientHeight;
+  const cx=W/2, cy=H/2;
+
+  // Posicionamento inicial por núcleo — cada tipo em anel próprio
+  const typeOrder=['CENTRAL','FINANCEIRO','POLITICO','JUDICIARIO','SEGURANCA','FAMILIA','INSTITUICAO','PREVIDENCIA','EMPRESARIAL','FATO'];
+  const typeRadius={CENTRAL:0,FINANCEIRO:220,POLITICO:300,JUDICIARIO:280,SEGURANCA:180,FAMILIA:160,INSTITUICAO:350,PREVIDENCIA:380,EMPRESARIAL:260,FATO:320};
+  const typeCount={};
+  const typeIdx={};
+  NODES.forEach(function(n){ typeCount[n.type]=(typeCount[n.type]||0)+1; typeIdx[n.type]=0; });
+
+  simNodes=NODES.map(function(n){
+    var x,y;
+    if(n.type==='CENTRAL'){ x=cx; y=cy; }
+    else{
+      var r=typeRadius[n.type]||280;
+      var cnt=typeCount[n.type]||1;
+      var idx=typeIdx[n.type]||0;
+      typeIdx[n.type]++;
+      var angle=(idx/cnt)*Math.PI*2 - Math.PI/2;
+      // jitter leve para não empilhar
+      var jx=(Math.random()-0.5)*60, jy=(Math.random()-0.5)*60;
+      x=cx+Math.cos(angle)*r+jx;
+      y=cy+Math.sin(angle)*r+jy;
+    }
+    return {id:n.id,x:x,y:y,vx:0,vy:0,fx:null,fy:null};
+  });
+
+  simEdges=EDGES.map(function(e){return {from:e.from,to:e.to,label:e.label};});
+  const simById={};
+  simNodes.forEach(function(s){simById[s.id]=s;});
+
+  // SVG edges com setas
+  svgLines=[];
+  simEdges.forEach(function(e,i){
+    var line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('stroke','#9c9070');
+    line.setAttribute('stroke-width','1.3');
+    line.setAttribute('stroke-opacity','0.4');
+    line.setAttribute('marker-end','url(#arr)');
+    line.style.cursor='default';
+    // tooltip na aresta
+    line.addEventListener('mouseenter',function(ev){
+      edgeTip.textContent=e.label;
+      edgeTip.classList.add('visible');
+    });
+    line.addEventListener('mousemove',function(ev){
+      edgeTip.style.left=(ev.clientX+14)+'px';
+      edgeTip.style.top=(ev.clientY-28)+'px';
+    });
+    line.addEventListener('mouseleave',function(){
+      edgeTip.classList.remove('visible');
+    });
+    // pointer events no SVG
+    line.style.pointerEvents='stroke';
+    svgEl2.appendChild(line);
+    svgLines.push({line:line,from:e.from,to:e.to});
+  });
+  // permitir eventos no SVG
+  svgEl2.style.pointerEvents='all';
+
+  // DOM nodes
+  domNodes={};
+  NODES.forEach(function(n,i){
+    var sn=simNodes[i];
+    var color=typeColor(n.type);
+    var isCentral=n.type==='CENTRAL';
+    var isFlat=['INSTITUICAO','FATO','PREVIDENCIA','EMPRESARIAL'].includes(n.type);
+    var size=isCentral?46:isFlat?26:32;
+    var br=isFlat?'5px':'50%';
+    var fs=isCentral?15:isFlat?8:10;
+    var initials=getInitials(n.name);
+
+    var div=document.createElement('div');
+    div.dataset.id=n.id;
+    div.dataset.type=n.type;
+    div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%);transition:opacity .18s;pointer-events:auto';
+    div.innerHTML=
+      '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:'+br+';background:'+color+';'+
+        'display:flex;align-items:center;justify-content:center;border:2.5px solid var(--paper);'+
+        'box-shadow:0 1px 6px rgba(0,0,0,.22),0 0 0 1px rgba(0,0,0,.1);overflow:hidden;'+
+        'transition:transform .15s,box-shadow .15s;position:relative">'+
+        (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover;position:absolute;border-radius:'+br+'">':'')+
+        '<span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;font-size:'+fs+'px;'+
+          'color:rgba(255,255,255,.92);text-shadow:0 1px 2px rgba(0,0,0,.3)">'+(n.photo?'':initials)+'</span>'+
+      '</div>'+
+      '<div class="nl" style="font-family:\'IBM Plex Mono\',monospace;font-size:'+(isCentral?11:9)+'px;'+
+        'color:'+(isCentral?'var(--red-bright)':'var(--ink)')+';background:rgba(239,233,220,.93);'+
+        'padding:2px 6px;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis;'+
+        'border:1px solid rgba(0,0,0,.07);font-weight:'+(isCentral?700:400)+';pointer-events:none">'+
+        n.name+'</div>';
+
+    // hover
+    div.addEventListener('mouseenter',function(){
+      if(!dragNode){ highlightNode(n.id); }
+      div.querySelector('.ni').style.transform='scale(1.2)';
+      div.querySelector('.ni').style.boxShadow='0 4px 14px rgba(0,0,0,.28),0 0 0 3px '+color;
+    });
+    div.addEventListener('mouseleave',function(){
+      if(!dragNode){ clearHighlight(); }
+      div.querySelector('.ni').style.transform='';
+      div.querySelector('.ni').style.boxShadow='0 1px 6px rgba(0,0,0,.22),0 0 0 1px rgba(0,0,0,.1)';
+    });
+
+    // drag + click
+    var mdPos={x:0,y:0};
+    div.addEventListener('pointerdown',function(e){
+      e.stopPropagation();
+      mdPos={x:e.clientX,y:e.clientY};
+      dragMoved=false;
+      var sn2=simNodes.find(function(s){return s.id===n.id;});
+      if(!sn2) return;
+      dragNode=sn2;
+      dragNode.fx=dragNode.x; dragNode.fy=dragNode.y;
+      graphWrap.classList.add('node-dragging');
+      div.setPointerCapture(e.pointerId);
+    });
+    div.addEventListener('pointermove',function(e){
+      if(!dragNode||dragNode.id!==n.id) return;
+      var dist=Math.hypot(e.clientX-mdPos.x,e.clientY-mdPos.y);
+      if(dist>4) dragMoved=true;
+      var rect=graphWrap.getBoundingClientRect();
+      dragNode.fx=(e.clientX-rect.left-panX)/zoom;
+      dragNode.fy=(e.clientY-rect.top-panY)/zoom;
+      dragNode.x=dragNode.fx; dragNode.y=dragNode.fy;
+      div.style.left=dragNode.x+'px'; div.style.top=dragNode.y+'px';
+      updateEdges();
+    });
+    div.addEventListener('pointerup',function(e){
+      if(!dragMoved) openDetail(n.id);
+      if(dragNode){ dragNode.fx=null; dragNode.fy=null; dragNode=null; }
+      graphWrap.classList.remove('node-dragging');
+    });
+
+    nodesDiv2.appendChild(div);
+    domNodes[n.id]=div;
+    div.style.left=sn.x+'px'; div.style.top=sn.y+'px';
+  });
+  nodesDiv2.style.pointerEvents='auto';
+
+  // ── Pan com inércia ──────────────────────────────────────────────────────
+  graphWrap.addEventListener('pointerdown',function(e){
+    if(e.target.closest('[data-id]')||e.target.closest('.graph-controls')) return;
+    if(e.pointerType==='touch'){ touches[e.pointerId]={x:e.clientX,y:e.clientY}; return; }
+    isPanning=true;
+    panStart={x:e.clientX,y:e.clientY};
+    panOrigin={x:panX,y:panY};
+    lastPanDx=0; lastPanDy=0;
+    if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
+    graphWrap.classList.add('panning');
+    graphWrap.setPointerCapture(e.pointerId);
+  });
+  graphWrap.addEventListener('pointermove',function(e){
+    // pinch-to-zoom (2 dedos)
+    if(e.pointerType==='touch' && touches[e.pointerId]){
+      var prev=touches[e.pointerId];
+      touches[e.pointerId]={x:e.clientX,y:e.clientY};
+      var ids=Object.keys(touches);
+      if(ids.length===2){
+        var t0=touches[ids[0]], t1=touches[ids[1]];
+        var dist=Math.hypot(t1.x-t0.x,t1.y-t0.y);
+        if(pinchDist0){
+          var scale=dist/pinchDist0;
+          var mx=(t0.x+t1.x)/2, my=(t0.y+t1.y)/2;
+          var rect2=graphWrap.getBoundingClientRect();
+          var lx=mx-rect2.left, ly=my-rect2.top;
+          var newZoom=Math.min(3,Math.max(0.18,pinchZoom0*scale));
+          panX=lx-(lx-pinchPanX0)*(newZoom/pinchZoom0);
+          panY=ly-(ly-pinchPanY0)*(newZoom/pinchZoom0);
+          zoom=newZoom;
+          applyTransform();
+        } else {
+          pinchDist0=dist; pinchZoom0=zoom; pinchPanX0=panX; pinchPanY0=panY;
+        }
+        return;
+      }
+      // 1 dedo — pan touch
+      lastPanDx=e.clientX-prev.x; lastPanDy=e.clientY-prev.y;
+      panX+=lastPanDx; panY+=lastPanDy;
+      applyTransform(); return;
+    }
+    if(!isPanning) return;
+    lastPanDx=e.clientX-panStart.x-(panX-panOrigin.x);
+    lastPanDy=e.clientY-panStart.y-(panY-panOrigin.y);
+    panX=panOrigin.x+(e.clientX-panStart.x);
+    panY=panOrigin.y+(e.clientY-panStart.y);
+    applyTransform();
+  });
+  graphWrap.addEventListener('pointerup',function(e){
+    if(e.pointerType==='touch'){ delete touches[e.pointerId]; pinchDist0=0; }
+    if(!isPanning) return;
+    isPanning=false;
+    graphWrap.classList.remove('panning');
+    // inércia
+    var vx=lastPanDx*0.6, vy=lastPanDy*0.6;
+    function glide(){
+      if(Math.abs(vx)<0.3&&Math.abs(vy)<0.3) return;
+      panX+=vx; panY+=vy; vx*=0.88; vy*=0.88;
+      applyTransform();
+      inertiaId=requestAnimationFrame(glide);
+    }
+    inertiaId=requestAnimationFrame(glide);
+  });
+
+  // ── Zoom scroll suave ──────────────────────────────────────────────────
+  graphWrap.addEventListener('wheel',function(e){
+    e.preventDefault();
+    if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
+    var rect=graphWrap.getBoundingClientRect();
+    var mx=e.clientX-rect.left, my=e.clientY-rect.top;
+    var oldZoom=zoom;
+    // suavizar scroll trackpad vs mouse
+    var d=e.deltaMode===1?e.deltaY*30:e.deltaY;
+    var delta=Math.exp(-d*0.004);
+    zoom=Math.min(3,Math.max(0.18,zoom*delta));
+    panX=mx-(mx-panX)*(zoom/oldZoom);
+    panY=my-(my-panY)*(zoom/oldZoom);
+    applyTransform();
+  },{passive:false});
+
+  // ── Botões ─────────────────────────────────────────────────────────────
+  document.getElementById('g-zi').addEventListener('click',function(){ smoothZoom(1.25); });
+  document.getElementById('g-zo').addEventListener('click',function(){ smoothZoom(0.8); });
+  document.getElementById('g-rs').addEventListener('click',resetView);
+  document.getElementById('g-ft').addEventListener('click',fitAll);
+  document.getElementById('g-fs').addEventListener('click',toggleFullscreen);
+
+  resetView();
+  startSim();
+  renderFilters();
+}
+
+function smoothZoom(factor){
+  var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
+  var cx=W/2, cy=H/2, oldZoom=zoom;
+  zoom=Math.min(3,Math.max(0.18,zoom*factor));
+  panX=cx-(cx-panX)*(zoom/oldZoom);
+  panY=cy-(cy-panY)*(zoom/oldZoom);
+  applyTransform();
+}
+
+function applyTransform(){
+  if(!nodesDiv2) return;
+  var t='translate('+panX+'px,'+panY+'px) scale('+zoom+')';
+  nodesDiv2.style.transform=t; nodesDiv2.style.transformOrigin='0 0';
+  svgEl2.style.transform=t; svgEl2.style.transformOrigin='0 0';
+}
+
+function updateEdges(){
+  var sb={};
+  simNodes.forEach(function(s){sb[s.id]=s;});
+  svgLines.forEach(function(obj){
+    var a=sb[obj.from], b=sb[obj.to]; if(!a||!b) return;
+    // encurtar linha para não cobrir o avatar
+    var dx=b.x-a.x, dy=b.y-a.y, dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var r=16; // raio médio do nó
+    var x1=a.x+(dx/dist)*r, y1=a.y+(dy/dist)*r;
+    var x2=b.x-(dx/dist)*(r+7), y2=b.y-(dy/dist)*(r+7);
+    obj.line.setAttribute('x1',x1); obj.line.setAttribute('y1',y1);
+    obj.line.setAttribute('x2',x2); obj.line.setAttribute('y2',y2);
+  });
+}
+
+function startSim(){
+  if(rafId) cancelAnimationFrame(rafId);
+  var tick=0;
+  function step(){
+    tick++;
+    var alpha=Math.max(0,1-tick/300);
+    if(alpha>0.001) runForces(alpha);
+    updatePositions();
+    updateEdges();
+    if(alpha>0.001) rafId=requestAnimationFrame(step);
+  }
+  rafId=requestAnimationFrame(step);
+}
+
+function runForces(alpha){
+  var sb={};
+  simNodes.forEach(function(n){sb[n.id]=n;});
+  var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
+  var cx=W/2, cy=H/2;
+  // repulsão
+  for(var i=0;i<simNodes.length;i++){
+    for(var j=i+1;j<simNodes.length;j++){
+      var a=simNodes[i], b=simNodes[j];
+      var dx=b.x-a.x, dy=b.y-a.y;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      if(dist>400) continue;
+      var force=Math.min(10000/(dist*dist),60)*alpha;
+      var fx=(dx/dist)*force, fy=(dy/dist)*force;
+      if(!a.fx){a.vx-=fx; a.vy-=fy;}
+      if(!b.fx){b.vx+=fx; b.vy+=fy;}
+    }
+  }
+  // atração por aresta
+  simEdges.forEach(function(e){
+    var a=sb[e.from], b=sb[e.to]; if(!a||!b) return;
+    var dx=b.x-a.x, dy=b.y-a.y;
+    var dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var target=200;
+    var force=(dist-target)*0.05*alpha;
+    var fx=(dx/dist)*force, fy=(dy/dist)*force;
+    if(!a.fx){a.vx+=fx; a.vy+=fy;}
+    if(!b.fx){b.vx-=fx; b.vy-=fy;}
+  });
+  // gravidade ao centro
+  simNodes.forEach(function(n){
+    if(n.fx) return;
+    n.vx+=(cx-n.x)*0.004*alpha;
+    n.vy+=(cy-n.y)*0.004*alpha;
+  });
+  // integrar
+  simNodes.forEach(function(n){
+    if(n.fx){n.x=n.fx; n.y=n.fy; return;}
+    n.vx*=0.78; n.vy*=0.78;
+    n.x+=n.vx; n.y+=n.vy;
+  });
+}
+
+function updatePositions(){
+  simNodes.forEach(function(sn){
+    var div=domNodes[sn.id]; if(!div) return;
+    div.style.left=sn.x+'px'; div.style.top=sn.y+'px';
+  });
+}
+
+function highlightNode(id){
+  var connected=new Set([id]);
+  simEdges.forEach(function(e){
+    if(e.from===id) connected.add(e.to);
+    if(e.to===id) connected.add(e.from);
+  });
+  Object.keys(domNodes).forEach(function(nid){
+    domNodes[nid].style.opacity=connected.has(nid)?'1':'0.08';
+  });
+  svgLines.forEach(function(obj){
+    var isConn=obj.from===id||obj.to===id;
+    obj.line.setAttribute('stroke',isConn?'#b3231c':'#9c9070');
+    obj.line.setAttribute('stroke-width',isConn?'2.4':'1.3');
+    obj.line.setAttribute('stroke-opacity',isConn?'1':'0.06');
+    obj.line.setAttribute('marker-end',isConn?'url(#arr-hi)':'url(#arr)');
+  });
+}
+function clearHighlight(){
+  Object.values(domNodes).forEach(function(div){div.style.opacity='1';});
+  svgLines.forEach(function(obj){
+    obj.line.setAttribute('stroke','#9c9070');
+    obj.line.setAttribute('stroke-width','1.3');
+    obj.line.setAttribute('stroke-opacity','0.4');
+    obj.line.setAttribute('marker-end','url(#arr)');
+  });
+}
+function resetView(){
+  var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
+  zoom=0.62; panX=W*0.19; panY=H*0.14;
+  applyTransform();
+}
+function fitAll(){
+  if(!simNodes.length) return;
+  var xs=simNodes.map(function(n){return n.x;}),ys=simNodes.map(function(n){return n.y;});
+  var minX=Math.min.apply(null,xs),maxX=Math.max.apply(null,xs);
+  var minY=Math.min.apply(null,ys),maxY=Math.max.apply(null,ys);
+  var W=graphWrap.clientWidth,H=graphWrap.clientHeight,pad=70;
+  var sx=(W-pad*2)/(maxX-minX||1),sy=(H-pad*2)/(maxY-minY||1);
+  zoom=Math.min(sx,sy,1.5);
+  panX=pad-minX*zoom; panY=pad-minY*zoom;
+  applyTransform();
+}
+function toggleFullscreen(){
+  graphWrap.classList.toggle('fullscreen');
+  var btn=document.getElementById('g-fs');
+  btn.textContent=graphWrap.classList.contains('fullscreen')?'\u2715':'\u26F6';
+  setTimeout(resetView,50);
+}
+
+function renderFilters(){
+  var el=document.getElementById('graph-filters');
+  el.innerHTML=Object.entries(NODE_TYPES).map(function(entry){
+    var key=entry[0],t=entry[1];
+    return '<div class="filter-chip active" data-type="'+key+'"><span class="dot" style="background:'+t.color+'"></span>'+t.label+'</div>';
+  }).join('');
+  el.querySelectorAll('.filter-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var type=chip.dataset.type;
+      if(activeFilters.has(type)){activeFilters.delete(type);chip.classList.remove('active');}
+      else{activeFilters.add(type);chip.classList.add('active');}
+      applyGraphFilters();
+    });
+  });
+}
+document.getElementById('graph-search').addEventListener('input',function(e){
+  graphSearch=e.target.value.toLowerCase().trim(); applyGraphFilters();
+});
+function applyGraphFilters(){
+  NODES.forEach(function(n){
+    var div=domNodes[n.id]; if(!div) return;
+    var ok=activeFilters.has(n.type)&&(!graphSearch||n.name.toLowerCase().includes(graphSearch)||(n.role||'').toLowerCase().includes(graphSearch));
+    div.style.opacity=ok?'1':'0.06';
+    div.style.pointerEvents=ok?'auto':'none';
+  });
+}
+
+
+// ============================================================
+// TIMELINE
+// ============================================================
+var tlPhases=[...new Set(TIMELINE.map(function(t){return t.phase;}))];
+
+function renderTimelineFilters(){
+  var el=document.getElementById('timeline-filters');
+  if(!el) return;
+  el.innerHTML='<div class="filter-chip active" data-phase="ALL">Todas as fases</div>'+
+    tlPhases.map(function(p){return '<div class="filter-chip" data-phase="'+p+'">'+p+'</div>';}).join('');
+  el.querySelectorAll('.filter-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      el.querySelectorAll('.filter-chip').forEach(function(c){c.classList.remove('active');});
+      chip.classList.add('active');
+      renderTimeline(chip.dataset.phase);
+    });
+  });
+}
+
+function renderTimeline(phase){
+  phase=phase||'ALL';
+  var items=phase==='ALL'?TIMELINE:TIMELINE.filter(function(t){return t.phase===phase;});
+  var el=document.getElementById('timeline-list');
+  if(!el) return;
+  el.innerHTML=items.map(function(t){
+    return '<div class="tl-entry">'+
+      '<div class="tl-date">'+t.date+'<span class="tl-phase-badge">'+t.phase+'</span></div>'+
+      '<h3 class="tl-title">'+t.title+'</h3>'+
+      '<p class="tl-summary">'+t.summary+'</p>'+
+      '<div class="tl-actors">'+(t.actors||[]).map(function(aid){
+        var a=nodeById[aid]; if(!a) return '';
+        return '<span class="tl-actor-chip" data-id="'+aid+'">'+a.name+'</span>';
+      }).filter(Boolean).join('')+'</div>'+
+    '</div>';
+  }).join('');
+  el.querySelectorAll('.tl-actor-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      document.querySelector('.tab[data-view="graph"]').click();
+      setTimeout(function(){openDetail(chip.dataset.id);},150);
+    });
+  });
+}
+
+renderTimelineFilters();
+renderTimeline('ALL');
+
+// ============================================================
+// DIRECTORY
+// ============================================================
+var dirFilters=new Set(Object.keys(NODE_TYPES)), dirSearch='';
+
+function renderDirFilters(){
+  var el=document.getElementById('dir-filters');
+  if(!el) return;
+  el.innerHTML=Object.entries(NODE_TYPES).map(function(entry){
+    var key=entry[0], t=entry[1];
+    return '<div class="filter-chip active" data-type="'+key+'">'+
+      '<span class="dot" style="background:'+t.color+'"></span>'+t.label+
+    '</div>';
+  }).join('');
+  el.querySelectorAll('.filter-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var type=chip.dataset.type;
+      if(dirFilters.has(type)){dirFilters.delete(type);chip.classList.remove('active');}
+      else{dirFilters.add(type);chip.classList.add('active');}
+      renderDirectory();
+    });
+  });
+}
+
+function renderDirectory(){
+  var items=NODES.filter(function(n){
+    return dirFilters.has(n.type)&&(
+      !dirSearch||
+      n.name.toLowerCase().includes(dirSearch)||
+      (n.role||'').toLowerCase().includes(dirSearch)||
+      (n.summary||'').toLowerCase().includes(dirSearch)
+    );
+  });
+  var el=document.getElementById('directory-grid');
+  if(!el) return;
+  if(!items.length){
+    el.innerHTML='<p style="color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:13px">Nenhum resultado encontrado.</p>';
+    return;
+  }
+  el.innerHTML=items.map(function(n){
+    var color=typeColor(n.type);
+    var initials=getInitials(n.name);
+    return '<div class="dir-card" data-id="'+n.id+'">'+
+      '<div class="dir-type-bar" style="background:'+color+'"></div>'+
+      '<div style="display:flex;align-items:center;gap:10px;padding-left:8px;margin-bottom:8px">'+
+        '<div style="width:36px;height:36px;border-radius:50%;background:'+color+';'+
+             'display:flex;align-items:center;justify-content:center;flex-shrink:0;'+
+             'border:2px solid var(--line);overflow:hidden">'+
+          (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover">':
+            '<span style="font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:11px;color:rgba(255,255,255,.9)">'+initials+'</span>')+
+        '</div>'+
+        '<div>'+
+          '<div class="dir-name" style="padding-left:0">'+n.name+'</div>'+
+          '<div class="dir-role" style="padding-left:0">'+(n.role||'')+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="dir-summary">'+(n.summary||'')+'</div>'+
+    '</div>';
+  }).join('');
+  el.querySelectorAll('.dir-card').forEach(function(card){
+    card.addEventListener('click',function(){openDetail(card.dataset.id);});
+  });
+}
+
+document.getElementById('dir-search').addEventListener('input',function(e){
+  dirSearch=e.target.value.toLowerCase().trim(); renderDirectory();
+});
+
+
+</script>
+</body>
+</html>
