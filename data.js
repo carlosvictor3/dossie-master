@@ -649,7 +649,7 @@ const NODES = [
     name: "Thiago Miranda Silva",
     type: "SEGURANCA",
     role: "Publicitário — líder do núcleo O Time",
-    summary: "Dono da Agência MiThi e ex-sócio do Portal Leo Dias. Apontado pela PF como coordenador de O Time — terceiro braço operacional de Vorcaro. Alvo na 10ª fase (09/07/2026). Nega as acusações.",
+    summary: "Dono da Agência MiThi e ex-sócio do Portal Leo Dias. Apontado pela PF como principal articulador do 'Projeto DV' (iniciais de Daniel Vorcaro) — terceiro braço operacional de Vorcaro. Coordenou rede de ~40 influenciadores para atacar o BC, com pagamentos de até R$ 2 mi e NDAs de R$ 800 mil de multa. Também intermediou contato entre Vorcaro e Flávio Bolsonaro sobre o filme Dark Horse. Alvo na 10ª fase (09/07/2026). Nega as acusações.",
     details: [
       "Saiu do Grupo Leo Dias 2 dias antes de virar alvo da PF.",
       "PF encontrou diálogos mar-abr/2025 em que Vorcaro pedia dados pessoais de Malu Gaspar para freá-la.",
@@ -769,6 +769,43 @@ const NODES = [
     summary: "Mais uma instituição do conglomerado Master liquidada extrajudicialmente pelo Banco Central, em março de 2026, ampliando o rombo total estimado no FGC para quase R$ 50 bilhões.",
     details: [],
     x: 70, y: 42
+  }
+  ,
+  // ---------- PROJETO DV — novos atores ----------
+  {
+    id: "marcelao",
+    name: "Marcello Lopes ('Marcelão')",
+    type: "SEGURANCA",
+    role: "Publicitário — estrategista do Projeto DV e da pré-campanha de Flávio Bolsonaro",
+    summary: "Ex-policial civil do DF, publicitário e conselheiro íntimo de Flávio Bolsonaro. Aparece no documento oficial do 'Projeto DV' como um dos três integrantes da equipe de estrategistas, ao lado de Thiago Miranda e Anderson Nunes. Recebeu R$ 650 mil via PIX de Miranda em 13/12/2025, período em que o projeto ainda estava em elaboração. Nega envolvimento e alega que o repasse refere-se a serviços anteriores. Deixou a pré-campanha de Flávio Bolsonaro em 20/05/2026. Sua agência Cálix Propaganda teria acumulado cerca de R$ 70 milhões anuais em contratos federais durante o governo Bolsonaro.",
+    details: [
+      "Aparece no 'Projeto DV' ao lado de Thiago Miranda e Anderson Nunes como estrategista.",
+      "R$ 650 mil recebidos via PIX de Miranda em 13/12/2025.",
+      "Afirma ter deixado o projeto ao descobrir ligação com o Banco Master.",
+      "Não há acusação formal ou decisão judicial contra ele até o momento."
+    ],
+    x: 25, y: 3
+  },
+  {
+    id: "anderson_nunes",
+    name: "Anderson Nunes",
+    type: "SEGURANCA",
+    role: "Publicitário da Unltd Network — integrante do Projeto DV",
+    summary: "Dono da Unltd Network, empresa subcontratada por Thiago Miranda para atuar no 'Projeto DV'. Recebeu R$ 400 mil de Miranda dois dias após o repasse de R$ 650 mil a Marcelão (15/12/2025). Sua empresa teria sido responsável pela articulação operacional da rede de cerca de 40 influenciadores digitais usados para atacar o Banco Central.",
+    details: [
+      "Unltd Network recebeu R$ 400 mil de Miranda em 15/12/2025.",
+      "Investigado como operador da rede de influenciadores do Projeto DV."
+    ],
+    x: 30, y: 0
+  },
+  {
+    id: "renato_gomes",
+    name: "Renato Gomes",
+    type: "INSTITUICAO",
+    role: "Ex-diretor do Banco Central — alvo de ataques coordenados",
+    summary: "Ex-diretor de Organização do Sistema Financeiro do Banco Central. Segundo a PF, era o alvo pessoal específico dos ataques coordenados pelo 'Projeto DV' — a campanha de cerca de 40 influenciadores teria foco especial em ataques de caráter pessoal contra ele, por suas posições regulatórias contrárias aos interesses do Banco Master.",
+    details: [],
+    x: 78, y: 58
   }
 
 ];
@@ -902,6 +939,14 @@ const EDGES = [
   { from: "vorcaro", to: "fbi_interpol", label: "alvo de cooperação internacional PF-FBI-Interpol" },
   { from: "bc", to: "octa_scd", label: "liquidação decretada em março/2026" },
   { from: "vorcaro", to: "octa_scd", label: "instituição do conglomerado Master" },
+
+  // Projeto DV — novos atores
+  { from: "thiago_miranda", to: "marcelao", label: "PIX de R$ 650 mil — integrante da equipe do Projeto DV" },
+  { from: "thiago_miranda", to: "anderson_nunes", label: "PIX de R$ 400 mil — Unltd Network subcontratada" },
+  { from: "marcelao", to: "flavio_bolsonaro", label: "estrategista da pré-campanha presidencial" },
+  { from: "anderson_nunes", to: "thiago_miranda", label: "subcontratada para operar rede de influenciadores" },
+  { from: "thiago_miranda", to: "renato_gomes", label: "alvo pessoal dos ataques do Projeto DV" },
+  { from: "vorcaro", to: "renato_gomes", label: "alvo de campanha de desinformação coordenada" },
 ];
 
 // ----------------------------------------------------------
@@ -1320,6 +1365,27 @@ const TIMELINE = [
     phase: "Desdobramentos",
     summary: "PF atua em cooperação com o FBI e a Interpol para congelar contas e identificar patrimônio oculto de Vorcaro e associados em paraísos fiscais. Foco na identificação de quem foi o principal beneficiário do esquema de lavagem.",
     actors: ["vorcaro", "fbi_interpol", "cayman"]
+  },
+  {
+    date: "13-15/12/2025",
+    title: "Projeto DV: PIX de R$ 1,05 mi entre estrategistas",
+    phase: "Antecedentes",
+    summary: "Thiago Miranda faz PIX de R$ 650 mil a Marcelão (13/12) e de R$ 400 mil à Unltd Network de Anderson Nunes (15/12) — período em que o 'Projeto DV' ainda estava sendo elaborado. Os valores são apurados pela PF como pagamentos pela estruturação da campanha de desinformação contra o Banco Central.",
+    actors: ["thiago_miranda", "marcelao", "anderson_nunes"]
+  },
+  {
+    date: "20/05/2026",
+    title: "Marcelão deixa pré-campanha de Flávio Bolsonaro",
+    phase: "Desdobramentos",
+    summary: "O publicitário Marcello Lopes ('Marcelão') anuncia saída da coordenação de comunicação da pré-campanha presidencial de Flávio Bolsonaro após ter seu nome associado ao 'Projeto DV' pela Folha de S.Paulo.",
+    actors: ["marcelao", "flavio_bolsonaro"]
+  },
+  {
+    date: "17/07/2026",
+    title: "PF estima até 60 fases para a Compliance Zero",
+    phase: "Desdobramentos",
+    summary: "A Gazeta do Povo revela que a força-tarefa da Polícia Federal estima que a Operação Compliance Zero pode chegar a 60 fases. A PF pretende manter o ritmo das apurações durante o período eleitoral de 2026, com foco em autoridades com foro privilegiado e operadores financeiros ainda não identificados — incluindo a questão central de quem foi o principal beneficiário do esquema de lavagem.",
+    actors: ["vorcaro", "mendonca"]
   },
 ];
 
