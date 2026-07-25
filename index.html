@@ -2258,7 +2258,7 @@ function buildGraph(){
     var div=document.createElement('div');
     div.dataset.id=n.id;
     div.dataset.type=n.type;
-    div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%);transition:opacity .18s;pointer-events:auto';
+    div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%);transition:opacity .18s;pointer-events:auto;touch-action:none';
     div.innerHTML=
       '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:'+br+';background:'+color+';'+
         'display:flex;align-items:center;justify-content:center;border:2.5px solid var(--paper);'+
@@ -2322,92 +2322,141 @@ function buildGraph(){
   });
   nodesDiv2.style.pointerEvents='auto';
 
-  // ── Pan com inércia ──────────────────────────────────────────────────────
-  graphWrap.addEventListener('pointerdown',function(e){
-    if(e.target.closest('[data-id]')||e.target.closest('.graph-controls')) return;
-    if(e.pointerType==='touch'){ touches[e.pointerId]={x:e.clientX,y:e.clientY}; return; }
-    isPanning=true;
-    panStart={x:e.clientX,y:e.clientY};
-    panOrigin={x:panX,y:panY};
-    lastPanDx=0; lastPanDy=0;
-    if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
-    graphWrap.classList.add('panning');
+  // ── EVENTOS DE PAN / PINCH / ZOOM ─────────────────────────────────────────
+  // Estado de ponteiros ativos (mouse + touch unificados)
+  var activePointers = {};  // pointerId → {x,y}
+  var pinchActive = false;
+  var pinchMidX=0, pinchMidY=0, pinchDist0=0, pinchZoom0=1, pinchPanX0=0, pinchPanY0=0;
+
+  function getPointerList(){
+    return Object.values(activePointers);
+  }
+
+  graphWrap.addEventListener('pointerdown', function(e){
+    if(e.target.closest('[data-id]') || e.target.closest('.graph-controls')) return;
+    e.preventDefault();
     graphWrap.setPointerCapture(e.pointerId);
-  });
-  graphWrap.addEventListener('pointermove',function(e){
-    // pinch-to-zoom (2 dedos)
-    if(e.pointerType==='touch' && touches[e.pointerId]){
-      var prev=touches[e.pointerId];
-      touches[e.pointerId]={x:e.clientX,y:e.clientY};
-      var ids=Object.keys(touches);
-      if(ids.length===2){
-        var t0=touches[ids[0]], t1=touches[ids[1]];
-        var dist=Math.hypot(t1.x-t0.x,t1.y-t0.y);
-        if(pinchDist0){
-          var scale=dist/pinchDist0;
-          var mx=(t0.x+t1.x)/2, my=(t0.y+t1.y)/2;
-          var rect2=graphWrap.getBoundingClientRect();
-          var lx=mx-rect2.left, ly=my-rect2.top;
-          var newZoom=Math.min(3,Math.max(0.18,pinchZoom0*scale));
-          panX=lx-(lx-pinchPanX0)*(newZoom/pinchZoom0);
-          panY=ly-(ly-pinchPanY0)*(newZoom/pinchZoom0);
-          zoom=newZoom;
-          applyTransform();
-        } else {
-          pinchDist0=dist; pinchZoom0=zoom; pinchPanX0=panX; pinchPanY0=panY;
-        }
-        return;
-      }
-      // 1 dedo — pan touch
-      lastPanDx=e.clientX-prev.x; lastPanDy=e.clientY-prev.y;
-      panX+=lastPanDx; panY+=lastPanDy;
-      applyTransform(); return;
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+
+    var ptrs = getPointerList();
+    if(ptrs.length === 2){
+      // Iniciar pinch
+      pinchActive = true;
+      isPanning = false;
+      graphWrap.classList.remove('panning');
+      var dx = ptrs[1].x - ptrs[0].x;
+      var dy = ptrs[1].y - ptrs[0].y;
+      pinchDist0  = Math.sqrt(dx*dx + dy*dy) || 1;
+      pinchZoom0  = zoom;
+      pinchPanX0  = panX;
+      pinchPanY0  = panY;
+      var rect = graphWrap.getBoundingClientRect();
+      pinchMidX = (ptrs[0].x + ptrs[1].x)/2 - rect.left;
+      pinchMidY = (ptrs[0].y + ptrs[1].y)/2 - rect.top;
+    } else if(ptrs.length === 1){
+      // Iniciar pan
+      pinchActive = false;
+      isPanning   = true;
+      panStart    = {x: e.clientX, y: e.clientY};
+      panOrigin   = {x: panX, y: panY};
+      lastPanDx   = 0; lastPanDy = 0;
+      if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
+      graphWrap.classList.add('panning');
     }
-    if(!isPanning) return;
-    lastPanDx=e.clientX-panStart.x-(panX-panOrigin.x);
-    lastPanDy=e.clientY-panStart.y-(panY-panOrigin.y);
-    panX=panOrigin.x+(e.clientX-panStart.x);
-    panY=panOrigin.y+(e.clientY-panStart.y);
-    applyTransform();
-  });
-  graphWrap.addEventListener('pointerup',function(e){
-    if(e.pointerType==='touch'){ delete touches[e.pointerId]; pinchDist0=0; }
-    if(!isPanning) return;
-    isPanning=false;
-    graphWrap.classList.remove('panning');
-    // inércia
-    var vx=lastPanDx*0.6, vy=lastPanDy*0.6;
-    function glide(){
-      if(Math.abs(vx)<0.3&&Math.abs(vy)<0.3) return;
-      panX+=vx; panY+=vy; vx*=0.88; vy*=0.88;
+  }, {passive:false});
+
+  graphWrap.addEventListener('pointermove', function(e){
+    if(!(e.pointerId in activePointers)) return;
+    e.preventDefault();
+    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
+    var ptrs = getPointerList();
+
+    if(pinchActive && ptrs.length === 2){
+      // ── Pinch-to-zoom ──────────────────────────────────────────────────
+      var dx = ptrs[1].x - ptrs[0].x;
+      var dy = ptrs[1].y - ptrs[0].y;
+      var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+      var scale = dist / pinchDist0;
+      var newZoom = Math.min(3, Math.max(0.18, pinchZoom0 * scale));
+
+      // Zoom centrado no ponto médio inicial do pinch
+      panX = pinchMidX - (pinchMidX - pinchPanX0) * (newZoom / pinchZoom0);
+      panY = pinchMidY - (pinchMidY - pinchPanY0) * (newZoom / pinchZoom0);
+      zoom = newZoom;
       applyTransform();
-      inertiaId=requestAnimationFrame(glide);
+
+    } else if(isPanning && ptrs.length === 1){
+      // ── Pan com 1 dedo ou mouse ─────────────────────────────────────────
+      lastPanDx = e.clientX - panStart.x - (panX - panOrigin.x);
+      lastPanDy = e.clientY - panStart.y - (panY - panOrigin.y);
+      panX = panOrigin.x + (e.clientX - panStart.x);
+      panY = panOrigin.y + (e.clientY - panStart.y);
+      applyTransform();
     }
-    inertiaId=requestAnimationFrame(glide);
+  }, {passive:false});
+
+  graphWrap.addEventListener('pointerup', function(e){
+    delete activePointers[e.pointerId];
+    var ptrs = getPointerList();
+
+    if(ptrs.length < 2){
+      pinchActive = false;
+      // Se voltou a 1 dedo, reiniciar pan a partir desse dedo
+      if(ptrs.length === 1){
+        isPanning  = true;
+        panStart   = {x: ptrs[0].x, y: ptrs[0].y};
+        panOrigin  = {x: panX, y: panY};
+        lastPanDx  = 0; lastPanDy = 0;
+      }
+    }
+
+    if(ptrs.length === 0){
+      if(isPanning){
+        isPanning = false;
+        graphWrap.classList.remove('panning');
+        // Inércia apenas para mouse (touch tem inércia nativa do browser)
+        if(e.pointerType !== 'touch'){
+          var vx=lastPanDx*0.6, vy=lastPanDy*0.6;
+          function glide(){
+            if(Math.abs(vx)<0.3&&Math.abs(vy)<0.3) return;
+            panX+=vx; panY+=vy; vx*=0.88; vy*=0.88;
+            applyTransform();
+            inertiaId=requestAnimationFrame(glide);
+          }
+          inertiaId=requestAnimationFrame(glide);
+        }
+      }
+    }
+  }, {passive:false});
+
+  graphWrap.addEventListener('pointercancel', function(e){
+    delete activePointers[e.pointerId];
+    pinchActive = false;
+    isPanning   = false;
+    graphWrap.classList.remove('panning');
   });
 
-  // ── Zoom scroll suave ──────────────────────────────────────────────────
-  graphWrap.addEventListener('wheel',function(e){
+  // ── Zoom por scroll (mouse/trackpad) ────────────────────────────────────
+  graphWrap.addEventListener('wheel', function(e){
     e.preventDefault();
     if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
-    var rect=graphWrap.getBoundingClientRect();
-    var mx=e.clientX-rect.left, my=e.clientY-rect.top;
-    var oldZoom=zoom;
-    // suavizar scroll trackpad vs mouse
-    var d=e.deltaMode===1?e.deltaY*30:e.deltaY;
-    var delta=Math.exp(-d*0.004);
-    zoom=Math.min(3,Math.max(0.18,zoom*delta));
-    panX=mx-(mx-panX)*(zoom/oldZoom);
-    panY=my-(my-panY)*(zoom/oldZoom);
+    var rect = graphWrap.getBoundingClientRect();
+    var mx = e.clientX - rect.left;
+    var my = e.clientY - rect.top;
+    var oldZoom = zoom;
+    var d = e.deltaMode===1 ? e.deltaY*30 : e.deltaY;
+    zoom = Math.min(3, Math.max(0.18, zoom * Math.exp(-d*0.004)));
+    panX = mx - (mx - panX)*(zoom/oldZoom);
+    panY = my - (my - panY)*(zoom/oldZoom);
     applyTransform();
-  },{passive:false});
+  }, {passive:false});
 
-  // ── Botões ─────────────────────────────────────────────────────────────
-  document.getElementById('g-zi').addEventListener('click',function(){ smoothZoom(1.25); });
-  document.getElementById('g-zo').addEventListener('click',function(){ smoothZoom(0.8); });
-  document.getElementById('g-rs').addEventListener('click',resetView);
-  document.getElementById('g-ft').addEventListener('click',fitAll);
-  document.getElementById('g-fs').addEventListener('click',toggleFullscreen);
+  // ── Botões de controle ──────────────────────────────────────────────────
+  document.getElementById('g-zi').addEventListener('click', function(){ smoothZoom(1.25); });
+  document.getElementById('g-zo').addEventListener('click', function(){ smoothZoom(0.8); });
+  document.getElementById('g-rs').addEventListener('click', resetView);
+  document.getElementById('g-ft').addEventListener('click', fitAll);
+  document.getElementById('g-fs').addEventListener('click', toggleFullscreen);
 
   resetView();
   startSim();
@@ -2470,8 +2519,8 @@ function runForces(alpha){
       var a=simNodes[i], b=simNodes[j];
       var dx=b.x-a.x, dy=b.y-a.y;
       var dist=Math.sqrt(dx*dx+dy*dy)||1;
-      if(dist>400) continue;
-      var force=Math.min(10000/(dist*dist),60)*alpha;
+      if(dist>700) continue;
+      var force=Math.min(22000/(dist*dist),80)*alpha;
       var fx=(dx/dist)*force, fy=(dy/dist)*force;
       if(!a.fx){a.vx-=fx; a.vy-=fy;}
       if(!b.fx){b.vx+=fx; b.vy+=fy;}
@@ -2482,8 +2531,8 @@ function runForces(alpha){
     var a=sb[e.from], b=sb[e.to]; if(!a||!b) return;
     var dx=b.x-a.x, dy=b.y-a.y;
     var dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var target=200;
-    var force=(dist-target)*0.05*alpha;
+    var target=280;
+    var force=(dist-target)*0.038*alpha;
     var fx=(dx/dist)*force, fy=(dy/dist)*force;
     if(!a.fx){a.vx+=fx; a.vy+=fy;}
     if(!b.fx){b.vx-=fx; b.vy-=fy;}
@@ -2491,8 +2540,8 @@ function runForces(alpha){
   // gravidade ao centro
   simNodes.forEach(function(n){
     if(n.fx) return;
-    n.vx+=(cx-n.x)*0.004*alpha;
-    n.vy+=(cy-n.y)*0.004*alpha;
+    n.vx+=(cx-n.x)*0.002*alpha;
+    n.vy+=(cy-n.y)*0.002*alpha;
   });
   // integrar
   simNodes.forEach(function(n){
