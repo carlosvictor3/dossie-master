@@ -28,7 +28,7 @@ const NODES = [
   {
     id: "vorcaro",
     name: "Daniel Vorcaro",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Daniel_Vorcaro_-_2024_%28cropped%29.jpg/240px-Daniel_Vorcaro_-_2024_%28cropped%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/vorcaro.jpg",
     type: "CENTRAL",
     role: "Controlador do Banco Master",
     summary: "Apontado pela PF como líder do esquema. Preso pela primeira vez em 17/11/2025 no aeroporto de Guarulhos. Segundo a investigação, teria comandado simultaneamente um núcleo de fraude financeira, um núcleo de corrupção institucional e um núcleo de intimidação conhecido como 'A Turma'.",
@@ -208,7 +208,7 @@ const NODES = [
   {
     id: "galipolo",
     name: "Gabriel Galípolo",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Gabriel_Gal%C3%ADpolo_%28foto_oficial%29.jpg/240px-Gabriel_Gal%C3%ADpolo_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/galipolo.jpg",
     type: "INSTITUICAO",
     role: "Presidente do Banco Central",
     summary: "Segundo reportagens de dezembro de 2025, teria sido contatado reiteradamente por Alexandre de Moraes pedindo informações sobre a venda do Master ao BRB. Moraes negou oficialmente. Galípolo afirmou publicamente, em 29/04, que 'não há risco sistêmico'.",
@@ -220,7 +220,7 @@ const NODES = [
   {
     id: "ciro_nogueira",
     name: "Ciro Nogueira",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Foto_oficial_de_Ciro_Nogueira.jpg/240px-Foto_oficial_de_Ciro_Nogueira.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/ciro_nogueira.jpg",
     type: "POLITICO",
     role: "Senador (PP-PI), presidente do Partido Progressistas",
     summary: "Alvo de busca e apreensão na 5ª fase (07/05/2026). Segundo a PF, teria recebido entre R$ 300 mil e R$ 500 mil mensais de Vorcaro, além de viagens e hospedagens, em troca de atuação política favorável ao Master.",
@@ -238,7 +238,7 @@ const NODES = [
   {
     id: "flavio_bolsonaro",
     name: "Flávio Bolsonaro",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Fl%C3%A1vio_Bolsonaro_%28cropped%29.jpg/240px-Fl%C3%A1vio_Bolsonaro_%28cropped%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/flavio_bolsonaro.jpg",
     type: "POLITICO",
     role: "Senador (PL-RJ)",
     summary: "Segundo a CPI do Crime Organizado, teria fechado com Vorcaro acordo de R$ 134 milhões para financiamento do filme 'Dark Horse' (sobre Jair Bolsonaro) — dos quais R$ 61 milhões já confirmados como pagos.",
@@ -252,7 +252,7 @@ const NODES = [
   {
     id: "eduardo_bolsonaro",
     name: "Eduardo Bolsonaro",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Eduardo_Bolsonaro_2022.jpg/240px-Eduardo_Bolsonaro_2022.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/eduardo_bolsonaro.jpg",
     type: "POLITICO",
     role: "Deputado federal licenciado",
     summary: "Segundo o Intercept Brasil (15/05), teria mentido ao negar envolvimento com o filme 'Dark Horse'; documento mostra que assinou contrato como produtor executivo (com a Go Up e Mário Frias) e é citado como 'financiador' em aditivo contratual.",
@@ -268,7 +268,7 @@ const NODES = [
   {
     id: "claudio_castro",
     name: "Cláudio Castro",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cl%C3%A1udio_Castro_%28foto_oficial%29.jpg/240px-Cl%C3%A1udio_Castro_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/claudio_castro.jpg",
     type: "POLITICO",
     role: "Ex-governador do Rio de Janeiro",
     summary: "PF identificou sequência de encontros e conversas entre Castro e Vorcaro antes de aportes milionários da Rioprevidência no Master. Em 14/05/2024, Vorcaro convidou Castro para degustação de whisky em Nova York (evento de US$ 1,013 milhão); no dia seguinte, a Rioprevidência aportou R$ 80 milhões em Letras Financeiras do Master.",
@@ -319,7 +319,7 @@ const NODES = [
   {
     id: "acm_neto",
     name: "ACM Neto",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/ACM_Neto_foto_oficial.jpg/240px-ACM_Neto_foto_oficial.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/acm_neto.jpg",
     type: "POLITICO",
     role: "Ex-prefeito de Salvador, pré-candidato ao governo da Bahia",
     summary: "Dados do COAF divulgados pelo O Globo (11/03/2026) apontam que empresa ligada a ele recebeu R$ 3,6 milhões em pagamentos do Master e da gestora Reag, via contratos de consultoria. Pagamento confirmado pela CPI do Crime Organizado em abril/2026.",
@@ -335,7 +335,7 @@ const NODES = [
   {
     id: "jaques_wagner",
     name: "Jaques Wagner",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Jaques_Wagner_%28foto_oficial%29.jpg/240px-Jaques_Wagner_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/jaques_wagner.jpg",
     type: "POLITICO",
     role: "Senador (PT-BA), líder do governo Lula no Senado",
     summary: "Segundo apontamento da PF em junho de 2026, teria recebido vantagens indevidas em troca de atuação política no Congresso — incluindo um apartamento em Salvador e R$ 3,5 milhões.",
@@ -349,7 +349,7 @@ const NODES = [
   {
     id: "mantega",
     name: "Guido Mantega",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Guido_Mantega_%28foto_oficial%29.jpg/240px-Guido_Mantega_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mantega.jpg",
     type: "POLITICO",
     role: "Ex-ministro da Fazenda",
     summary: "Reportagens apontam que teria recebido cerca de R$ 1 milhão por mês do grupo, segundo a imprensa.",
@@ -359,7 +359,7 @@ const NODES = [
   {
     id: "lewandowski",
     name: "Ricardo Lewandowski",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ricardo_Lewandowski_%28foto_oficial_STF%29.jpg/240px-Ricardo_Lewandowski_%28foto_oficial_STF%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/lewandowski.jpg",
     type: "JUDICIARIO",
     role: "Ministro da Justiça, ex-ministro do STF",
     summary: "Reportagens apontam pagamento de cerca de R$ 6 milhões ao escritório de advocacia da família, segundo a imprensa — ainda sob apuração.",
@@ -371,7 +371,7 @@ const NODES = [
   {
     id: "moraes",
     name: "Alexandre de Moraes",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Alexandre_de_Moraes_-_foto_oficial.jpg/240px-Alexandre_de_Moraes_-_foto_oficial.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/moraes.jpg",
     type: "JUDICIARIO",
     role: "Ministro do STF",
     summary: "Segundo mensagens vazadas, Vorcaro teria escrito para alguém identificado como 'Moraes' dois minutos antes de sua prisão, em 17/11/2025. Contrato do Master com Viviane Marci de Moraes, esposa do ministro, foi noticiado em 11/12/2025. Moraes teria contatado reiteradamente Galípolo pedindo informações sobre a venda do Master ao BRB — o que o ministro nega oficialmente.",
@@ -400,7 +400,7 @@ const NODES = [
   {
     id: "gonet",
     name: "Paulo Gonet",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Paulo_Gonet_Branco_%28foto_oficial%29.jpg/240px-Paulo_Gonet_Branco_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/gonet.jpg",
     type: "JUDICIARIO",
     role: "Procurador-Geral da República",
     summary: "Participou, junto com Alexandre de Moraes, da degustação de whisky Macallan em Londres (25/04/2024), bancada por Vorcaro.",
@@ -410,7 +410,7 @@ const NODES = [
   {
     id: "toffoli",
     name: "Dias Toffoli",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Dias_Toffoli_-_foto_oficial.jpg/240px-Dias_Toffoli_-_foto_oficial.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/toffoli.jpg",
     type: "JUDICIARIO",
     role: "Ministro do STF — ex-relator do caso",
     summary: "Sorteado relator do caso em 28/11/2025. No mesmo dia, voou em jato particular a Lima (Peru) ao lado do advogado de um diretor do Master. PF encontrou conversas dele com deputados e senadores desde 2022. Deixou a relatoria em meio a pressão; sucedido por André Mendonça.",
@@ -429,7 +429,7 @@ const NODES = [
   {
     id: "mendonca",
     name: "André Mendonça",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Andr%C3%A9_Mendon%C3%A7a_-_foto_oficial_%282021%29.jpg/240px-Andr%C3%A9_Mendon%C3%A7a_-_foto_oficial_%282021%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mendonca.jpg",
     type: "JUDICIARIO",
     role: "Ministro do STF — relator atual do caso",
     summary: "Assumiu a relatoria após o afastamento de Toffoli. Autorizou as fases 3 a 8 da Compliance Zero, incluindo as prisões por intimidação, espionagem e corrupção de agentes públicos. Registrou como 'lamentável' que a 2ª prisão de Vorcaro tenha sido decidida sem aval da PGR.",
@@ -631,7 +631,7 @@ const NODES = [
   {
     id: "temer",
     name: "Michel Temer",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Michel_Temer_foto_oficial.jpg/240px-Michel_Temer_foto_oficial.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/temer.jpg",
     type: "POLITICO",
     role: "Ex-presidente da República",
     summary: "Segundo o Estadão, apresentou Vorcaro a um integrante da realeza dos Emirados Árabes na busca por investidores para o Master. CPI do Crime Organizado confirmou pagamentos do banco a ele.",
@@ -872,7 +872,7 @@ const NODES = [
   {
     id: "flavia_peres",
     name: "Flávia Péres",
-    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fl%C3%A1via_P%C3%A9res_%28foto_oficial%29.jpg/240px-Fl%C3%A1via_P%C3%A9res_%28foto_oficial%29.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/flavia_peres.jpg",
     type: "POLITICO",
     role: "Ex-ministra do governo Bolsonaro — esposa de Augusto Lima",
     summary: "Esposa de Augusto Ferreira Lima, ex-sócio de Vorcaro. Ex-ministra no governo Jair Bolsonaro. Citada nas investigações em razão do vínculo familiar com Lima, que figura entre os principais alvos da operação.",
