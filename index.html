@@ -157,13 +157,46 @@ body{
 .search-box:focus{ border-color:var(--red-bright); }
 
 .graph-wrap{
-  position:relative; border:1px solid var(--line-strong);
+  position:relative;
+  border:3px solid #5c3d1a;
+  border-radius:2px;
+  box-shadow:
+    inset 0 0 80px rgba(0,0,0,0.35),
+    inset 0 0 20px rgba(0,0,0,0.2),
+    0 4px 20px rgba(0,0,0,0.5),
+    0 0 0 1px #3a2510;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,0.018) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,0.013) 40px),
-    var(--paper);
-  height:680px; overflow:hidden; cursor:grab; touch-action:none;
+    /* Variações de tom para simular grão da cortiça */
+    radial-gradient(ellipse at 20% 30%, rgba(180,120,40,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(120,70,20,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 20%, rgba(200,140,60,0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 30% 80%, rgba(100,60,15,0.12) 0%, transparent 45%),
+    /* Textura de grão horizontal — cortiça */
+    repeating-linear-gradient(
+      2deg,
+      transparent,
+      transparent 3px,
+      rgba(80,45,10,0.06) 3px,
+      rgba(80,45,10,0.06) 4px
+    ),
+    repeating-linear-gradient(
+      -1deg,
+      transparent,
+      transparent 7px,
+      rgba(150,90,25,0.04) 7px,
+      rgba(150,90,25,0.04) 8px
+    ),
+    /* Grão vertical sutil */
+    repeating-linear-gradient(
+      91deg,
+      transparent,
+      transparent 18px,
+      rgba(60,35,8,0.035) 18px,
+      rgba(60,35,8,0.035) 19px
+    ),
+    /* Fundo base — cor cortiça */
+    #c8934a;
+  height:700px; overflow:hidden; cursor:grab; touch-action:none;
 }
 .graph-wrap.panning{ cursor:grabbing; }
 .graph-wrap.node-dragging{ cursor:crosshair; }
@@ -175,17 +208,27 @@ body{
   display:flex; flex-direction:column; gap:5px; z-index:10;
 }
 .graph-controls button{
-  width:36px; height:36px; border:1px solid var(--line-strong); background:rgba(239,233,220,.93);
-  font-family:'IBM Plex Mono',monospace; font-size:16px; cursor:pointer; color:var(--ink);
+  width:36px; height:36px;
+  border:1px solid rgba(80,45,10,0.6);
+  background:rgba(200,147,74,0.92);
+  font-family:'IBM Plex Mono',monospace; font-size:15px; cursor:pointer;
+  color:#3a1f05;
   display:flex; align-items:center; justify-content:center;
-  backdrop-filter:blur(4px); transition:background .12s,color .12s;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition:background .15s,box-shadow .15s;
 }
-.graph-controls button:hover{ background:var(--ink); color:var(--paper);}
+.graph-controls button:hover{
+  background:rgba(220,165,90,0.98);
+  box-shadow:0 3px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+}
 .graph-hint{
   position:absolute; top:12px; left:50%; transform:translateX(-50%);
-  font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-soft);
-  background:rgba(239,233,220,.88); padding:4px 12px; border:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(50,25,5,0.75);
+  background:rgba(200,147,74,0.88); padding:4px 12px;
+  border:1px solid rgba(80,45,10,0.4);
   white-space:nowrap; pointer-events:none; z-index:10;
+  letter-spacing:.04em;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
 /* Tooltip de aresta */
 #edge-tooltip{
@@ -2168,7 +2211,7 @@ function initGraph(){
 function buildGraph(){
   graphWrap.innerHTML=
     '<svg id="gsv" style="position:absolute;top:0;left:0;overflow:visible;pointer-events:none" width="100%" height="100%">'+
-      '<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#9c9070" opacity="0.5"/></marker>'+
+      '<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(180,60,40,0.7)"/></marker>'+
       '<marker id="arr-hi" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#b3231c"/></marker></defs>'+
     '</svg>'+
     '<div id="gnodes" style="position:absolute;top:0;left:0;width:0;height:0;pointer-events:none"></div>'+
@@ -2188,7 +2231,7 @@ function buildGraph(){
 
   // Posicionamento inicial por núcleo — cada tipo em anel próprio
   const typeOrder=['CENTRAL','FINANCEIRO','POLITICO','JUDICIARIO','SEGURANCA','FAMILIA','INSTITUICAO','PREVIDENCIA','EMPRESARIAL','FATO'];
-  const typeRadius={CENTRAL:0,FINANCEIRO:220,POLITICO:300,JUDICIARIO:280,SEGURANCA:180,FAMILIA:160,INSTITUICAO:350,PREVIDENCIA:380,EMPRESARIAL:260,FATO:320};
+  const typeRadius={CENTRAL:0,FINANCEIRO:380,POLITICO:500,JUDICIARIO:460,SEGURANCA:300,FAMILIA:260,INSTITUICAO:560,PREVIDENCIA:600,EMPRESARIAL:430,FATO:520};
   const typeCount={};
   const typeIdx={};
   NODES.forEach(function(n){ typeCount[n.type]=(typeCount[n.type]||0)+1; typeIdx[n.type]=0; });
@@ -2217,10 +2260,15 @@ function buildGraph(){
   // SVG edges com setas
   svgLines=[];
   simEdges.forEach(function(e,i){
-    var line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    line.setAttribute('stroke','#9c9070');
-    line.setAttribute('stroke-width','1.3');
-    line.setAttribute('stroke-opacity','0.4');
+    var line=document.createElementNS('http://www.w3.org/2000/svg','path');
+    // Cores de barbante: variação entre vermelho, bege e cru
+    var threadColors=['rgba(180,60,40,0.75)','rgba(160,50,35,0.7)','rgba(190,155,90,0.65)','rgba(170,130,70,0.6)','rgba(200,80,60,0.72)'];
+    var threadColor=threadColors[i%threadColors.length];
+    line.setAttribute('stroke',threadColor);
+    line.setAttribute('stroke-width', (1.2 + Math.random()*0.6).toFixed(2));
+    line.setAttribute('stroke-opacity','1');
+    line.setAttribute('fill','none');
+    line.setAttribute('stroke-linecap','round');
     line.setAttribute('marker-end','url(#arr)');
     line.style.cursor='default';
     // tooltip na aresta
@@ -2238,7 +2286,9 @@ function buildGraph(){
     // pointer events no SVG
     line.style.pointerEvents='stroke';
     svgEl2.appendChild(line);
-    svgLines.push({line:line,from:e.from,to:e.to});
+    var origWidth=(1.2+Math.random()*0.6).toFixed(2);
+    line.setAttribute('stroke-width',origWidth);
+    svgLines.push({line:line,from:e.from,to:e.to,threadColor:threadColor,origWidth:origWidth});
   });
   // permitir eventos no SVG
   svgEl2.style.pointerEvents='all';
@@ -2258,62 +2308,50 @@ function buildGraph(){
     var div=document.createElement('div');
     div.dataset.id=n.id;
     div.dataset.type=n.type;
-    div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%);transition:opacity .18s;pointer-events:auto;touch-action:none';
+    // Rotação aleatória leve para efeito de fichas pregadas
+    var rot=(Math.random()-0.5)*7; // -3.5 a +3.5 graus
+    div.dataset.rot=rot;
+    div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%) rotate('+rot+'deg);transition:opacity .18s;pointer-events:auto;touch-action:none';
     div.innerHTML=
-      '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:'+br+';background:'+color+';'+
-        'display:flex;align-items:center;justify-content:center;border:2.5px solid var(--paper);'+
-        'box-shadow:0 1px 6px rgba(0,0,0,.22),0 0 0 1px rgba(0,0,0,.1);overflow:hidden;'+
-        'transition:transform .15s,box-shadow .15s;position:relative">'+
-        (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover;position:absolute;border-radius:'+br+'">':'')+
-        '<span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;font-size:'+fs+'px;'+
-          'color:rgba(255,255,255,.92);text-shadow:0 1px 2px rgba(0,0,0,.3)">'+(n.photo?'':initials)+'</span>'+
+      // Tachinha no topo
+      '<div style="width:14px;height:14px;border-radius:50%;margin-bottom:-5px;z-index:3;position:relative;flex-shrink:0;'+(isCentral?'background:radial-gradient(circle at 35% 35%,#ff6b6b,#b3231c);box-shadow:0 2px 4px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.4);':'background:radial-gradient(circle at 35% 35%,#aaa,#555);box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3);')+'"></div>'+
+      // Ficha/foto
+      '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:'+(isFlat?'3px':'50%')+';background:'+color+';'+
+        'display:flex;align-items:center;justify-content:center;'+
+        'border:3px solid rgba(255,255,255,0.92);'+
+        'box-shadow:0 4px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3);'+
+        'overflow:hidden;transition:transform .15s,box-shadow .15s;position:relative">'+
+        (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover;position:absolute;border-radius:'+(isFlat?'2px':'50%')+'">':'')+
+        '<span style="font-family:monospace;font-weight:700;font-size:'+fs+'px;'+
+          'color:rgba(255,255,255,.95);text-shadow:0 1px 3px rgba(0,0,0,.5)">'+(n.photo?'':initials)+'</span>'+
       '</div>'+
-      '<div class="nl" style="font-family:\'IBM Plex Mono\',monospace;font-size:'+(isCentral?11:9)+'px;'+
-        'color:'+(isCentral?'var(--red-bright)':'var(--ink)')+';background:rgba(239,233,220,.93);'+
-        'padding:2px 6px;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis;'+
-        'border:1px solid rgba(0,0,0,.07);font-weight:'+(isCentral?700:400)+';pointer-events:none">'+
+      // Etiqueta de papel
+      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?11:9)+'px;'+
+        'color:'+(isCentral?'#8c0000':'#2a1500')+';'+
+        'background:'+(isCentral?'rgba(255,235,235,0.97)':'rgba(255,252,220,0.97)')+';'+
+        'padding:3px 7px;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis;'+
+        'border:1px solid rgba(0,0,0,0.15);'+
+        'box-shadow:0 2px 4px rgba(0,0,0,0.2);'+
+        'font-weight:'+(isCentral?700:500)+';'+
+        'margin-top:3px;letter-spacing:.02em">'+
         n.name+'</div>';
 
-    // hover
-    div.addEventListener('mouseenter',function(){
+    // Hover — levanta a ficha
+    div.addEventListener('mouseenter', function(){
       if(!dragNode){ highlightNode(n.id); }
-      div.querySelector('.ni').style.transform='scale(1.2)';
-      div.querySelector('.ni').style.boxShadow='0 4px 14px rgba(0,0,0,.28),0 0 0 3px '+color;
+      var rot=parseFloat(div.dataset.rot)||0;
+      div.style.transform='translate(-50%,-50%) rotate('+rot+'deg) scale(1.1)';
+      div.style.zIndex='20';
+      var ni=div.querySelector('.ni');
+      if(ni){ ni.style.boxShadow='0 10px 24px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.35)'; }
     });
-    div.addEventListener('mouseleave',function(){
+    div.addEventListener('mouseleave', function(){
       if(!dragNode){ clearHighlight(); }
-      div.querySelector('.ni').style.transform='';
-      div.querySelector('.ni').style.boxShadow='0 1px 6px rgba(0,0,0,.22),0 0 0 1px rgba(0,0,0,.1)';
-    });
-
-    // drag + click
-    var mdPos={x:0,y:0};
-    div.addEventListener('pointerdown',function(e){
-      e.stopPropagation();
-      mdPos={x:e.clientX,y:e.clientY};
-      dragMoved=false;
-      var sn2=simNodes.find(function(s){return s.id===n.id;});
-      if(!sn2) return;
-      dragNode=sn2;
-      dragNode.fx=dragNode.x; dragNode.fy=dragNode.y;
-      graphWrap.classList.add('node-dragging');
-      div.setPointerCapture(e.pointerId);
-    });
-    div.addEventListener('pointermove',function(e){
-      if(!dragNode||dragNode.id!==n.id) return;
-      var dist=Math.hypot(e.clientX-mdPos.x,e.clientY-mdPos.y);
-      if(dist>4) dragMoved=true;
-      var rect=graphWrap.getBoundingClientRect();
-      dragNode.fx=(e.clientX-rect.left-panX)/zoom;
-      dragNode.fy=(e.clientY-rect.top-panY)/zoom;
-      dragNode.x=dragNode.fx; dragNode.y=dragNode.fy;
-      div.style.left=dragNode.x+'px'; div.style.top=dragNode.y+'px';
-      updateEdges();
-    });
-    div.addEventListener('pointerup',function(e){
-      if(!dragMoved) openDetail(n.id);
-      if(dragNode){ dragNode.fx=null; dragNode.fy=null; dragNode=null; }
-      graphWrap.classList.remove('node-dragging');
+      var rot=parseFloat(div.dataset.rot)||0;
+      div.style.transform='translate(-50%,-50%) rotate('+rot+'deg)';
+      div.style.zIndex='2';
+      var ni=div.querySelector('.ni');
+      if(ni){ ni.style.boxShadow='0 4px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3)'; }
     });
 
     nodesDiv2.appendChild(div);
@@ -2484,13 +2522,26 @@ function updateEdges(){
   simNodes.forEach(function(s){sb[s.id]=s;});
   svgLines.forEach(function(obj){
     var a=sb[obj.from], b=sb[obj.to]; if(!a||!b) return;
-    // encurtar linha para não cobrir o avatar
     var dx=b.x-a.x, dy=b.y-a.y, dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var r=16; // raio médio do nó
+    var r=18;
     var x1=a.x+(dx/dist)*r, y1=a.y+(dy/dist)*r;
-    var x2=b.x-(dx/dist)*(r+7), y2=b.y-(dy/dist)*(r+7);
-    obj.line.setAttribute('x1',x1); obj.line.setAttribute('y1',y1);
-    obj.line.setAttribute('x2',x2); obj.line.setAttribute('y2',y2);
+    var x2=b.x-(dx/dist)*(r+8), y2=b.y-(dy/dist)*(r+8);
+    // Curva de Bézier cúbica — o barbante "pende" levemente
+    // Ponto de controle perpendicular à linha com certa "gravidade" para baixo
+    var mx=(x1+x2)/2, my=(y1+y2)/2;
+    var perpX=-(dy/dist), perpY=(dx/dist);
+    // Curvatura baseada na distância — barbante mais longo pende mais
+    var sag = Math.min(dist*0.12, 60);
+    // Adicionar um leve peso para baixo (simulando gravidade no barbante)
+    var cx1=x1+perpX*sag*0.3 + (mx-x1)*0.5;
+    var cy1=y1+perpY*sag*0.3 + (my-y1)*0.5 + sag*0.4;
+    var cx2=x2+perpX*sag*0.3 + (mx-x2)*0.5;
+    var cy2=y2+perpY*sag*0.3 + (my-y2)*0.5 + sag*0.4;
+    var d='M'+x1.toFixed(1)+','+y1.toFixed(1)+
+          ' C'+cx1.toFixed(1)+','+cy1.toFixed(1)+
+          ' '+cx2.toFixed(1)+','+cy2.toFixed(1)+
+          ' '+x2.toFixed(1)+','+y2.toFixed(1);
+    obj.line.setAttribute('d', d);
   });
 }
 
@@ -2519,8 +2570,8 @@ function runForces(alpha){
       var a=simNodes[i], b=simNodes[j];
       var dx=b.x-a.x, dy=b.y-a.y;
       var dist=Math.sqrt(dx*dx+dy*dy)||1;
-      if(dist>700) continue;
-      var force=Math.min(22000/(dist*dist),80)*alpha;
+      if(dist>1100) continue;
+      var force=Math.min(38000/(dist*dist),100)*alpha;
       var fx=(dx/dist)*force, fy=(dy/dist)*force;
       if(!a.fx){a.vx-=fx; a.vy-=fy;}
       if(!b.fx){b.vx+=fx; b.vy+=fy;}
@@ -2531,8 +2582,8 @@ function runForces(alpha){
     var a=sb[e.from], b=sb[e.to]; if(!a||!b) return;
     var dx=b.x-a.x, dy=b.y-a.y;
     var dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var target=280;
-    var force=(dist-target)*0.038*alpha;
+    var target=380;
+    var force=(dist-target)*0.028*alpha;
     var fx=(dx/dist)*force, fy=(dy/dist)*force;
     if(!a.fx){a.vx+=fx; a.vy+=fy;}
     if(!b.fx){b.vx-=fx; b.vy-=fy;}
@@ -2540,13 +2591,13 @@ function runForces(alpha){
   // gravidade ao centro
   simNodes.forEach(function(n){
     if(n.fx) return;
-    n.vx+=(cx-n.x)*0.002*alpha;
-    n.vy+=(cy-n.y)*0.002*alpha;
+    n.vx+=(cx-n.x)*0.0008*alpha;
+    n.vy+=(cy-n.y)*0.0008*alpha;
   });
   // integrar
   simNodes.forEach(function(n){
     if(n.fx){n.x=n.fx; n.y=n.fy; return;}
-    n.vx*=0.78; n.vy*=0.78;
+    n.vx*=0.82; n.vy*=0.82;
     n.x+=n.vx; n.y+=n.vy;
   });
 }
@@ -2569,18 +2620,23 @@ function highlightNode(id){
   });
   svgLines.forEach(function(obj){
     var isConn=obj.from===id||obj.to===id;
-    obj.line.setAttribute('stroke',isConn?'#b3231c':'#9c9070');
-    obj.line.setAttribute('stroke-width',isConn?'2.4':'1.3');
-    obj.line.setAttribute('stroke-opacity',isConn?'1':'0.06');
+    obj.line.setAttribute('stroke',isConn?'#cc2200':(obj.threadColor||'rgba(180,60,40,0.7)'));
+    obj.line.setAttribute('stroke-width',isConn?'2.8':(obj.origWidth||'1.5'));
+    obj.line.setAttribute('stroke-opacity',isConn?'1':'0.2');
     obj.line.setAttribute('marker-end',isConn?'url(#arr-hi)':'url(#arr)');
   });
 }
 function clearHighlight(){
-  Object.values(domNodes).forEach(function(div){div.style.opacity='1';});
+  Object.values(domNodes).forEach(function(div){
+    div.style.opacity='1';
+    var rot=parseFloat(div.dataset.rot)||0;
+    div.style.transform='translate(-50%,-50%) rotate('+rot+'deg)';
+    div.style.zIndex='2';
+  });
   svgLines.forEach(function(obj){
-    obj.line.setAttribute('stroke','#9c9070');
-    obj.line.setAttribute('stroke-width','1.3');
-    obj.line.setAttribute('stroke-opacity','0.4');
+    obj.line.setAttribute('stroke', obj.threadColor || 'rgba(180,60,40,0.7)');
+    obj.line.setAttribute('stroke-width', obj.origWidth || '1.5');
+    obj.line.setAttribute('stroke-opacity','1');
     obj.line.setAttribute('marker-end','url(#arr)');
   });
 }
