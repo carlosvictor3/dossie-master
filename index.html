@@ -2354,6 +2354,55 @@ function buildGraph(){
       if(ni){ ni.style.boxShadow='0 4px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3)'; }
     });
 
+    // Clique e drag — usando closure para capturar n.id corretamente
+    (function(nodeId, nodeSn){
+      var mdX=0, mdY=0, didMove=false;
+
+      div.addEventListener('pointerdown', function(e){
+        e.stopPropagation();
+        mdX=e.clientX; mdY=e.clientY; didMove=false;
+        // Fixar nó para drag
+        var sn2=simNodes.find(function(s){return s.id===nodeId;});
+        if(!sn2) return;
+        dragNode=sn2;
+        dragNode.fx=dragNode.x; dragNode.fy=dragNode.y;
+        graphWrap.classList.add('node-dragging');
+        div.setPointerCapture(e.pointerId);
+      });
+
+      div.addEventListener('pointermove', function(e){
+        if(!dragNode || dragNode.id!==nodeId) return;
+        var dist=Math.hypot(e.clientX-mdX, e.clientY-mdY);
+        if(dist>6) didMove=true;
+        var rect=graphWrap.getBoundingClientRect();
+        dragNode.fx=(e.clientX-rect.left-panX)/zoom;
+        dragNode.fy=(e.clientY-rect.top-panY)/zoom;
+        dragNode.x=dragNode.fx; dragNode.y=dragNode.fy;
+        div.style.left=dragNode.x+'px'; div.style.top=dragNode.y+'px';
+        updateEdges();
+      });
+
+      div.addEventListener('pointerup', function(e){
+        var wasDragging = didMove;
+        if(dragNode && dragNode.id===nodeId){
+          dragNode.fx=null; dragNode.fy=null; dragNode=null;
+        }
+        graphWrap.classList.remove('node-dragging');
+        // Só abre o detalhe se não arrastou
+        if(!wasDragging){
+          openDetail(nodeId);
+        }
+      });
+
+      div.addEventListener('pointercancel', function(){
+        if(dragNode && dragNode.id===nodeId){
+          dragNode.fx=null; dragNode.fy=null; dragNode=null;
+        }
+        graphWrap.classList.remove('node-dragging');
+      });
+
+    })(n.id, simNodes[i]);
+
     nodesDiv2.appendChild(div);
     domNodes[n.id]=div;
     div.style.left=sn.x+'px'; div.style.top=sn.y+'px';
