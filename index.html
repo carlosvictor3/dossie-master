@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
 <title>DOSSIÊ MASTER — Mapa da Investigação</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -158,44 +157,32 @@ body{
 
 .graph-wrap{
   position:relative;
-  border:3px solid #5c3d1a;
-  border-radius:2px;
+  border:4px solid #5c3d1a;
+  border-radius:3px;
   box-shadow:
-    inset 0 0 80px rgba(0,0,0,0.35),
-    inset 0 0 20px rgba(0,0,0,0.2),
-    0 4px 20px rgba(0,0,0,0.5),
+    inset 0 0 80px rgba(0,0,0,0.3),
+    inset 0 0 20px rgba(0,0,0,0.15),
+    0 6px 24px rgba(0,0,0,0.5),
     0 0 0 1px #3a2510;
   background:
-    /* Variações de tom para simular grão da cortiça */
-    radial-gradient(ellipse at 20% 30%, rgba(180,120,40,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(120,70,20,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 20%, rgba(200,140,60,0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 30% 80%, rgba(100,60,15,0.12) 0%, transparent 45%),
-    /* Textura de grão horizontal — cortiça */
+    radial-gradient(ellipse at 18% 25%, rgba(190,130,55,0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 82% 72%, rgba(120,70,20,0.2) 0%, transparent 48%),
+    radial-gradient(ellipse at 55% 15%, rgba(210,150,65,0.1) 0%, transparent 35%),
+    radial-gradient(ellipse at 28% 82%, rgba(100,58,15,0.14) 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 30%, rgba(170,100,35,0.1) 0%, transparent 38%),
     repeating-linear-gradient(
-      2deg,
-      transparent,
-      transparent 3px,
-      rgba(80,45,10,0.06) 3px,
-      rgba(80,45,10,0.06) 4px
+      2deg, transparent, transparent 3px,
+      rgba(80,45,10,0.055) 3px, rgba(80,45,10,0.055) 4px
     ),
     repeating-linear-gradient(
-      -1deg,
-      transparent,
-      transparent 7px,
-      rgba(150,90,25,0.04) 7px,
-      rgba(150,90,25,0.04) 8px
+      -1deg, transparent, transparent 7px,
+      rgba(140,85,22,0.038) 7px, rgba(140,85,22,0.038) 8px
     ),
-    /* Grão vertical sutil */
     repeating-linear-gradient(
-      91deg,
-      transparent,
-      transparent 18px,
-      rgba(60,35,8,0.035) 18px,
-      rgba(60,35,8,0.035) 19px
+      91deg, transparent, transparent 22px,
+      rgba(60,35,8,0.03) 22px, rgba(60,35,8,0.03) 23px
     ),
-    /* Fundo base — cor cortiça */
-    #c8934a;
+    #c4904a;
   height:700px; overflow:hidden; cursor:grab; touch-action:none;
 }
 .graph-wrap.panning{ cursor:grabbing; }
@@ -209,36 +196,61 @@ body{
 }
 .graph-controls button{
   width:36px; height:36px;
-  border:1px solid rgba(80,45,10,0.6);
-  background:rgba(200,147,74,0.92);
+  border:1px solid rgba(80,45,10,0.55);
+  background:rgba(196,144,74,0.93);
   font-family:'IBM Plex Mono',monospace; font-size:15px; cursor:pointer;
   color:#3a1f05;
   display:flex; align-items:center; justify-content:center;
-  box-shadow:0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
-  transition:background .15s,box-shadow .15s;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition:background .12s, box-shadow .12s;
 }
 .graph-controls button:hover{
-  background:rgba(220,165,90,0.98);
-  box-shadow:0 3px 10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+  background:rgba(220,168,92,0.98);
+  box-shadow:0 3px 10px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.25);
 }
 .graph-hint{
   position:absolute; top:12px; left:50%; transform:translateX(-50%);
-  font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(50,25,5,0.75);
-  background:rgba(200,147,74,0.88); padding:4px 12px;
-  border:1px solid rgba(80,45,10,0.4);
+  font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(50,25,5,0.72);
+  background:rgba(200,147,74,0.88); padding:4px 14px;
+  border:1px solid rgba(80,45,10,0.38);
   white-space:nowrap; pointer-events:none; z-index:10;
-  letter-spacing:.04em;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  letter-spacing:.04em; box-shadow:0 2px 6px rgba(0,0,0,0.18);
 }
-/* Tooltip de aresta */
 #edge-tooltip{
-  position:fixed; background:var(--ink); color:var(--paper);
+  position:fixed; background:rgba(42,21,0,0.96); color:rgba(255,248,220,0.95);
   font-family:'IBM Plex Mono',monospace; font-size:11px;
   padding:6px 11px; pointer-events:none; z-index:600;
-  max-width:280px; line-height:1.4; border-radius:1px;
+  max-width:280px; line-height:1.4; border-radius:2px;
+  border:1px solid rgba(120,70,20,0.5);
   opacity:0; transition:opacity .15s; white-space:normal;
+  box-shadow:0 3px 10px rgba(0,0,0,0.4);
 }
 #edge-tooltip.visible{ opacity:1; }
+/* ===== BOTÃO APOIO ===== */
+.apoio-bar{
+  background: linear-gradient(135deg, #1a1510 0%, #0d0b08 100%);
+  border-top: 3px solid #b3231c;
+  padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.apoio-text{
+  color: rgba(239,233,220,0.85);
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px; line-height: 1.5;
+}
+.apoio-text strong{ color: #efe9dc; font-size: 15px; display: block; margin-bottom: 3px; }
+.apoio-btn{
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #b3231c; color: #efe9dc;
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+  padding: 12px 22px; text-decoration: none;
+  transition: background .15s, transform .12s;
+  white-space: nowrap;
+}
+.apoio-btn:hover{ background: #8c2a20; transform: translateY(-1px); }
+
 
 /* ===== DETAIL PANEL ===== */
 .detail-panel{
@@ -344,34 +356,6 @@ body{
 ::-webkit-scrollbar{ width:9px; height:9px;}
 ::-webkit-scrollbar-track{ background:var(--paper-dark);}
 ::-webkit-scrollbar-thumb{ background:var(--line-strong);}
-
-/* ===== BOTÃO APOIO ===== */
-.apoio-bar{
-  background: linear-gradient(135deg, #1a1510 0%, #0d0b08 100%);
-  border-top: 3px solid #b3231c;
-  padding: 18px 32px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
-}
-.apoio-text{
-  color: rgba(239,233,220,0.85);
-  font-family: 'Source Serif 4', serif;
-  font-size: 14px; line-height: 1.5;
-}
-.apoio-text strong{ color: #efe9dc; font-size: 15px; display: block; margin-bottom: 3px; }
-.apoio-btn{
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #b3231c; color: #efe9dc;
-  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
-  letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
-  padding: 12px 22px; text-decoration: none;
-  border: none; cursor: pointer;
-  transition: background .15s, transform .12s;
-  white-space: nowrap;
-}
-.apoio-btn:hover{ background: #8c2a20; transform: translateY(-1px); }
-.apoio-btn svg{ flex-shrink: 0; }
-
 </style>
 </head>
 <body>
@@ -385,7 +369,7 @@ body{
     </div>
     <div class="masthead-meta">
       Atualizado pela última vez em<br>
-      <strong id="last-update">23 de julho de 2026</strong>
+      <strong id="last-update">13 de julho de 2026</strong>
     </div>
   </div>
   <p class="masthead-sub">Mapa investigativo do escândalo do Banco Master: atores, conexões e cronologia da Operação Compliance Zero. Estrutura viva — alimentada à medida que novas fases, decisões e reportagens vêm a público.</p>
@@ -416,7 +400,7 @@ body{
         <div class="stat-box"><div class="stat-num">116+</div><div class="stat-label">Mandados de busca</div></div>
         <div class="stat-box"><div class="stat-num">R$ 27,7 bi</div><div class="stat-label">Bens bloqueados (até fase 6)</div></div>
         <div class="stat-box"><div class="stat-num">R$ 50-56 bi</div><div class="stat-label">Rombo estimado / custo ao FGC</div></div>
-        <div class="stat-box"><div class="stat-num">76</div><div class="stat-label">Nós já mapeados no dossiê</div></div>
+        <div class="stat-box"><div class="stat-num">66</div><div class="stat-label">Nós já mapeados no dossiê</div></div>
       </div>
     </div>
 
@@ -457,7 +441,7 @@ body{
       <button id="zoom-out">–</button>
       <button id="zoom-reset">⟲</button>
     </div>
-    <div class="graph-hint">Arraste · scroll para zoom · clique para detalhes · toque e arraste no mobile</div>
+    <div class="graph-hint">Arraste para mover · scroll para zoom · clique em um nó para detalhes</div>
   </div>
 </section>
 
@@ -504,6 +488,7 @@ body{
   <div class="detail-header">
     <div class="detail-close" id="detail-close">✕</div>
     <div id="detail-avatar" style="margin-bottom:12px"></div>
+    <div id="detail-avatar" style="margin-bottom:12px"></div>
     <div class="detail-type" id="detail-type"></div>
     <h3 class="detail-name" id="detail-name"></h3>
     <div class="detail-role" id="detail-role"></div>
@@ -534,46 +519,6 @@ body{
 <div class="footer-note">DOSSIÊ MASTER — protótipo de arquitetura · construído para fins de organização editorial · não constitui acusação ou conclusão judicial</div>
 
 <script>
-// ============================================================
-// DOSSIÊ MASTER — base de dados do mapa investigativo
-// Todas as informações são apresentadas em caráter investigativo
-// e estão sujeitas a contraditório. Termos como "supostamente",
-// "segundo a PF", "teria recebido" indicam alegações sob apuração,
-// não fatos jurídicos consumados. Fontes: PF, STF, BC, COAF, TCU
-// e cobertura de Agência Brasil, CNN Brasil, Metrópoles, G1,
-// Brasil de Fato, Jornal Grande Bahia, CNBC/Times Brasil, Wikipédia.
-// ============================================================
-
-// ============================================================
-// DOSSIÊ MASTER — base de dados do mapa investigativo
-// Todas as informações são apresentadas em caráter investigativo
-// e estão sujeitas a contraditório. Termos como "supostamente",
-// "segundo a PF", "teria recebido" indicam alegações sob apuração,
-// não fatos jurídicos consumados. Fontes: PF, STF, BC, COAF, TCU
-// e cobertura de Agência Brasil, CNN Brasil, Metrópoles, G1,
-// Brasil de Fato, Jornal Grande Bahia, CNBC/Times Brasil, Wikipédia.
-// ============================================================
-
-// ============================================================
-// DOSSIÊ MASTER — base de dados do mapa investigativo
-// Todas as informações são apresentadas em caráter investigativo
-// e estão sujeitas a contraditório. Termos como "supostamente",
-// "segundo a PF", "teria recebido" indicam alegações sob apuração,
-// não fatos jurídicos consumados. Fontes: PF, STF, BC, COAF, TCU
-// e cobertura de Agência Brasil, CNN Brasil, Metrópoles, G1,
-// Brasil de Fato, Jornal Grande Bahia, CNBC/Times Brasil, Wikipédia.
-// ============================================================
-
-// ============================================================
-// DOSSIÊ MASTER — base de dados do mapa investigativo
-// Todas as informações são apresentadas em caráter investigativo
-// e estão sujeitas a contraditório. Termos como "supostamente",
-// "segundo a PF", "teria recebido" indicam alegações sob apuração,
-// não fatos jurídicos consumados. Fontes: PF, STF, BC, COAF, TCU
-// e cobertura de Agência Brasil, CNN Brasil, Metrópoles, G1,
-// Brasil de Fato, Jornal Grande Bahia, CNBC/Times Brasil, Wikipédia.
-// ============================================================
-
 // ============================================================
 // DOSSIÊ MASTER — base de dados do mapa investigativo
 // Todas as informações são apresentadas em caráter investigativo
@@ -2110,97 +2055,107 @@ function getInitials(name) {
 }
 function typeColor(type) { return (NODE_TYPES[type]||{color:'#888'}).color; }
 
-// TABS
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+// ── TABS ─────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});
     tab.classList.add('active');
     document.getElementById('view-'+tab.dataset.view).classList.add('active');
-    if (tab.dataset.view === 'graph') setTimeout(initGraph, 40);
+    if(tab.dataset.view==='graph') setTimeout(initGraph, 40);
   });
 });
 
-// LEGEND
+// ── LEGEND ───────────────────────────────────────────────────────────────────
 document.getElementById('legend-list').innerHTML =
-  Object.entries(NODE_TYPES).map(([,t]) =>
-    '<div class="legend-item"><span class="legend-dot" style="background:'+t.color+'"></span><span class="legend-name">'+t.label+'</span></div>'
-  ).join('');
+  Object.entries(NODE_TYPES).map(function(e){
+    return '<div class="legend-item"><span class="legend-dot" style="background:'+e[1].color+'"></span><span class="legend-name">'+e[1].label+'</span></div>';
+  }).join('');
 
-// DETAIL PANEL
-const detailPanel = document.getElementById('detail-panel');
-const overlay = document.getElementById('overlay');
+// ── DETAIL PANEL ─────────────────────────────────────────────────────────────
+var detailPanel = document.getElementById('detail-panel');
+var overlay = document.getElementById('overlay');
 
 function openDetail(id) {
-  const n = nodeById[id]; if (!n) return;
-  const t = NODE_TYPES[n.type] || {label:'Agente', color:'#888'};
-  const color = t.color;
-  const initials = getInitials(n.name);
+  var n = nodeById[id]; if(!n) return;
+  var t = NODE_TYPES[n.type]||{label:'Agente',color:'#888'};
+  var color = t.color;
+  var initials = getInitials(n.name);
+
   document.getElementById('detail-avatar').innerHTML =
-    '<div style="width:72px;height:72px;border-radius:50%;background:'+color+';display:flex;align-items:center;justify-content:center;border:3px solid var(--paper);box-shadow:0 2px 10px rgba(0,0,0,.22);overflow:hidden;flex-shrink:0">' +
-    (n.photo ? '<img src="'+n.photo+'" alt="'+n.name+'" style="width:100%;height:100%;object-fit:cover">' : '') +
-    '<span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;font-size:22px;color:rgba(255,255,255,.92);'+(n.photo?'display:none':'')+'">' + initials + '</span>' +
+    '<div style="width:80px;height:80px;border-radius:8px;background:'+color+';display:flex;align-items:center;justify-content:center;border:3px solid rgba(255,255,255,0.9);box-shadow:0 4px 12px rgba(0,0,0,0.3);overflow:hidden;flex-shrink:0">'+
+    (n.photo?'<img src="'+n.photo+'" alt="'+n.name+'" style="width:100%;height:100%;object-fit:cover;border-radius:5px">':'')+
+    '<span style="font-family:monospace;font-weight:700;font-size:24px;color:rgba(255,255,255,.92);'+(n.photo?'display:none':'')+'">'+ initials +'</span>'+
     '</div>';
+
   document.getElementById('detail-type').textContent = t.label;
   document.getElementById('detail-type').style.color = color;
   document.getElementById('detail-name').textContent = n.name;
-  document.getElementById('detail-role').textContent = n.role || '';
-  document.getElementById('detail-summary').textContent = n.summary || '';
-  const extra = document.getElementById('detail-extra');
+  document.getElementById('detail-role').textContent = n.role||'';
+  document.getElementById('detail-summary').textContent = n.summary||'';
+
   var extraHtml = '';
-  if (n.details && n.details.length) {
+  if(n.details && n.details.length){
     extraHtml += '<div class="detail-section-title">Pontos levantados pela apuração</div><ul class="detail-list">'+n.details.map(function(d){return '<li>'+d+'</li>';}).join('')+'</ul>';
   }
-  if (n.sources && n.sources.length) {
+  if(n.sources && n.sources.length){
     extraHtml += '<div class="detail-section-title" style="margin-top:14px">Fontes consultadas</div><ul class="detail-list">';
     n.sources.forEach(function(s){
       extraHtml += '<li><a href="'+s.url+'" target="_blank" rel="noopener" style="color:var(--red-bright);text-decoration:none;border-bottom:1px solid rgba(179,35,28,0.3)">'+s.label+'</a></li>';
     });
     extraHtml += '</ul>';
   }
-  extra.innerHTML = extraHtml;
-  const conns = EDGES.filter(e => e.from===id || e.to===id);
-  const connEl = document.getElementById('detail-connections');
-  if (conns.length) {
-    connEl.innerHTML = conns.map(e => {
-      const oid = e.from===id ? e.to : e.from;
-      const o = nodeById[oid]; if (!o) return '';
-      const oc = typeColor(o.type);
-      return '<div class="connection-item" data-id="'+oid+'"><span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:'+oc+';flex-shrink:0"></span><span class="connection-name">'+o.name+'</span></span><span class="connection-edge-label">'+e.label+'</span></div>';
+  document.getElementById('detail-extra').innerHTML = extraHtml;
+
+  var conns = EDGES.filter(function(e){return e.from===id||e.to===id;});
+  var connEl = document.getElementById('detail-connections');
+  if(conns.length){
+    connEl.innerHTML = conns.map(function(e){
+      var oid = e.from===id?e.to:e.from;
+      var o = nodeById[oid]; if(!o) return '';
+      var oc = typeColor(o.type);
+      return '<div class="connection-item" data-id="'+oid+'">'+
+        '<span style="display:flex;align-items:center;gap:8px">'+
+          '<span style="width:10px;height:10px;border-radius:2px;background:'+oc+';flex-shrink:0"></span>'+
+          '<span class="connection-name">'+o.name+'</span>'+
+        '</span>'+
+        '<span class="connection-edge-label">'+e.label+'</span>'+
+      '</div>';
     }).filter(Boolean).join('');
-    connEl.querySelectorAll('.connection-item').forEach(item =>
-      item.addEventListener('click', () => openDetail(item.dataset.id))
-    );
+    connEl.querySelectorAll('.connection-item').forEach(function(item){
+      item.addEventListener('click', function(){openDetail(item.dataset.id);});
+    });
   } else {
     connEl.innerHTML = '<p style="font-size:12.5px;color:var(--ink-soft)">Nenhuma conexão mapeada.</p>';
   }
+
   detailPanel.classList.add('open');
   overlay.classList.add('open');
   detailPanel.scrollTop = 0;
 }
-document.getElementById('detail-close').addEventListener('click', closeDetail);
-overlay.addEventListener('click', closeDetail);
-function closeDetail() {
+
+document.getElementById('detail-close').addEventListener('click', function(){closeDetail();});
+overlay.addEventListener('click', function(){closeDetail();});
+function closeDetail(){
   detailPanel.classList.remove('open');
   overlay.classList.remove('open');
 }
 
-// ============================================================
-// GRAPH ENGINE — force-directed
-// ============================================================
-const graphWrap = document.getElementById('graph-wrap');
-let graphInited=false, simNodes=[], simEdges=[], domNodes={}, svgLines=[];
-let svgEl2, nodesDiv2;
-let zoom=0.65, panX=0, panY=0;
-let isPanning=false, panStart={x:0,y:0}, panOrigin={x:0,y:0};
-// inércia
-let lastPanDx=0, lastPanDy=0, inertiaId=null;
-let dragNode=null, dragMoved=false;
-let activeFilters=new Set(Object.keys(NODE_TYPES)), graphSearch='';
-let rafId=null;
-// touch
-let touches={}, pinchDist0=0, pinchZoom0=0, pinchPanX0=0, pinchPanY0=0;
-const edgeTip=document.getElementById('edge-tooltip');
+// ══════════════════════════════════════════════════════════════════════════════
+// GRAFO — MURAL DE CORTIÇA
+// ══════════════════════════════════════════════════════════════════════════════
+var graphWrap = document.getElementById('graph-wrap');
+var graphInited=false, simNodes=[], simEdges=[], domNodes={}, svgLines=[];
+var svgEl2, nodesDiv2;
+var zoom=0.55, panX=0, panY=0;
+var isPanning=false, panStart={x:0,y:0}, panOrigin={x:0,y:0};
+var lastPanDx=0, lastPanDy=0, inertiaId=null;
+var dragNode=null;
+var activePointers={};
+var pinchActive=false, pinchMidX=0, pinchMidY=0, pinchDist0=0, pinchZoom0=1, pinchPanX0=0, pinchPanY0=0;
+var activeFilters=new Set(Object.keys(NODE_TYPES)), graphSearch='';
+var rafId=null;
+var edgeTip=document.getElementById('edge-tooltip');
 
 function initGraph(){
   if(graphInited) return;
@@ -2210,11 +2165,16 @@ function initGraph(){
 
 function buildGraph(){
   graphWrap.innerHTML=
-    '<svg id="gsv" style="position:absolute;top:0;left:0;overflow:visible;pointer-events:none" width="100%" height="100%">'+
-      '<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(180,60,40,0.7)"/></marker>'+
-      '<marker id="arr-hi" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#b3231c"/></marker></defs>'+
+    '<svg id="gsv" style="position:absolute;top:0;left:0;overflow:visible;pointer-events:none;width:100%;height:100%">'+
+      '<defs>'+
+        '<marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="rgba(140,50,30,0.7)"/></marker>'+
+        '<marker id="arr-hi" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#cc2200"/></marker>'+
+        '<filter id="shadow-node" x="-30%" y="-30%" width="160%" height="160%">'+
+          '<feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="rgba(0,0,0,0.45)"/>'+
+        '</filter>'+
+      '</defs>'+
     '</svg>'+
-    '<div id="gnodes" style="position:absolute;top:0;left:0;width:0;height:0;pointer-events:none"></div>'+
+    '<div id="gnodes" style="position:absolute;top:0;left:0;width:0;height:0"></div>'+
     '<div class="graph-controls">'+
       '<button id="g-zi" title="Zoom +">+</button>'+
       '<button id="g-zo" title="Zoom \u2212">\u2212</button>'+
@@ -2222,158 +2182,133 @@ function buildGraph(){
       '<button id="g-ft" title="Encaixar tudo">\u2922</button>'+
       '<button id="g-fs" title="Tela cheia">\u26F6</button>'+
     '</div>'+
-    '<div class="graph-hint">Arraste \u00b7 scroll para zoom \u00b7 clique para detalhes \u00b7 toque no mobile</div>';
+    '<div class="graph-hint">Arraste \u00b7 scroll/pinch para zoom \u00b7 clique na ficha para detalhes</div>';
 
-  svgEl2=document.getElementById('gsv');
-  nodesDiv2=document.getElementById('gnodes');
-  const W=graphWrap.clientWidth, H=graphWrap.clientHeight;
-  const cx=W/2, cy=H/2;
+  svgEl2 = document.getElementById('gsv');
+  nodesDiv2 = document.getElementById('gnodes');
+  var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
+  var cx=W/2, cy=H/2;
 
-  // Posicionamento inicial por núcleo — cada tipo em anel próprio
-  const typeOrder=['CENTRAL','FINANCEIRO','POLITICO','JUDICIARIO','SEGURANCA','FAMILIA','INSTITUICAO','PREVIDENCIA','EMPRESARIAL','FATO'];
-  const typeRadius={CENTRAL:0,FINANCEIRO:380,POLITICO:500,JUDICIARIO:460,SEGURANCA:300,FAMILIA:260,INSTITUICAO:560,PREVIDENCIA:600,EMPRESARIAL:430,FATO:520};
-  const typeCount={};
-  const typeIdx={};
+  // Posicionamento inicial em espiral por núcleo
+  var typeRadius={CENTRAL:0,FINANCEIRO:420,POLITICO:540,JUDICIARIO:500,SEGURANCA:330,FAMILIA:290,INSTITUICAO:600,PREVIDENCIA:640,EMPRESARIAL:470,FATO:560};
+  var typeCount={}, typeIdx={};
   NODES.forEach(function(n){ typeCount[n.type]=(typeCount[n.type]||0)+1; typeIdx[n.type]=0; });
 
-  simNodes=NODES.map(function(n){
+  simNodes = NODES.map(function(n,i){
     var x,y;
     if(n.type==='CENTRAL'){ x=cx; y=cy; }
-    else{
-      var r=typeRadius[n.type]||280;
+    else {
+      var r=typeRadius[n.type]||500;
       var cnt=typeCount[n.type]||1;
-      var idx=typeIdx[n.type]||0;
-      typeIdx[n.type]++;
-      var angle=(idx/cnt)*Math.PI*2 - Math.PI/2;
-      // jitter leve para não empilhar
-      var jx=(Math.random()-0.5)*60, jy=(Math.random()-0.5)*60;
-      x=cx+Math.cos(angle)*r+jx;
-      y=cy+Math.sin(angle)*r+jy;
+      var idx2=typeIdx[n.type]||0; typeIdx[n.type]++;
+      var angle=(idx2/cnt)*Math.PI*2-Math.PI/2;
+      x=cx+Math.cos(angle)*r+(Math.random()-0.5)*80;
+      y=cy+Math.sin(angle)*r+(Math.random()-0.5)*80;
     }
     return {id:n.id,x:x,y:y,vx:0,vy:0,fx:null,fy:null};
   });
 
-  simEdges=EDGES.map(function(e){return {from:e.from,to:e.to,label:e.label};});
-  const simById={};
-  simNodes.forEach(function(s){simById[s.id]=s;});
+  simEdges = EDGES.map(function(e){return {from:e.from,to:e.to,label:e.label};});
 
-  // SVG edges com setas
-  svgLines=[];
+  // SVG edges — barbantes com curva de Bézier
+  svgLines = [];
+  var threadColors=['rgba(160,45,25,0.78)','rgba(145,40,22,0.72)','rgba(175,130,70,0.68)','rgba(155,110,55,0.65)','rgba(185,65,45,0.75)'];
   simEdges.forEach(function(e,i){
-    var line=document.createElementNS('http://www.w3.org/2000/svg','path');
-    // Cores de barbante: variação entre vermelho, bege e cru
-    var threadColors=['rgba(180,60,40,0.75)','rgba(160,50,35,0.7)','rgba(190,155,90,0.65)','rgba(170,130,70,0.6)','rgba(200,80,60,0.72)'];
-    var threadColor=threadColors[i%threadColors.length];
-    line.setAttribute('stroke',threadColor);
-    line.setAttribute('stroke-width', (1.2 + Math.random()*0.6).toFixed(2));
+    var line = document.createElementNS('http://www.w3.org/2000/svg','path');
+    var tc = threadColors[i%threadColors.length];
+    var ow = (1.4+Math.random()*0.7).toFixed(2);
+    line.setAttribute('stroke', tc);
+    line.setAttribute('stroke-width', ow);
     line.setAttribute('stroke-opacity','1');
     line.setAttribute('fill','none');
     line.setAttribute('stroke-linecap','round');
     line.setAttribute('marker-end','url(#arr)');
-    line.style.cursor='default';
-    // tooltip na aresta
-    line.addEventListener('mouseenter',function(ev){
-      edgeTip.textContent=e.label;
-      edgeTip.classList.add('visible');
-    });
-    line.addEventListener('mousemove',function(ev){
-      edgeTip.style.left=(ev.clientX+14)+'px';
-      edgeTip.style.top=(ev.clientY-28)+'px';
-    });
-    line.addEventListener('mouseleave',function(){
-      edgeTip.classList.remove('visible');
-    });
-    // pointer events no SVG
     line.style.pointerEvents='stroke';
+    line.style.cursor='default';
+    line.addEventListener('mouseenter', function(ev){
+      if(edgeTip){ edgeTip.textContent=e.label; edgeTip.classList.add('visible'); }
+    });
+    line.addEventListener('mousemove', function(ev){
+      if(edgeTip){ edgeTip.style.left=(ev.clientX+14)+'px'; edgeTip.style.top=(ev.clientY-28)+'px'; }
+    });
+    line.addEventListener('mouseleave', function(){
+      if(edgeTip) edgeTip.classList.remove('visible');
+    });
     svgEl2.appendChild(line);
-    var origWidth=(1.2+Math.random()*0.6).toFixed(2);
-    line.setAttribute('stroke-width',origWidth);
-    svgLines.push({line:line,from:e.from,to:e.to,threadColor:threadColor,origWidth:origWidth});
+    svgLines.push({line:line,from:e.from,to:e.to,tc:tc,ow:ow});
   });
-  // permitir eventos no SVG
   svgEl2.style.pointerEvents='all';
 
-  // DOM nodes
-  domNodes={};
+  // DOM nodes — fichas pregadas
+  domNodes = {};
   NODES.forEach(function(n,i){
     var sn=simNodes[i];
     var color=typeColor(n.type);
     var isCentral=n.type==='CENTRAL';
     var isFlat=['INSTITUICAO','FATO','PREVIDENCIA','EMPRESARIAL'].includes(n.type);
-    var size=isCentral?46:isFlat?26:32;
-    var br=isFlat?'5px':'50%';
-    var fs=isCentral?15:isFlat?8:10;
+    var size=isCentral?76:isFlat?44:56;  // tamanhos maiores, quadrados
+    var fs=isCentral?20:isFlat?11:13;
+    var rot=(Math.random()-0.5)*7;
     var initials=getInitials(n.name);
+    var pinColor=isCentral?'radial-gradient(circle at 35% 35%,#ff6b6b,#b3231c)':'radial-gradient(circle at 35% 35%,#bbb,#666)';
 
     var div=document.createElement('div');
     div.dataset.id=n.id;
     div.dataset.type=n.type;
-    // Rotação aleatória leve para efeito de fichas pregadas
-    var rot=(Math.random()-0.5)*7; // -3.5 a +3.5 graus
     div.dataset.rot=rot;
     div.style.cssText='position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;user-select:none;z-index:2;transform:translate(-50%,-50%) rotate('+rot+'deg);transition:opacity .18s;pointer-events:auto;touch-action:none';
+
     div.innerHTML=
-      // Tachinha no topo
-      '<div style="width:14px;height:14px;border-radius:50%;margin-bottom:-5px;z-index:3;position:relative;flex-shrink:0;'+(isCentral?'background:radial-gradient(circle at 35% 35%,#ff6b6b,#b3231c);box-shadow:0 2px 4px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.4);':'background:radial-gradient(circle at 35% 35%,#aaa,#555);box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3);')+'"></div>'+
-      // Ficha/foto
-      '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:'+(isFlat?'3px':'50%')+';background:'+color+';'+
+      // Tachinha
+      '<div style="width:18px;height:18px;border-radius:50%;margin-bottom:-8px;z-index:3;position:relative;flex-shrink:0;background:'+pinColor+';box-shadow:0 2px 5px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.35)"></div>'+
+      // Avatar — quadrado
+      '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:7px;background:'+color+';'+
         'display:flex;align-items:center;justify-content:center;'+
-        'border:3px solid rgba(255,255,255,0.92);'+
-        'box-shadow:0 4px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3);'+
-        'overflow:hidden;transition:transform .15s,box-shadow .15s;position:relative">'+
-        (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover;position:absolute;border-radius:'+(isFlat?'2px':'50%')+'">':'')+
-        '<span style="font-family:monospace;font-weight:700;font-size:'+fs+'px;'+
-          'color:rgba(255,255,255,.95);text-shadow:0 1px 3px rgba(0,0,0,.5)">'+(n.photo?'':initials)+'</span>'+
+        'border:4px solid rgba(255,255,255,0.94);'+
+        'box-shadow:0 6px 18px rgba(0,0,0,0.5),0 2px 5px rgba(0,0,0,0.35);'+
+        'overflow:hidden;transition:box-shadow .15s;position:relative">'+
+        (n.photo?'<img src="'+n.photo+'" alt="'+n.name+'" style="width:100%;height:100%;object-fit:cover;border-radius:3px">':'')+
+        '<span style="font-family:monospace;font-weight:700;font-size:'+fs+'px;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.5);'+(n.photo?'display:none':'')+'">'+ initials +'</span>'+
       '</div>'+
-      // Etiqueta de papel
-      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?11:9)+'px;'+
+      // Etiqueta
+      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?12:10)+'px;'+
         'color:'+(isCentral?'#8c0000':'#2a1500')+';'+
         'background:'+(isCentral?'rgba(255,235,235,0.97)':'rgba(255,252,220,0.97)')+';'+
-        'padding:3px 7px;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis;'+
-        'border:1px solid rgba(0,0,0,0.15);'+
-        'box-shadow:0 2px 4px rgba(0,0,0,0.2);'+
-        'font-weight:'+(isCentral?700:500)+';'+
-        'margin-top:3px;letter-spacing:.02em">'+
-        n.name+'</div>';
+        'padding:4px 8px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;'+
+        'border:1px solid rgba(0,0,0,0.18);box-shadow:0 2px 5px rgba(0,0,0,0.22);'+
+        'font-weight:'+(isCentral?700:500)+';margin-top:4px;letter-spacing:.02em;border-radius:2px">'+
+        n.name+
+      '</div>';
 
-    // Hover — levanta a ficha
+    // Hover
     div.addEventListener('mouseenter', function(){
-      if(!dragNode){ highlightNode(n.id); }
-      var rot=parseFloat(div.dataset.rot)||0;
+      if(!dragNode) highlightNode(n.id);
       div.style.transform='translate(-50%,-50%) rotate('+rot+'deg) scale(1.1)';
       div.style.zIndex='20';
       var ni=div.querySelector('.ni');
-      if(ni){ ni.style.boxShadow='0 10px 24px rgba(0,0,0,0.55), 0 3px 8px rgba(0,0,0,0.35)'; }
+      if(ni) ni.style.boxShadow='0 14px 30px rgba(0,0,0,0.6),0 4px 10px rgba(0,0,0,0.4)';
     });
     div.addEventListener('mouseleave', function(){
-      if(!dragNode){ clearHighlight(); }
-      var rot=parseFloat(div.dataset.rot)||0;
+      if(!dragNode) clearHighlight();
       div.style.transform='translate(-50%,-50%) rotate('+rot+'deg)';
       div.style.zIndex='2';
       var ni=div.querySelector('.ni');
-      if(ni){ ni.style.boxShadow='0 4px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3)'; }
+      if(ni) ni.style.boxShadow='0 6px 18px rgba(0,0,0,0.5),0 2px 5px rgba(0,0,0,0.35)';
     });
 
-    // Clique e drag — usando closure para capturar n.id corretamente
-    (function(nodeId, nodeSn){
+    // Clique e drag — closure para capturar nodeId correto
+    (function(nodeId, sn2){
       var mdX=0, mdY=0, didMove=false;
-
       div.addEventListener('pointerdown', function(e){
         e.stopPropagation();
         mdX=e.clientX; mdY=e.clientY; didMove=false;
-        // Fixar nó para drag
-        var sn2=simNodes.find(function(s){return s.id===nodeId;});
-        if(!sn2) return;
-        dragNode=sn2;
-        dragNode.fx=dragNode.x; dragNode.fy=dragNode.y;
+        dragNode=sn2; dragNode.fx=dragNode.x; dragNode.fy=dragNode.y;
         graphWrap.classList.add('node-dragging');
         div.setPointerCapture(e.pointerId);
       });
-
       div.addEventListener('pointermove', function(e){
-        if(!dragNode || dragNode.id!==nodeId) return;
-        var dist=Math.hypot(e.clientX-mdX, e.clientY-mdY);
-        if(dist>6) didMove=true;
+        if(!dragNode||dragNode.id!==nodeId) return;
+        if(Math.hypot(e.clientX-mdX,e.clientY-mdY)>6) didMove=true;
         var rect=graphWrap.getBoundingClientRect();
         dragNode.fx=(e.clientX-rect.left-panX)/zoom;
         dragNode.fy=(e.clientY-rect.top-panY)/zoom;
@@ -2381,27 +2316,17 @@ function buildGraph(){
         div.style.left=dragNode.x+'px'; div.style.top=dragNode.y+'px';
         updateEdges();
       });
-
-      div.addEventListener('pointerup', function(e){
-        var wasDragging = didMove;
-        if(dragNode && dragNode.id===nodeId){
-          dragNode.fx=null; dragNode.fy=null; dragNode=null;
-        }
+      div.addEventListener('pointerup', function(){
+        var moved=didMove;
+        if(dragNode&&dragNode.id===nodeId){dragNode.fx=null;dragNode.fy=null;dragNode=null;}
         graphWrap.classList.remove('node-dragging');
-        // Só abre o detalhe se não arrastou
-        if(!wasDragging){
-          openDetail(nodeId);
-        }
+        if(!moved) openDetail(nodeId);
       });
-
       div.addEventListener('pointercancel', function(){
-        if(dragNode && dragNode.id===nodeId){
-          dragNode.fx=null; dragNode.fy=null; dragNode=null;
-        }
+        if(dragNode&&dragNode.id===nodeId){dragNode.fx=null;dragNode.fy=null;dragNode=null;}
         graphWrap.classList.remove('node-dragging');
       });
-
-    })(n.id, simNodes[i]);
+    })(n.id, sn);
 
     nodesDiv2.appendChild(div);
     domNodes[n.id]=div;
@@ -2409,188 +2334,132 @@ function buildGraph(){
   });
   nodesDiv2.style.pointerEvents='auto';
 
-  // ── EVENTOS DE PAN / PINCH / ZOOM ─────────────────────────────────────────
-  // Estado de ponteiros ativos (mouse + touch unificados)
-  var activePointers = {};  // pointerId → {x,y}
-  var pinchActive = false;
-  var pinchMidX=0, pinchMidY=0, pinchDist0=0, pinchZoom0=1, pinchPanX0=0, pinchPanY0=0;
-
-  function getPointerList(){
-    return Object.values(activePointers);
-  }
+  // ── PAN / PINCH / ZOOM ────────────────────────────────────────────────────
+  function getPtrs(){ return Object.values(activePointers); }
 
   graphWrap.addEventListener('pointerdown', function(e){
-    if(e.target.closest('[data-id]') || e.target.closest('.graph-controls')) return;
+    if(e.target.closest('[data-id]')||e.target.closest('.graph-controls')) return;
     e.preventDefault();
     graphWrap.setPointerCapture(e.pointerId);
-    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
-
-    var ptrs = getPointerList();
-    if(ptrs.length === 2){
-      // Iniciar pinch
-      pinchActive = true;
-      isPanning = false;
-      graphWrap.classList.remove('panning');
-      var dx = ptrs[1].x - ptrs[0].x;
-      var dy = ptrs[1].y - ptrs[0].y;
-      pinchDist0  = Math.sqrt(dx*dx + dy*dy) || 1;
-      pinchZoom0  = zoom;
-      pinchPanX0  = panX;
-      pinchPanY0  = panY;
-      var rect = graphWrap.getBoundingClientRect();
-      pinchMidX = (ptrs[0].x + ptrs[1].x)/2 - rect.left;
-      pinchMidY = (ptrs[0].y + ptrs[1].y)/2 - rect.top;
-    } else if(ptrs.length === 1){
-      // Iniciar pan
-      pinchActive = false;
-      isPanning   = true;
-      panStart    = {x: e.clientX, y: e.clientY};
-      panOrigin   = {x: panX, y: panY};
-      lastPanDx   = 0; lastPanDy = 0;
-      if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
+    activePointers[e.pointerId]={x:e.clientX,y:e.clientY};
+    var ptrs=getPtrs();
+    if(ptrs.length===2){
+      pinchActive=true; isPanning=false; graphWrap.classList.remove('panning');
+      var dx=ptrs[1].x-ptrs[0].x, dy=ptrs[1].y-ptrs[0].y;
+      pinchDist0=Math.sqrt(dx*dx+dy*dy)||1; pinchZoom0=zoom; pinchPanX0=panX; pinchPanY0=panY;
+      var rect=graphWrap.getBoundingClientRect();
+      pinchMidX=(ptrs[0].x+ptrs[1].x)/2-rect.left;
+      pinchMidY=(ptrs[0].y+ptrs[1].y)/2-rect.top;
+    } else if(ptrs.length===1){
+      pinchActive=false; isPanning=true;
+      panStart={x:e.clientX,y:e.clientY}; panOrigin={x:panX,y:panY};
+      lastPanDx=0; lastPanDy=0;
+      if(inertiaId){cancelAnimationFrame(inertiaId);inertiaId=null;}
       graphWrap.classList.add('panning');
     }
-  }, {passive:false});
+  },{passive:false});
 
   graphWrap.addEventListener('pointermove', function(e){
     if(!(e.pointerId in activePointers)) return;
     e.preventDefault();
-    activePointers[e.pointerId] = {x: e.clientX, y: e.clientY};
-    var ptrs = getPointerList();
-
-    if(pinchActive && ptrs.length === 2){
-      // ── Pinch-to-zoom ──────────────────────────────────────────────────
-      var dx = ptrs[1].x - ptrs[0].x;
-      var dy = ptrs[1].y - ptrs[0].y;
-      var dist = Math.sqrt(dx*dx + dy*dy) || 1;
-      var scale = dist / pinchDist0;
-      var newZoom = Math.min(3, Math.max(0.18, pinchZoom0 * scale));
-
-      // Zoom centrado no ponto médio inicial do pinch
-      panX = pinchMidX - (pinchMidX - pinchPanX0) * (newZoom / pinchZoom0);
-      panY = pinchMidY - (pinchMidY - pinchPanY0) * (newZoom / pinchZoom0);
-      zoom = newZoom;
-      applyTransform();
-
-    } else if(isPanning && ptrs.length === 1){
-      // ── Pan com 1 dedo ou mouse ─────────────────────────────────────────
-      lastPanDx = e.clientX - panStart.x - (panX - panOrigin.x);
-      lastPanDy = e.clientY - panStart.y - (panY - panOrigin.y);
-      panX = panOrigin.x + (e.clientX - panStart.x);
-      panY = panOrigin.y + (e.clientY - panStart.y);
+    activePointers[e.pointerId]={x:e.clientX,y:e.clientY};
+    var ptrs=getPtrs();
+    if(pinchActive&&ptrs.length===2){
+      var dx=ptrs[1].x-ptrs[0].x, dy=ptrs[1].y-ptrs[0].y;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var newZoom=Math.min(3,Math.max(0.18,pinchZoom0*(dist/pinchDist0)));
+      panX=pinchMidX-(pinchMidX-pinchPanX0)*(newZoom/pinchZoom0);
+      panY=pinchMidY-(pinchMidY-pinchPanY0)*(newZoom/pinchZoom0);
+      zoom=newZoom; applyTransform();
+    } else if(isPanning&&ptrs.length===1){
+      lastPanDx=e.clientX-panStart.x-(panX-panOrigin.x);
+      lastPanDy=e.clientY-panStart.y-(panY-panOrigin.y);
+      panX=panOrigin.x+(e.clientX-panStart.x);
+      panY=panOrigin.y+(e.clientY-panStart.y);
       applyTransform();
     }
-  }, {passive:false});
+  },{passive:false});
 
   graphWrap.addEventListener('pointerup', function(e){
     delete activePointers[e.pointerId];
-    var ptrs = getPointerList();
-
-    if(ptrs.length < 2){
-      pinchActive = false;
-      // Se voltou a 1 dedo, reiniciar pan a partir desse dedo
-      if(ptrs.length === 1){
-        isPanning  = true;
-        panStart   = {x: ptrs[0].x, y: ptrs[0].y};
-        panOrigin  = {x: panX, y: panY};
-        lastPanDx  = 0; lastPanDy = 0;
-      }
+    var ptrs=getPtrs();
+    if(ptrs.length<2) pinchActive=false;
+    if(ptrs.length===1){
+      isPanning=true; panStart={x:ptrs[0].x,y:ptrs[0].y}; panOrigin={x:panX,y:panY};
     }
-
-    if(ptrs.length === 0){
-      if(isPanning){
-        isPanning = false;
-        graphWrap.classList.remove('panning');
-        // Inércia apenas para mouse (touch tem inércia nativa do browser)
-        if(e.pointerType !== 'touch'){
-          var vx=lastPanDx*0.6, vy=lastPanDy*0.6;
-          function glide(){
-            if(Math.abs(vx)<0.3&&Math.abs(vy)<0.3) return;
-            panX+=vx; panY+=vy; vx*=0.88; vy*=0.88;
-            applyTransform();
-            inertiaId=requestAnimationFrame(glide);
-          }
+    if(ptrs.length===0){
+      isPanning=false; graphWrap.classList.remove('panning');
+      if(e.pointerType!=='touch'){
+        var vx=lastPanDx*0.6,vy=lastPanDy*0.6;
+        function glide(){
+          if(Math.abs(vx)<0.3&&Math.abs(vy)<0.3) return;
+          panX+=vx; panY+=vy; vx*=0.88; vy*=0.88; applyTransform();
           inertiaId=requestAnimationFrame(glide);
         }
+        inertiaId=requestAnimationFrame(glide);
       }
     }
-  }, {passive:false});
+  },{passive:false});
 
   graphWrap.addEventListener('pointercancel', function(e){
-    delete activePointers[e.pointerId];
-    pinchActive = false;
-    isPanning   = false;
+    delete activePointers[e.pointerId]; pinchActive=false; isPanning=false;
     graphWrap.classList.remove('panning');
   });
 
-  // ── Zoom por scroll (mouse/trackpad) ────────────────────────────────────
   graphWrap.addEventListener('wheel', function(e){
     e.preventDefault();
-    if(inertiaId){ cancelAnimationFrame(inertiaId); inertiaId=null; }
-    var rect = graphWrap.getBoundingClientRect();
-    var mx = e.clientX - rect.left;
-    var my = e.clientY - rect.top;
-    var oldZoom = zoom;
-    var d = e.deltaMode===1 ? e.deltaY*30 : e.deltaY;
-    zoom = Math.min(3, Math.max(0.18, zoom * Math.exp(-d*0.004)));
-    panX = mx - (mx - panX)*(zoom/oldZoom);
-    panY = my - (my - panY)*(zoom/oldZoom);
+    if(inertiaId){cancelAnimationFrame(inertiaId);inertiaId=null;}
+    var rect=graphWrap.getBoundingClientRect();
+    var mx=e.clientX-rect.left, my=e.clientY-rect.top, old=zoom;
+    var d=e.deltaMode===1?e.deltaY*30:e.deltaY;
+    zoom=Math.min(3,Math.max(0.18,zoom*Math.exp(-d*0.004)));
+    panX=mx-(mx-panX)*(zoom/old); panY=my-(my-panY)*(zoom/old);
     applyTransform();
-  }, {passive:false});
+  },{passive:false});
 
-  // ── Botões de controle ──────────────────────────────────────────────────
-  document.getElementById('g-zi').addEventListener('click', function(){ smoothZoom(1.25); });
-  document.getElementById('g-zo').addEventListener('click', function(){ smoothZoom(0.8); });
-  document.getElementById('g-rs').addEventListener('click', resetView);
-  document.getElementById('g-ft').addEventListener('click', fitAll);
-  document.getElementById('g-fs').addEventListener('click', toggleFullscreen);
+  // Botões
+  document.getElementById('g-zi').addEventListener('click',function(){smoothZoom(1.25);});
+  document.getElementById('g-zo').addEventListener('click',function(){smoothZoom(0.8);});
+  document.getElementById('g-rs').addEventListener('click',resetView);
+  document.getElementById('g-ft').addEventListener('click',fitAll);
+  document.getElementById('g-fs').addEventListener('click',toggleFullscreen);
 
-  resetView();
-  startSim();
-  renderFilters();
-}
-
-function smoothZoom(factor){
-  var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
-  var cx=W/2, cy=H/2, oldZoom=zoom;
-  zoom=Math.min(3,Math.max(0.18,zoom*factor));
-  panX=cx-(cx-panX)*(zoom/oldZoom);
-  panY=cy-(cy-panY)*(zoom/oldZoom);
-  applyTransform();
+  resetView(); startSim(); renderFilters();
 }
 
 function applyTransform(){
-  if(!nodesDiv2) return;
+  var nd=document.getElementById('gnodes'), sv=document.getElementById('gsv');
+  if(!nd||!sv) return;
   var t='translate('+panX+'px,'+panY+'px) scale('+zoom+')';
-  nodesDiv2.style.transform=t; nodesDiv2.style.transformOrigin='0 0';
-  svgEl2.style.transform=t; svgEl2.style.transformOrigin='0 0';
+  nd.style.transform=t; nd.style.transformOrigin='0 0';
+  sv.style.transform=t; sv.style.transformOrigin='0 0';
+}
+
+function smoothZoom(f){
+  var W=graphWrap.clientWidth,H=graphWrap.clientHeight,old=zoom;
+  zoom=Math.min(3,Math.max(0.18,zoom*f));
+  panX=W/2-(W/2-panX)*(zoom/old); panY=H/2-(H/2-panY)*(zoom/old);
+  applyTransform();
 }
 
 function updateEdges(){
   var sb={};
   simNodes.forEach(function(s){sb[s.id]=s;});
   svgLines.forEach(function(obj){
-    var a=sb[obj.from], b=sb[obj.to]; if(!a||!b) return;
-    var dx=b.x-a.x, dy=b.y-a.y, dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var r=18;
+    var a=sb[obj.from],b=sb[obj.to]; if(!a||!b) return;
+    var dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var r=22;
     var x1=a.x+(dx/dist)*r, y1=a.y+(dy/dist)*r;
-    var x2=b.x-(dx/dist)*(r+8), y2=b.y-(dy/dist)*(r+8);
-    // Curva de Bézier cúbica — o barbante "pende" levemente
-    // Ponto de controle perpendicular à linha com certa "gravidade" para baixo
+    var x2=b.x-(dx/dist)*(r+10), y2=b.y-(dy/dist)*(r+10);
     var mx=(x1+x2)/2, my=(y1+y2)/2;
-    var perpX=-(dy/dist), perpY=(dx/dist);
-    // Curvatura baseada na distância — barbante mais longo pende mais
-    var sag = Math.min(dist*0.12, 60);
-    // Adicionar um leve peso para baixo (simulando gravidade no barbante)
-    var cx1=x1+perpX*sag*0.3 + (mx-x1)*0.5;
-    var cy1=y1+perpY*sag*0.3 + (my-y1)*0.5 + sag*0.4;
-    var cx2=x2+perpX*sag*0.3 + (mx-x2)*0.5;
-    var cy2=y2+perpY*sag*0.3 + (my-y2)*0.5 + sag*0.4;
-    var d='M'+x1.toFixed(1)+','+y1.toFixed(1)+
-          ' C'+cx1.toFixed(1)+','+cy1.toFixed(1)+
-          ' '+cx2.toFixed(1)+','+cy2.toFixed(1)+
-          ' '+x2.toFixed(1)+','+y2.toFixed(1);
-    obj.line.setAttribute('d', d);
+    var sag=Math.min(dist*0.13,70);
+    var cx1=x1+(mx-x1)*0.5, cy1=y1+(my-y1)*0.5+sag*0.45;
+    var cx2=x2+(mx-x2)*0.5, cy2=y2+(my-y2)*0.5+sag*0.45;
+    obj.line.setAttribute('d',
+      'M'+x1.toFixed(1)+','+y1.toFixed(1)+
+      ' C'+cx1.toFixed(1)+','+cy1.toFixed(1)+
+      ' '+cx2.toFixed(1)+','+cy2.toFixed(1)+
+      ' '+x2.toFixed(1)+','+y2.toFixed(1));
   });
 }
 
@@ -2599,53 +2468,49 @@ function startSim(){
   var tick=0;
   function step(){
     tick++;
-    var alpha=Math.max(0,1-tick/300);
+    var alpha=Math.max(0,1-tick/320);
     if(alpha>0.001) runForces(alpha);
-    updatePositions();
-    updateEdges();
+    updatePositions(); updateEdges();
     if(alpha>0.001) rafId=requestAnimationFrame(step);
   }
   rafId=requestAnimationFrame(step);
 }
 
 function runForces(alpha){
-  var sb={};
-  simNodes.forEach(function(n){sb[n.id]=n;});
+  var sb={}; simNodes.forEach(function(n){sb[n.id]=n;});
   var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
   var cx=W/2, cy=H/2;
-  // repulsão
+  // Repulsão
   for(var i=0;i<simNodes.length;i++){
     for(var j=i+1;j<simNodes.length;j++){
-      var a=simNodes[i], b=simNodes[j];
+      var a=simNodes[i],b=simNodes[j];
       var dx=b.x-a.x, dy=b.y-a.y;
       var dist=Math.sqrt(dx*dx+dy*dy)||1;
       if(dist>1100) continue;
       var force=Math.min(38000/(dist*dist),100)*alpha;
       var fx=(dx/dist)*force, fy=(dy/dist)*force;
-      if(!a.fx){a.vx-=fx; a.vy-=fy;}
-      if(!b.fx){b.vx+=fx; b.vy+=fy;}
+      if(!a.fx){a.vx-=fx;a.vy-=fy;}
+      if(!b.fx){b.vx+=fx;b.vy+=fy;}
     }
   }
-  // atração por aresta
+  // Atração por aresta
   simEdges.forEach(function(e){
-    var a=sb[e.from], b=sb[e.to]; if(!a||!b) return;
-    var dx=b.x-a.x, dy=b.y-a.y;
-    var dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var target=380;
-    var force=(dist-target)*0.028*alpha;
+    var a=sb[e.from],b=sb[e.to]; if(!a||!b) return;
+    var dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var force=(dist-380)*0.028*alpha;
     var fx=(dx/dist)*force, fy=(dy/dist)*force;
-    if(!a.fx){a.vx+=fx; a.vy+=fy;}
-    if(!b.fx){b.vx-=fx; b.vy-=fy;}
+    if(!a.fx){a.vx+=fx;a.vy+=fy;}
+    if(!b.fx){b.vx-=fx;b.vy-=fy;}
   });
-  // gravidade ao centro
+  // Gravidade ao centro
   simNodes.forEach(function(n){
     if(n.fx) return;
     n.vx+=(cx-n.x)*0.0008*alpha;
     n.vy+=(cy-n.y)*0.0008*alpha;
   });
-  // integrar
+  // Integrar
   simNodes.forEach(function(n){
-    if(n.fx){n.x=n.fx; n.y=n.fy; return;}
+    if(n.fx){n.x=n.fx;n.y=n.fy;return;}
     n.vx*=0.82; n.vy*=0.82;
     n.x+=n.vx; n.y+=n.vy;
   });
@@ -2659,64 +2524,61 @@ function updatePositions(){
 }
 
 function highlightNode(id){
-  var connected=new Set([id]);
-  simEdges.forEach(function(e){
-    if(e.from===id) connected.add(e.to);
-    if(e.to===id) connected.add(e.from);
-  });
-  Object.keys(domNodes).forEach(function(nid){
-    domNodes[nid].style.opacity=connected.has(nid)?'1':'0.08';
-  });
+  var conn=new Set([id]);
+  simEdges.forEach(function(e){if(e.from===id)conn.add(e.to);if(e.to===id)conn.add(e.from);});
+  Object.keys(domNodes).forEach(function(nid){domNodes[nid].style.opacity=conn.has(nid)?'1':'0.08';});
   svgLines.forEach(function(obj){
-    var isConn=obj.from===id||obj.to===id;
-    obj.line.setAttribute('stroke',isConn?'#cc2200':(obj.threadColor||'rgba(180,60,40,0.7)'));
-    obj.line.setAttribute('stroke-width',isConn?'2.8':(obj.origWidth||'1.5'));
-    obj.line.setAttribute('stroke-opacity',isConn?'1':'0.2');
-    obj.line.setAttribute('marker-end',isConn?'url(#arr-hi)':'url(#arr)');
+    var isC=obj.from===id||obj.to===id;
+    obj.line.setAttribute('stroke',isC?'#cc2200':obj.tc);
+    obj.line.setAttribute('stroke-width',isC?'3':(obj.ow||'1.5'));
+    obj.line.setAttribute('stroke-opacity',isC?'1':'0.15');
+    obj.line.setAttribute('marker-end',isC?'url(#arr-hi)':'url(#arr)');
   });
 }
+
 function clearHighlight(){
-  Object.values(domNodes).forEach(function(div){
+  Object.keys(domNodes).forEach(function(nid){
+    var div=domNodes[nid];
     div.style.opacity='1';
     var rot=parseFloat(div.dataset.rot)||0;
     div.style.transform='translate(-50%,-50%) rotate('+rot+'deg)';
     div.style.zIndex='2';
   });
   svgLines.forEach(function(obj){
-    obj.line.setAttribute('stroke', obj.threadColor || 'rgba(180,60,40,0.7)');
-    obj.line.setAttribute('stroke-width', obj.origWidth || '1.5');
+    obj.line.setAttribute('stroke',obj.tc);
+    obj.line.setAttribute('stroke-width',obj.ow||'1.5');
     obj.line.setAttribute('stroke-opacity','1');
     obj.line.setAttribute('marker-end','url(#arr)');
   });
 }
+
 function resetView(){
   var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
-  zoom=0.62; panX=W*0.19; panY=H*0.14;
+  zoom=0.52; panX=W*0.24; panY=H*0.18;
   applyTransform();
 }
+
 function fitAll(){
   if(!simNodes.length) return;
-  var xs=simNodes.map(function(n){return n.x;}),ys=simNodes.map(function(n){return n.y;});
-  var minX=Math.min.apply(null,xs),maxX=Math.max.apply(null,xs);
-  var minY=Math.min.apply(null,ys),maxY=Math.max.apply(null,ys);
-  var W=graphWrap.clientWidth,H=graphWrap.clientHeight,pad=70;
-  var sx=(W-pad*2)/(maxX-minX||1),sy=(H-pad*2)/(maxY-minY||1);
-  zoom=Math.min(sx,sy,1.5);
+  var xs=simNodes.map(function(n){return n.x;}), ys=simNodes.map(function(n){return n.y;});
+  var minX=Math.min.apply(null,xs), maxX=Math.max.apply(null,xs);
+  var minY=Math.min.apply(null,ys), maxY=Math.max.apply(null,ys);
+  var W=graphWrap.clientWidth, H=graphWrap.clientHeight, pad=80;
+  zoom=Math.min((W-pad*2)/(maxX-minX||1),(H-pad*2)/(maxY-minY||1),1.4);
   panX=pad-minX*zoom; panY=pad-minY*zoom;
   applyTransform();
 }
+
 function toggleFullscreen(){
   graphWrap.classList.toggle('fullscreen');
-  var btn=document.getElementById('g-fs');
-  btn.textContent=graphWrap.classList.contains('fullscreen')?'\u2715':'\u26F6';
+  document.getElementById('g-fs').textContent=graphWrap.classList.contains('fullscreen')?'\u2715':'\u26F6';
   setTimeout(resetView,50);
 }
 
 function renderFilters(){
   var el=document.getElementById('graph-filters');
-  el.innerHTML=Object.entries(NODE_TYPES).map(function(entry){
-    var key=entry[0],t=entry[1];
-    return '<div class="filter-chip active" data-type="'+key+'"><span class="dot" style="background:'+t.color+'"></span>'+t.label+'</div>';
+  el.innerHTML=Object.entries(NODE_TYPES).map(function(e){
+    return '<div class="filter-chip active" data-type="'+e[0]+'"><span class="dot" style="background:'+e[1].color+'"></span>'+e[1].label+'</div>';
   }).join('');
   el.querySelectorAll('.filter-chip').forEach(function(chip){
     chip.addEventListener('click',function(){
@@ -2727,9 +2589,11 @@ function renderFilters(){
     });
   });
 }
+
 document.getElementById('graph-search').addEventListener('input',function(e){
   graphSearch=e.target.value.toLowerCase().trim(); applyGraphFilters();
 });
+
 function applyGraphFilters(){
   NODES.forEach(function(n){
     var div=domNodes[n.id]; if(!div) return;
@@ -2739,22 +2603,17 @@ function applyGraphFilters(){
   });
 }
 
-
-// ============================================================
-// TIMELINE
-// ============================================================
+// ── TIMELINE ─────────────────────────────────────────────────────────────────
 var tlPhases=[...new Set(TIMELINE.map(function(t){return t.phase;}))];
 
 function renderTimelineFilters(){
-  var el=document.getElementById('timeline-filters');
-  if(!el) return;
+  var el=document.getElementById('timeline-filters'); if(!el) return;
   el.innerHTML='<div class="filter-chip active" data-phase="ALL">Todas as fases</div>'+
     tlPhases.map(function(p){return '<div class="filter-chip" data-phase="'+p+'">'+p+'</div>';}).join('');
   el.querySelectorAll('.filter-chip').forEach(function(chip){
     chip.addEventListener('click',function(){
       el.querySelectorAll('.filter-chip').forEach(function(c){c.classList.remove('active');});
-      chip.classList.add('active');
-      renderTimeline(chip.dataset.phase);
+      chip.classList.add('active'); renderTimeline(chip.dataset.phase);
     });
   });
 }
@@ -2762,8 +2621,7 @@ function renderTimelineFilters(){
 function renderTimeline(phase){
   phase=phase||'ALL';
   var items=phase==='ALL'?TIMELINE:TIMELINE.filter(function(t){return t.phase===phase;});
-  var el=document.getElementById('timeline-list');
-  if(!el) return;
+  var el=document.getElementById('timeline-list'); if(!el) return;
   el.innerHTML=items.map(function(t){
     return '<div class="tl-entry">'+
       '<div class="tl-date">'+t.date+'<span class="tl-phase-badge">'+t.phase+'</span></div>'+
@@ -2783,22 +2641,15 @@ function renderTimeline(phase){
   });
 }
 
-renderTimelineFilters();
-renderTimeline('ALL');
+renderTimelineFilters(); renderTimeline('ALL');
 
-// ============================================================
-// DIRECTORY
-// ============================================================
+// ── DIRECTORY ────────────────────────────────────────────────────────────────
 var dirFilters=new Set(Object.keys(NODE_TYPES)), dirSearch='';
 
 function renderDirFilters(){
-  var el=document.getElementById('dir-filters');
-  if(!el) return;
-  el.innerHTML=Object.entries(NODE_TYPES).map(function(entry){
-    var key=entry[0], t=entry[1];
-    return '<div class="filter-chip active" data-type="'+key+'">'+
-      '<span class="dot" style="background:'+t.color+'"></span>'+t.label+
-    '</div>';
+  var el=document.getElementById('dir-filters'); if(!el) return;
+  el.innerHTML=Object.entries(NODE_TYPES).map(function(e){
+    return '<div class="filter-chip active" data-type="'+e[0]+'"><span class="dot" style="background:'+e[1].color+'"></span>'+e[1].label+'</div>';
   }).join('');
   el.querySelectorAll('.filter-chip').forEach(function(chip){
     chip.addEventListener('click',function(){
@@ -2812,35 +2663,23 @@ function renderDirFilters(){
 
 function renderDirectory(){
   var items=NODES.filter(function(n){
-    return dirFilters.has(n.type)&&(
-      !dirSearch||
-      n.name.toLowerCase().includes(dirSearch)||
-      (n.role||'').toLowerCase().includes(dirSearch)||
-      (n.summary||'').toLowerCase().includes(dirSearch)
-    );
+    return dirFilters.has(n.type)&&(!dirSearch||n.name.toLowerCase().includes(dirSearch)||(n.role||'').toLowerCase().includes(dirSearch)||(n.summary||'').toLowerCase().includes(dirSearch));
   });
-  var el=document.getElementById('directory-grid');
-  if(!el) return;
+  var el=document.getElementById('directory-grid'); if(!el) return;
   if(!items.length){
     el.innerHTML='<p style="color:var(--ink-soft);font-family:monospace;font-size:13px">Nenhum resultado encontrado.</p>';
     return;
   }
   el.innerHTML=items.map(function(n){
     var color=typeColor(n.type);
-    var initials=getInitials(n.name);
     return '<div class="dir-card" data-id="'+n.id+'">'+
       '<div class="dir-type-bar" style="background:'+color+'"></div>'+
       '<div style="display:flex;align-items:center;gap:10px;padding-left:8px;margin-bottom:8px">'+
-        '<div style="width:36px;height:36px;border-radius:50%;background:'+color+';'+
-             'display:flex;align-items:center;justify-content:center;flex-shrink:0;'+
-             'border:2px solid var(--line);overflow:hidden">'+
-          (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover">':
-            '<span style="font-family:monospace;font-weight:700;font-size:11px;color:rgba(255,255,255,.9)">'+initials+'</span>')+
+        '<div style="width:40px;height:40px;border-radius:6px;background:'+color+';display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--line);overflow:hidden">'+
+          (n.photo?'<img src="'+n.photo+'" style="width:100%;height:100%;object-fit:cover;border-radius:4px">':
+            '<span style="font-family:monospace;font-weight:700;font-size:11px;color:rgba(255,255,255,.9)">'+getInitials(n.name)+'</span>')+
         '</div>'+
-        '<div>'+
-          '<div class="dir-name" style="padding-left:0">'+n.name+'</div>'+
-          '<div class="dir-role" style="padding-left:0">'+(n.role||'')+'</div>'+
-        '</div>'+
+        '<div><div class="dir-name" style="padding-left:0">'+n.name+'</div><div class="dir-role" style="padding-left:0">'+(n.role||'')+'</div></div>'+
       '</div>'+
       '<div class="dir-summary">'+(n.summary||'')+'</div>'+
     '</div>';
@@ -2853,7 +2692,7 @@ function renderDirectory(){
 document.getElementById('dir-search').addEventListener('input',function(e){
   dirSearch=e.target.value.toLowerCase().trim(); renderDirectory();
 });
-
+renderDirFilters(); renderDirectory();
 
 </script>
 </body>
