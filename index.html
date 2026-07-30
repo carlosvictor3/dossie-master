@@ -183,7 +183,7 @@ body{
       rgba(60,35,8,0.03) 22px, rgba(60,35,8,0.03) 23px
     ),
     #c4904a;
-  height:600px; max-width:960px; margin:0 auto; overflow:hidden; cursor:grab; touch-action:none;
+  height:880px; overflow:hidden; cursor:grab; touch-action:none;
 }
 .graph-wrap.panning{ cursor:grabbing; }
 .graph-wrap.node-dragging{ cursor:crosshair; }
@@ -2333,7 +2333,7 @@ function buildGraph(){
   var cx=W/2, cy=H/2;
 
   // Posicionamento inicial em espiral por núcleo
-  var typeRadius={CENTRAL:0,FINANCEIRO:560,POLITICO:720,JUDICIARIO:660,SEGURANCA:440,FAMILIA:380,INSTITUICAO:800,PREVIDENCIA:850,EMPRESARIAL:620,FATO:740};
+  var typeRadius={CENTRAL:0,FINANCEIRO:900,POLITICO:1200,JUDICIARIO:1100,SEGURANCA:750,FAMILIA:650,INSTITUICAO:1350,PREVIDENCIA:1450,EMPRESARIAL:1050,FATO:1250};
   var typeCount={}, typeIdx={};
   NODES.forEach(function(n){ typeCount[n.type]=(typeCount[n.type]||0)+1; typeIdx[n.type]=0; });
 
@@ -2345,8 +2345,8 @@ function buildGraph(){
       var cnt=typeCount[n.type]||1;
       var idx2=typeIdx[n.type]||0; typeIdx[n.type]++;
       var angle=(idx2/cnt)*Math.PI*2-Math.PI/2;
-      x=cx+Math.cos(angle)*r+(Math.random()-0.5)*120;
-      y=cy+Math.sin(angle)*r+(Math.random()-0.5)*120;
+      x=cx+Math.cos(angle)*r+(Math.random()-0.5)*220;
+      y=cy+Math.sin(angle)*r+(Math.random()-0.5)*220;
     }
     return {id:n.id,x:x,y:y,vx:0,vy:0,fx:null,fy:null};
   });
@@ -2389,7 +2389,7 @@ function buildGraph(){
     var color=typeColor(n.type);
     var isCentral=n.type==='CENTRAL';
     var isFlat=['INSTITUICAO','FATO','PREVIDENCIA','EMPRESARIAL'].includes(n.type);
-    var size=isCentral?96:isFlat?58:72;  // fichas grandes
+    var size=isCentral?140:isFlat?90:110;  // fichas generosas
     var fs=isCentral?24:isFlat?13:16;
     var rot=(Math.random()-0.5)*7;
     var initials=getInitials(n.name);
@@ -2403,7 +2403,7 @@ function buildGraph(){
 
     div.innerHTML=
       // Tachinha
-      '<div style="width:18px;height:18px;border-radius:50%;margin-bottom:-10px;z-index:3;position:relative;flex-shrink:0;background:'+pinColor+';box-shadow:0 2px 5px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.35)"></div>'+
+      '<div style="width:28px;height:28px;border-radius:50%;margin-bottom:-14px;z-index:3;position:relative;flex-shrink:0;background:'+pinColor+';box-shadow:0 2px 5px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.35)"></div>'+
       // Avatar — quadrado
       '<div class="ni" style="width:'+size+'px;height:'+size+'px;border-radius:7px;background:'+color+';'+
         'display:flex;align-items:center;justify-content:center;'+
@@ -2414,10 +2414,10 @@ function buildGraph(){
         '<span style="font-family:monospace;font-weight:700;font-size:'+fs+'px;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.5);'+(n.photo?'display:none':'')+'">'+ initials +'</span>'+
       '</div>'+
       // Etiqueta
-      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?13:11)+'px;'+
+      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?18:14)+'px;'+
         'color:'+(isCentral?'#8c0000':'#2a1500')+';'+
         'background:'+(isCentral?'rgba(255,235,235,0.97)':'rgba(255,252,220,0.97)')+';'+
-        'padding:5px 10px;white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis;'+
+        'padding:7px 12px;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis;'+
         'border:1px solid rgba(0,0,0,0.18);box-shadow:0 2px 5px rgba(0,0,0,0.22);'+
         'font-weight:'+(isCentral?700:500)+';margin-top:4px;letter-spacing:.02em;border-radius:2px">'+
         n.name+
@@ -2591,11 +2591,11 @@ function updateEdges(){
   svgLines.forEach(function(obj){
     var a=sb[obj.from],b=sb[obj.to]; if(!a||!b) return;
     var dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var r=30;
+    var r=50;
     var x1=a.x+(dx/dist)*r, y1=a.y+(dy/dist)*r;
     var x2=b.x-(dx/dist)*(r+10), y2=b.y-(dy/dist)*(r+10);
     var mx=(x1+x2)/2, my=(y1+y2)/2;
-    var sag=Math.min(dist*0.15,90);
+    var sag=Math.min(dist*0.16,150);
     var cx1=x1+(mx-x1)*0.5, cy1=y1+(my-y1)*0.5+sag*0.45;
     var cx2=x2+(mx-x2)*0.5, cy2=y2+(my-y2)*0.5+sag*0.45;
     obj.line.setAttribute('d',
@@ -2629,8 +2629,8 @@ function runForces(alpha){
       var a=simNodes[i],b=simNodes[j];
       var dx=b.x-a.x, dy=b.y-a.y;
       var dist=Math.sqrt(dx*dx+dy*dy)||1;
-      if(dist>1500) continue;
-      var force=Math.min(55000/(dist*dist),120)*alpha;
+      if(dist>3000) continue;
+      var force=Math.min(120000/(dist*dist),180)*alpha;
       var fx=(dx/dist)*force, fy=(dy/dist)*force;
       if(!a.fx){a.vx-=fx;a.vy-=fy;}
       if(!b.fx){b.vx+=fx;b.vy+=fy;}
@@ -2640,7 +2640,7 @@ function runForces(alpha){
   simEdges.forEach(function(e){
     var a=sb[e.from],b=sb[e.to]; if(!a||!b) return;
     var dx=b.x-a.x,dy=b.y-a.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
-    var force=(dist-500)*0.022*alpha;
+    var force=(dist-900)*0.018*alpha;
     var fx=(dx/dist)*force, fy=(dy/dist)*force;
     if(!a.fx){a.vx+=fx;a.vy+=fy;}
     if(!b.fx){b.vx-=fx;b.vy-=fy;}
@@ -2648,13 +2648,13 @@ function runForces(alpha){
   // Gravidade ao centro
   simNodes.forEach(function(n){
     if(n.fx) return;
-    n.vx+=(cx-n.x)*0.0004*alpha;
-    n.vy+=(cy-n.y)*0.0004*alpha;
+    n.vx+=(cx-n.x)*0.00015*alpha;
+    n.vy+=(cy-n.y)*0.00015*alpha;
   });
   // Integrar
   simNodes.forEach(function(n){
     if(n.fx){n.x=n.fx;n.y=n.fy;return;}
-    n.vx*=0.82; n.vy*=0.82;
+    n.vx*=0.86; n.vy*=0.86;
     n.x+=n.vx; n.y+=n.vy;
   });
 }
@@ -2697,7 +2697,7 @@ function clearHighlight(){
 
 function resetView(){
   var W=graphWrap.clientWidth, H=graphWrap.clientHeight;
-  zoom=0.52; panX=W*0.24; panY=H*0.18;
+  zoom=0.28; panX=W*0.36; panY=H*0.28;
   applyTransform();
 }
 
