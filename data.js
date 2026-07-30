@@ -61,7 +61,7 @@ const NODES = [
       "Declaração de IR aponta aplicação de R$ 48,5 milhões na 'Super Empreendimentos', empresa usada para pagar o operador 'Sicário'.",
       "Casado com Natália Vorcaro, irmã de Daniel."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/zettel.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/zettel.jpg",
     sources: [
       { label: "Metrópoles — Zettel e a Super Empreendimentos", url: "https://www.metropoles.com/brasil/politica-brasil/entenda-quem-e-fabiano-zettel-cunhado-de-vorcaro-que-foi-preso" },
       { label: "CNN Brasil — 3ª fase: prisão de Zettel", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
@@ -77,7 +77,7 @@ const NODES = [
     details: [
       "Banco Pleno (ex-Voiter) teve liquidação decretada em 18/02/2026, elevando o custo total ao FGC para R$ 56 bilhões."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/augusto_lima.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/augusto_lima.jpg",
     sources: [
       { label: "Wikipedia — Operação Compliance Zero", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
       { label: "G1 — 9ª fase: Wagner e Augusto Lima alvos", url: "https://g1.globo.com/politica/noticia/2026/06/18/pf-deflagra-9a-fase-da-operacao-compliance-zero.ghtml" },
@@ -91,7 +91,7 @@ const NODES = [
     role: "Tesoureiro do grupo",
     summary: "Preso na primeira fase da Operação Compliance Zero, em novembro de 2025, junto com Vorcaro e Augusto Lima.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/alberto_felix.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/alberto_felix.jpg",
     x: 15, y: 40
   },
   {
@@ -104,7 +104,7 @@ const NODES = [
       "Recebeu aporte de R$ 48,5 milhões de Fabiano Zettel em 2022, segundo IR do próprio.",
       "Usada para pagamentos à galeria de arte Almeida & Dale (R$ 165 milhões+ em remessas, segundo o Metrópoles)."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/super_empreendimentos.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/super_empreendimentos.jpg",
     x: 30, y: 12
   },
   {
@@ -114,7 +114,7 @@ const NODES = [
     role: "Estrutura no exterior",
     summary: "Segundo dados do COAF divulgados pelo O Globo, empresas ligadas a Vorcaro repassaram mais de R$ 700 milhões em ativos do Master para uma holding nas Ilhas Cayman, da qual o banqueiro é sócio, entre janeiro e julho de 2025 — período das negociações com o BRB.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/cayman.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/cayman.jpg",
     sources: [
       { label: "O Globo — COAF: R$ 700 mi enviados a offshore em Cayman", url: "https://oglobo.globo.com/politica/noticia/2026/03/11/vorcaro-enviou-r-700-milhoes-a-offshore-em-cayman.ghtml" },
     ],
@@ -127,7 +127,7 @@ const NODES = [
     role: "Empresário — alvo de busca e apreensão",
     summary: "Empresário citado entre os alvos de mandados de busca e apreensão na 2ª fase da operação (14/01/2026).",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/tanure.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/tanure.jpg",
     x: 5, y: 35
   },
   {
@@ -141,7 +141,7 @@ const NODES = [
       "MPF aponta que filhos de Mansur (Lucas, Marina e Alex Falbo Mansur) eram beneficiários finais de fundos (Astralo 95, Reag Growth 95) que movimentaram R$ 1,45 bilhão vindos do Master.",
       "Em depoimento à CPI do Crime Organizado, confirmou o Master como cliente da Reag e negou ligação com o PCC, amparado por decisão do ministro Flávio Dino que lhe garantiu direito ao silêncio."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/mansur.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mansur.jpg",
     sources: [
       { label: "Metrópoles — Mansur e a triangulação financeira", url: "https://www.metropoles.com/brasil/joao-carlos-mansur-reag-banco-master" },
       { label: "Operação Carbono Oculto — contexto PCC", url: "https://www.cnnbrasil.com.br/politica/pf-investiga-infiltracao-do-pcc-no-mercado-financeiro" },
@@ -161,7 +161,7 @@ const NODES = [
       "07/04/2026 — TCU abre processo para apurar possível omissão do BC.",
       "30/04/2026 — Ministério Público aciona a Justiça para suspender a aquisição."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/brb.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/brb.jpg",
     sources: [
       { label: "Times Brasil — BRB e a compra do Master", url: "https://timesbrasil.com.br/empresas-e-negocios/operacao-compliance-zero-entenda-o-que-ja-aconteceu-em-cada-fase-da-investigacao/" },
       { label: "CNN Brasil — TCU abre processo sobre BC e BRB", url: "https://www.cnnbrasil.com.br/economia/tcu-abre-processo-para-apurar-possivel-omissao-do-bc-no-caso-master/" },
@@ -175,7 +175,7 @@ const NODES = [
     role: "Ex-presidente do BRB",
     summary: "Afastado do cargo na 1ª fase. Preso preventivamente na 4ª fase (16/04/2026). Segundo a PF, teria combinado com Vorcaro o recebimento de R$ 146,5 milhões em propina, repassados via imóveis — a PF afirma ter provas de ao menos R$ 74 milhões pagos. Costa nega.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/phc.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/phc.jpg",
     sources: [
       { label: "CNN Brasil — 4ª fase: prisão do ex-presidente do BRB", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-prende-ex-presidente-do-brb-paulo-henrique-costa/" },
     ],
@@ -188,7 +188,7 @@ const NODES = [
     role: "Ex-diretor financeiro do BRB",
     summary: "Afastado do cargo pela 10ª Vara Federal de Brasília na 1ª fase da operação, junto com Paulo Henrique Costa.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/dario_garcia.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/dario_garcia.jpg",
     x: 60, y: 72
   },
   {
@@ -198,7 +198,7 @@ const NODES = [
     role: "Regulador — decretou a liquidação do Master",
     summary: "Decretou liquidação extrajudicial do conglomerado Master (Master de Investimento, Letsbank, Master Corretora de Câmbio, Will Financeira, Banco Pleno) em 18/11/2025. Abriu e encerrou (09/03/2026) investigação interna sobre dois servidores suspeitos de atuar a favor do Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/bc.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/bc.jpg",
     sources: [
       { label: "Banco Central — Liquidação do Master (18/11/2025)", url: "https://www.bcb.gov.br/detalhenoticia/692/nota" },
     ],
@@ -211,7 +211,7 @@ const NODES = [
     role: "Ex-servidores do Banco Central",
     summary: "Ex-diretor de fiscalização e ex-chefe adjunto do Departamento de Supervisão Bancária do BC. Segundo a PF, prestavam 'consultoria informal' a Vorcaro, participando de grupo de WhatsApp para discutir estratégias de interesse do Master. Afastados por decisão do STF; usam tornozeleira eletrônica.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/souza_santana.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/souza_santana.jpg",
     sources: [
       { label: "CNN Brasil — Servidores do BC afastados", url: "https://www.cnnbrasil.com.br/economia/servidores-do-banco-central-sao-afastados-no-caso-master/" },
     ],
@@ -305,7 +305,7 @@ const NODES = [
     details: [
       "Ricardo Siqueira Rodrigues é apontado como intermediário entre Vorcaro e Castro; também alvo de buscas."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/rioprevidencia.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/rioprevidencia.jpg",
     sources: [
       { label: "JGB — 8ª fase: R$ 3 bi do Rioprevidência", url: "https://jornalgrandebahia.com.br/2026/05/da-suspeita-financeira-ao-nucleo-politico-reveja-as-8-fases-da-operacao-compliance-zero-contra-o-banco-master/" },
     ],
@@ -318,7 +318,7 @@ const NODES = [
     role: "Empresário — suposto intermediário",
     summary: "Apontado pela PF como intermediador da relação entre Vorcaro e Cláudio Castro. Alvo de buscas.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/siqueira_rodrigues.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/siqueira_rodrigues.jpg",
     x: 20, y: 85
   },
   {
@@ -328,7 +328,7 @@ const NODES = [
     role: "Ex-presidente do RioPrevidência",
     summary: "Preso em 03/02/2026 pela PF e PRF, interceptado em Itatiaia (RJ), no contexto da investigação sobre o RioPrevidência (instituto de previdência distinto da Rioprevidência financeira fluminense, igualmente sob escrutínio das investigações).",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/deivis_antunes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/deivis_antunes.jpg",
     x: 15, y: 70
   },
   {
@@ -407,7 +407,7 @@ const NODES = [
     role: "Esposa de Alexandre de Moraes",
     summary: "Contrato dela com o Banco Master foi noticiado em 11/12/2025, alimentando o escrutínio sobre a relação entre o ministro e Vorcaro. Reportagens posteriores apontam contrato de R$ 129 milhões, pagos em parcelas de R$ 3,6 milhões/mês ao escritório de advocacia dela — interrompido com a liquidação do banco.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/viviane_moraes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/viviane_moraes.jpg",
     sources: [
       { label: "CNN Brasil — Contrato de R$ 129 mi da esposa de Moraes", url: "https://www.cnnbrasil.com.br/politica/contrato-de-esposa-de-alexandre-de-moraes-com-banco-master/" },
     ],
@@ -463,7 +463,7 @@ const NODES = [
     role: "Desembargadora — TRF-1",
     summary: "Negou habeas corpus a Vorcaro em 20/11/2025; depois, em 28/11, determinou sua soltura mediante uso de tornozeleira eletrônica.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/solange_salgado.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/solange_salgado.jpg",
     x: 95, y: 38
   },
   {
@@ -473,7 +473,7 @@ const NODES = [
     role: "Juiz — 10ª Vara Federal de Brasília",
     summary: "Assinou a ordem da primeira prisão de Vorcaro em 17/11/2025, às 15h29 — dezoito minutos antes da defesa peticionar contra eventuais cautelares.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/ricardo_leite.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/ricardo_leite.jpg",
     x: 78, y: 15
   },
 
@@ -488,7 +488,7 @@ const NODES = [
       "Mensagem citada pela PF: Vorcaro pede para 'moer' uma funcionária que o ameaçava; Mourão responde perguntando o que fazer.",
       "Empresa King Participações Imobiliárias Ltda., de sua propriedade, usada para repassar pagamentos ao grupo."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/mourao.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mourao.jpg",
     sources: [
       { label: "Revista Fórum — A Turma e o núcleo de intimidação", url: "https://revistaforum.com.br/politica/compliance-zero-a-turma-banco-master/" },
       { label: "Metrópoles — Morte de Mourão em custódia", url: "https://www.metropoles.com/brasil/policia-br/luiz-mourao-morre-em-custodia-da-policia-federal" },
@@ -502,7 +502,7 @@ const NODES = [
     role: "Policial federal aposentado — núcleo de inteligência paralela",
     summary: "Apontado como um dos principais operadores de 'A Turma', usando experiência e contatos da carreira policial para obter dados sigilosos e vigiar alvos. Preso na fase de 04/03/2026.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/roseno.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/roseno.jpg",
     x: 15, y: 12
   },
   {
@@ -512,7 +512,7 @@ const NODES = [
     role: "Pai de Daniel Vorcaro — fundador do Grupo Multipar",
     summary: "Preso em 14/05/2026 em Belo Horizonte (6ª fase). PF aponta que R$ 2,24 bilhões de vítimas do banco foram ocultados em conta no nome dele. Suspeito de manter pagamentos à 'Turma' mesmo após a prisão do filho, e de ligação direta com a estrutura de intimidação. Passou a usar número de telefone colombiano após o avanço das investigações.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/henrique_vorcaro.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/henrique_vorcaro.jpg",
     sources: [
       { label: "CNN Brasil — 6ª fase: prisão do pai de Vorcaro", url: "https://www.cnnbrasil.com.br/politica/pf-deflagra-nova-fase-da-operacao-compliance-zero-pai-de-vorcaro-e-preso/" },
       { label: "Jornal de Brasília — Decisão de Mendonça na 6ª fase", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/veja-trechos-da-decisao-de-andre-mendonca-que-autorizou-nova-fase-da-operacao-compliance-zero/" },
@@ -526,7 +526,7 @@ const NODES = [
     role: "Irmã de Daniel Vorcaro, esposa de Fabiano Zettel",
     summary: "Citada junto ao pai, Henrique, por mansão na Flórida (EUA) que chamou atenção dos investigadores.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/natalia_vorcaro.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/natalia_vorcaro.jpg",
     x: 30, y: 22
   },
   {
@@ -536,7 +536,7 @@ const NODES = [
     role: "Primo de Daniel Vorcaro",
     summary: "Alvo da 5ª fase da operação (07/05/2026), junto com Ciro Nogueira, em mandados no DF, MG, PI e SP.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/felipe_cancado.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/felipe_cancado.jpg",
     x: 40, y: 30
   },
   {
@@ -546,7 +546,7 @@ const NODES = [
     role: "Policial federal — integrante de 'A Turma'",
     summary: "Identificado pela PF como um dos integrantes do núcleo de intimidação, ao lado de Roseno e Anderson Wander.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/sebastiao_monteiro.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/sebastiao_monteiro.jpg",
     x: 10, y: 5
   },
   {
@@ -556,7 +556,7 @@ const NODES = [
     role: "Policial federal — integrante de 'A Turma'",
     summary: "Identificado pela PF como integrante do núcleo de intimidação 'A Turma'.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/anderson_wander.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/anderson_wander.jpg",
     x: 5, y: 10
   },
   {
@@ -566,7 +566,7 @@ const NODES = [
     role: "Operador do jogo do bicho — integrante de 'A Turma'",
     summary: "Apontado pela PF como integrante de 'A Turma', com conexões a operações de jogo do bicho no Rio de Janeiro. Ligado ao episódio de intimidação a ex-funcionários de Vorcaro em Angra dos Reis (jun/2024).",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/manoel_mendes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/manoel_mendes.jpg",
     x: 2, y: 2
   },
   {
@@ -576,7 +576,7 @@ const NODES = [
     role: "Jornalista (colunista de O Globo) — alvo de ameaça",
     summary: "Segundo mensagens citadas pela PF, Vorcaro teria solicitado a Mourão que ele fosse agredido fisicamente, com a sugestão de simular um assalto, em razão de reportagens críticas ao Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/lauro_jardim.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/lauro_jardim.jpg",
     x: 18, y: -2
   },
   {
@@ -586,7 +586,7 @@ const NODES = [
     role: "Advogado de Vorcaro",
     summary: "Preso preventivamente na 4ª fase (16/04/2026). Teria representado o Banco Master em negociações estratégicas com o BRB.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/daniel_monteiro.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/daniel_monteiro.jpg",
     x: 38, y: 65
   },
 
@@ -598,7 +598,7 @@ const NODES = [
     role: "Suspeito de vazamento a jornalista",
     summary: "Investigado na 7ª fase por suposto repasse indevido de dados internos do caso a um jornalista; casa alvo de busca e o perito foi afastado do cargo.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/perito_pf.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/perito_pf.jpg",
     x: 85, y: 8
   },
   {
@@ -608,7 +608,7 @@ const NODES = [
     role: "Suspeita de integrar o esquema",
     summary: "Alvo da 3ª fase, suspeita de usar acessos privilegiados na PF para obtenção de informações sigilosas em favor do grupo investigado.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/delegada_pf.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/delegada_pf.jpg",
     x: 8, y: -2
   },
 
@@ -620,7 +620,7 @@ const NODES = [
     role: "Filhos de João Carlos Mansur — beneficiários de fundos",
     summary: "Segundo o MPF, aparecem como beneficiários finais declarados dos fundos Astralo 95 e Reag Growth 95, que teriam movimentado R$ 1,45 bilhão em recursos oriundos do Master, numa cadeia de controle apontada como mecanismo de desvio.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/mansur_filhos.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mansur_filhos.jpg",
     x: 2, y: 45
   },
   {
@@ -630,7 +630,7 @@ const NODES = [
     role: "Fundo administrado pelo próprio Master",
     summary: "Segundo a PF, João Carlos Mansur usou o fundo Celeno (administrado pelo Master) para adquirir ações do BRB — manobra apontada como triangulação financeira que teria turbinado artificialmente o capital do banco estatal.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/fundo_celeno.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/fundo_celeno.jpg",
     x: 12, y: 60
   },
   {
@@ -640,7 +640,7 @@ const NODES = [
     role: "Investigação correlata — infiltração do crime organizado",
     summary: "Investigação do MPSP e da PF sobre infiltração do PCC no mercado financeiro via postos de combustíveis e fundos de investimento. A Reag, de Mansur, já era alvo dessa operação antes de entrar no radar da Compliance Zero — levantando suspeita (negada por Mansur) de cruzamento entre os dois esquemas.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/pcc_carbono_oculto.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/pcc_carbono_oculto.jpg",
     x: 5, y: 58
   },
 
@@ -656,7 +656,7 @@ const NODES = [
       "Antônio de Oliveira Neto (ex-diretor do Master até 2020) seria o CEO do banco resultante da fusão.",
       "PF suspeita que o anúncio da venda visava justificar a tentativa de Vorcaro embarcar a Dubai antes da 1ª prisão."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/fictor.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/fictor.jpg",
     sources: [
       { label: "Estadão — Bastidores da venda à Fictor", url: "https://www.estadao.com.br/politica/fictor-banco-master-emirados-arabes-temer/" },
     ],
@@ -682,7 +682,7 @@ const NODES = [
     role: "Mestre de jiu-jítsu — citado na negociação Fictor",
     summary: "Citado pelo Estadão entre os personagens envolvidos na tentativa de venda do Master a investidores dos Emirados Árabes.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/renzo_gracie.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/renzo_gracie.jpg",
     x: 58, y: 5
   },
   {
@@ -692,7 +692,7 @@ const NODES = [
     role: "Advogado — amigo de Vorcaro, atuou pela Fictor",
     summary: "Amigo de longa data de Vorcaro, conduziu mais de uma dezena de 'road shows' apresentando o Master a investidores estrangeiros — sobretudo árabes e russos interessados na licença do banco para transações via sistema financeiro chinês, fora do sistema bancário americano.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/burilli.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/burilli.jpg",
     x: 42, y: -3
   },
   {
@@ -702,7 +702,7 @@ const NODES = [
     role: "Ex-diretor do Master (até 2020) — indicado CEO do Banco Fictor",
     summary: "Atuou do lado da Fictor na negociação. Já havia tentado, em 2021, aproximar o banqueiro russo Oleg Tinkov (dissidente de Putin) para comprar o Will Bank.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/antonio_oliveira_neto.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/antonio_oliveira_neto.jpg",
     x: 50, y: 0
   },
 
@@ -714,7 +714,7 @@ const NODES = [
     role: "Fundo estadual — déficit de R$ 394,9 milhões",
     summary: "Um dos institutos de previdência (RPPS) com maior exposição ao Master. Diretor-presidente Jocildo Lemos e dois integrantes do comitê de investimentos foram alvos de operação da PF, desdobramento da Compliance Zero.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/amprev.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/amprev.jpg",
     sources: [
       { label: "Estadão — RPPS estaduais expostos ao Master", url: "https://www.estadao.com.br/economia/amprev-amapa-banco-master-compliance-zero/" },
     ],
@@ -727,7 +727,7 @@ const NODES = [
     role: "Diretor-presidente da Amprev",
     summary: "Alvo de operação da Polícia Federal junto com dois integrantes do comitê de investimentos do fundo, no contexto da apuração sobre aplicações de institutos de previdência no Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/jocildo_lemos.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/jocildo_lemos.jpg",
     x: 12, y: 75
   },
   {
@@ -737,7 +737,7 @@ const NODES = [
     role: "Fundo municipal (Aparecida de Goiânia) — R$ 40 milhões aplicados",
     summary: "Declarou ter aplicado R$ 40 milhões em letras do Master em junho de 2024. Segundo o Ministério da Previdência, o investimento ocorreu por insistência do secretário Einstein Paniago, apesar de nota de risco inferior apontada pelo conselho do fundo.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/aparecidaprev.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/aparecidaprev.jpg",
     x: 22, y: 72
   },
   {
@@ -747,7 +747,7 @@ const NODES = [
     role: "Ex-secretário ligado ao AparecidaPrev",
     summary: "Segundo o Ministério da Previdência, teria se aproximado de Vorcaro e trabalhado pessoalmente para contornar as regras internas e viabilizar o investimento do fundo municipal no Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/einstein_paniago.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/einstein_paniago.jpg",
     x: 25, y: 65
   },
   {
@@ -760,7 +760,7 @@ const NODES = [
       "Aposentados contrataram R$ 701,2 milhões em RCC (Reserva de Cartão Consignado) entre jan/2023 e nov/2025.",
       "Mais de 4,8 milhões de operações desse tipo realizadas no período."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/cpmi_inss.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/cpmi_inss.jpg",
     sources: [
       { label: "Wikipedia — CPMI do INSS e o Banco Master", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
     ],
@@ -775,7 +775,7 @@ const NODES = [
     role: "Ex-presidente do partido União Brasil",
     summary: "Citado entre os políticos que, segundo apuração divulgada em abril/2026 e confirmada pela CPI do Crime Organizado, receberam dinheiro do Banco Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/antonio_rueda.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/antonio_rueda.jpg",
     x: 50, y: 92
   },
   {
@@ -785,7 +785,7 @@ const NODES = [
     role: "Veículo intermediário dos repasses ao filme Dark Horse",
     summary: "Segundo Karina Ferreira da Gama (Go Up Entertainment), o dinheiro de Vorcaro para o filme 'Dark Horse' não foi transferido diretamente, mas passou primeiro pelo fundo Havengate antes de chegar à produtora.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/havengate.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/havengate.jpg",
     x: 65, y: 92
   },
   {
@@ -795,7 +795,7 @@ const NODES = [
     role: "Sócia da Go Up Entertainment (produtora do filme Dark Horse)",
     summary: "Afirmou publicamente que Vorcaro foi responsável por mais de 90% da verba do filme 'Dark Horse' — orçamento de R$ 65,7 milhões, dos quais R$ 61 milhões pagos por Vorcaro de um total acordado de R$ 134 milhões com Flávio Bolsonaro.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/karina_gama.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/karina_gama.jpg",
     sources: [
       { label: "Intercept Brasil — SWIFTs e planilha da Go Up", url: "https://theintercept.com/2026/06/09/dark-horse-vorcaro-go-up-swift/" },
     ],
@@ -813,7 +813,7 @@ const NODES = [
       "Influenciadores eram abordados com NDA de R$ 800 mil antes de saber que trabalhavam para Vorcaro.",
       "PF estima até R$ 2 milhões destinados à rede de desinformação contra o Banco Central."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/thiago_miranda.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/thiago_miranda.jpg",
     sources: [
       { label: "CNN Brasil — Projeto DV e intimidação de jornalistas", url: "https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
       { label: "O Cafezinho — 10ª fase: Miranda e o Projeto DV", url: "https://www.ocafezinho.com/2026/07/09/compliance-zero-pf-faz-operacao-contra-publicitario-de-vorcaro-suspeito-de-intimidar-jornalistas-e-atacar-o-bc" },
@@ -828,7 +828,7 @@ const NODES = [
     role: "Jornalista de O Globo — alvo de monitoramento ilegal",
     summary: "Colunista do O Globo. Segundo decisão de Mendonça, teve dados bancários violados e informações de familiares levantadas por ordem de Vorcaro via Miranda. Vorcaro teria escrito ser preciso encontrar algo dessa mulher no pessoal.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/malu_gaspar.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/malu_gaspar.jpg",
     sources: [
       { label: "CNN Brasil — Projeto DV e jornalistas monitorados", url: "https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
     ],
@@ -841,7 +841,7 @@ const NODES = [
     role: "Jornalista da Revista Piauí — alvo de pressão",
     summary: "Citada na decisão de Mendonça como alvo de pressão de Vorcaro, por se recusar a retirar reportagens sobre o Banco Master da Piauí.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/consuelo_dieguez.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/consuelo_dieguez.jpg",
     x: 12, y: 14
   },
   {
@@ -851,7 +851,7 @@ const NODES = [
     role: "CEO do Itaú Unibanco — monitorado por Vorcaro",
     summary: "Segundo a PF, Vorcaro solicitou a Miranda levantamento sobre o executivo do Itaú, alegando que ele estaria causando muito problema. Dados financeiros e pessoais foram coletados sem autorização.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/milton_maluhy.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/milton_maluhy.jpg",
     x: 8, y: 18
   },
   {
@@ -861,7 +861,7 @@ const NODES = [
     role: "Jornalista — ex-sócio de Thiago Miranda",
     summary: "Ex-sócio de Miranda no Grupo Leo Dias. Miranda anunciou saída da sociedade 2 dias antes de virar alvo da PF. Leo Dias não consta como investigado.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/leo_dias.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/leo_dias.jpg",
     x: 18, y: 4
   },
   {
@@ -871,7 +871,7 @@ const NODES = [
     role: "Segundo grupo operacional de Vorcaro — em apuração",
     summary: "PF identificou três grupos: A Turma (intimidação física), Os Meninos (ainda investigado) e O Time (desinformação). Mendonça reconheceu na 10ª fase que vínculos diretos entre os grupos ainda não foram comprovados.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/os_meninos.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/os_meninos.jpg",
     x: 28, y: 8
   }  ,
   // ---------- 9ª FASE — novos operadores / Wagner ----------
@@ -885,7 +885,7 @@ const NODES = [
       "Apresentado na investigação como elo entre Augusto Lima e o esquema de propina a Wagner.",
       "Defesa afirma que desconhecia o objetivo da eventual negociação imobiliária."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/valerio_marega.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/valerio_marega.jpg",
     sources: [
       { label: "O Estopim — 9ª fase: novos operadores de Wagner", url: "https://www.oestopim.com/post/pf-deflagra-nova-fase-da-compliance-zero-e-amplia-cerco-sobre-o-caso-banco-master" },
     ],
@@ -898,7 +898,7 @@ const NODES = [
     role: "Operador — núcleo empresarial e jurídico",
     summary: "Apontado pela PF como operador vinculado ao núcleo empresarial e jurídico do grupo Master. Junto com Valério Marega, teria intermediado a compra do apartamento de R$ 2,45 milhões para Jaques Wagner em Salvador. Alvo de mandados na 9ª fase.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/david_monteiro.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/david_monteiro.jpg",
     x: 56, y: 98
   },
   {
@@ -908,7 +908,7 @@ const NODES = [
     role: "Pessoa de confiança de Jaques Wagner — suposto elo com o Master",
     summary: "Pai de Eduardo Sodré e descrito na representação policial como pessoa de confiança do senador Jaques Wagner. Apontado pela PF como o elo entre o núcleo do Banco Master e o senador. Alvo de mandados na 9ª fase.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/guilherme_sodre.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/guilherme_sodre.jpg",
     sources: [
       { label: "CNN Brasil — 9ª fase: Guilherme Sodré como elo com Wagner", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
     ],
@@ -921,7 +921,7 @@ const NODES = [
     role: "Diretora da PKL One — prima de Augusto Lima",
     summary: "Prima de Augusto Lima, ex-sócio de Vorcaro. Diretora da empresa PKL One, que foi alvo de mandado de busca e apreensão na 9ª fase da Operação Compliance Zero.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/andrea_novaes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/andrea_novaes.jpg",
     x: 16, y: 52
   },
   {
@@ -941,7 +941,7 @@ const NODES = [
     role: "Cooperação internacional — rastreamento de patrimônio",
     summary: "Segundo o Século Diário, a PF atua em cooperação com o FBI (EUA) e a Interpol para congelar contas e identificar patrimônio oculto de Vorcaro e associados em paraísos fiscais internacionais.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/fbi_interpol.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/fbi_interpol.jpg",
     x: 92, y: 70
   },
   {
@@ -951,7 +951,7 @@ const NODES = [
     role: "Instituição do grupo Master — liquidada em março/2026",
     summary: "Mais uma instituição do conglomerado Master liquidada extrajudicialmente pelo Banco Central, em março de 2026, ampliando o rombo total estimado no FGC para quase R$ 50 bilhões.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/octa_scd.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/octa_scd.jpg",
     x: 70, y: 42
   }
   ,
@@ -968,7 +968,7 @@ const NODES = [
       "Afirma ter deixado o projeto ao descobrir ligação com o Banco Master.",
       "Não há acusação formal ou decisão judicial contra ele até o momento."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/marcelao.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/marcelao.jpg",
     sources: [
       { label: "Revista Fórum — R$ 650 mil conecta Marcelão ao Projeto DV", url: "https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
       { label: "Página 1 News — Trajetória de Marcelão", url: "https://pagina1news.com.br/marqueteiro-ligado-a-flavio-bolsonaro-recebeu-milhoes-em-contratos-publicos-e-entrou-no-radar-apos-repasse-de-vorcaro/" },
@@ -985,7 +985,7 @@ const NODES = [
       "Unltd Network recebeu R$ 400 mil de Miranda em 15/12/2025.",
       "Investigado como operador da rede de influenciadores do Projeto DV."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/anderson_nunes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/anderson_nunes.jpg",
     sources: [
       { label: "Brasil 247 — Unltd Network e o Projeto DV", url: "https://www.brasil247.com/brasilia/nova-fase-da-compliance-zero-escancara-a-gravidade-do-banditismo-de-colarinho-branco-dispara-lindbergh/" },
     ],
@@ -998,7 +998,7 @@ const NODES = [
     role: "Ex-diretor do Banco Central — alvo de ataques coordenados",
     summary: "Ex-diretor de Organização do Sistema Financeiro do Banco Central. Segundo a PF, era o alvo pessoal específico dos ataques coordenados pelo 'Projeto DV' — a campanha de cerca de 40 influenciadores teria foco especial em ataques de caráter pessoal contra ele, por suas posições regulatórias contrárias aos interesses do Banco Master.",
     details: [],
-    photo: "https://carlosvictor3.github.io/dossie-master/renato_gomes.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/renato_gomes.jpg",
     sources: [
       { label: "Revista Fórum — Renato Gomes alvo do Projeto DV", url: "https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
     ],
@@ -1018,7 +1018,7 @@ const NODES = [
       "STF suspendeu atividades de quatro empresas ligadas ao esquema: CNLF, BRGD S.A., Green Investimentos e Green Energia FIP.",
       "Ex-presidente da Agespisa (Águas e Esgotos do Piauí)."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/raimundo_nogueira.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/raimundo_nogueira.jpg",
     sources: [
       { label: "CNN Brasil — Quem é o irmão de Ciro Nogueira", url: "https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/" },
       { label: "Times Brasil — 5ª fase: Green Investimentos e CNLF", url: "https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" },
@@ -1037,7 +1037,7 @@ const NODES = [
       "Operação mantida como contrato de gaveta para evitar supervisão regulatória.",
       "STF suspendeu atividades por tempo indeterminado em 07/05/2026."
     ],
-    photo: "https://carlosvictor3.github.io/dossie-master/green_investimentos.jpg",
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/green_investimentos.jpg",
     sources: [
       { label: "Times Brasil — Green Investimentos e o esquema de propina", url: "https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" }
     ],
