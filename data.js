@@ -41,9 +41,9 @@ const NODES = [
     ],
     sources: [
       { label: "Wikipedia — Escândalo do Banco Master", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
-      { label: "CNN Brasil — 1ª prisão de Vorcaro (17/11/2025)", url: "https://www.cnnbrasil.com.br/politica/investigacoes-contra-banco-master-e-vorcaro-tiveram-inicio-em-2024/" },
+      { label: "CNN Brasil — 1ª prisão de Vorcaro (17/11/2025)", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/investigacoes-contra-banco-master-e-vorcaro-tiveram-inicio-em-2024/" },
       { label: "Agência Brasil — Compliance Zero fase a fase", url: "https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/operacao-compliance-zero-avanca-e-mira-corrupcao-no-alto-escalao" },
-      { label: "Gazeta do Povo — PF estima 60 fases", url: "https://www.gazetadopovo.com.br/republica/como-a-pf-planeja-avancar-na-operacao-compliance-zero-durante-as-eleicoes/" },
+      { label: "Gazeta do Povo — PF estima 60 fases", url: "https://web.archive.org/web/2026*/https://www.gazetadopovo.com.br/republica/como-a-pf-planeja-avancar-na-operacao-compliance-zero-durante-as-eleicoes/" },
     ],
     x: 50, y: 50
   },
@@ -63,8 +63,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/zettel.jpg",
     sources: [
-      { label: "Metrópoles — Zettel e a Super Empreendimentos", url: "https://www.metropoles.com/brasil/politica-brasil/entenda-quem-e-fabiano-zettel-cunhado-de-vorcaro-que-foi-preso" },
-      { label: "CNN Brasil — 3ª fase: prisão de Zettel", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
+      { label: "Metrópoles — Zettel e a Super Empreendimentos", url: "https://web.archive.org/web/2026*/https://www.metropoles.com/brasil/politica-brasil/entenda-quem-e-fabiano-zettel-cunhado-de-vorcaro-que-foi-preso" },
+      { label: "CNN Brasil — 3ª fase: prisão de Zettel", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
     ],
     x: 25, y: 30
   },
@@ -80,7 +80,7 @@ const NODES = [
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/augusto_lima.jpg",
     sources: [
       { label: "Wikipedia — Operação Compliance Zero", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
-      { label: "G1 — 9ª fase: Wagner e Augusto Lima alvos", url: "https://g1.globo.com/politica/noticia/2026/06/18/pf-deflagra-9a-fase-da-operacao-compliance-zero.ghtml" },
+      { label: "G1 — 9ª fase: Wagner e Augusto Lima alvos", url: "https://web.archive.org/web/2026*/https://g1.globo.com/politica/noticia/2026/06/18/pf-deflagra-9a-fase-da-operacao-compliance-zero.ghtml" },
     ],
     x: 20, y: 55
   },
@@ -116,7 +116,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/cayman.jpg",
     sources: [
-      { label: "O Globo — COAF: R$ 700 mi enviados a offshore em Cayman", url: "https://oglobo.globo.com/politica/noticia/2026/03/11/vorcaro-enviou-r-700-milhoes-a-offshore-em-cayman.ghtml" },
+      { label: "O Globo — COAF: R$ 700 mi enviados a offshore em Cayman", url: "https://web.archive.org/web/2026*/https://oglobo.globo.com/politica/noticia/2026/03/11/vorcaro-enviou-r-700-milhoes-a-offshore-em-cayman.ghtml" },
     ],
     x: 10, y: 18
   },
@@ -143,8 +143,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mansur.jpg",
     sources: [
-      { label: "Metrópoles — Mansur e a triangulação financeira", url: "https://www.metropoles.com/brasil/joao-carlos-mansur-reag-banco-master" },
-      { label: "Operação Carbono Oculto — contexto PCC", url: "https://www.cnnbrasil.com.br/politica/pf-investiga-infiltracao-do-pcc-no-mercado-financeiro" },
+      { label: "Metrópoles — Mansur e a triangulação financeira", url: "https://web.archive.org/web/2026*/https://www.metropoles.com/brasil/joao-carlos-mansur-reag-banco-master" },
+      { label: "Operação Carbono Oculto — contexto PCC", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/pf-investiga-infiltracao-do-pcc-no-mercado-financeiro" },
     ],
     x: 8, y: 50
   },
@@ -163,8 +163,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/brb.jpg",
     sources: [
-      { label: "Times Brasil — BRB e a compra do Master", url: "https://timesbrasil.com.br/empresas-e-negocios/operacao-compliance-zero-entenda-o-que-ja-aconteceu-em-cada-fase-da-investigacao/" },
-      { label: "CNN Brasil — TCU abre processo sobre BC e BRB", url: "https://www.cnnbrasil.com.br/economia/tcu-abre-processo-para-apurar-possivel-omissao-do-bc-no-caso-master/" },
+      { label: "Times Brasil — BRB e a compra do Master", url: "https://web.archive.org/web/2026*/https://timesbrasil.com.br/empresas-e-negocios/operacao-compliance-zero-entenda-o-que-ja-aconteceu-em-cada-fase-da-investigacao/" },
+      { label: "CNN Brasil — TCU abre processo sobre BC e BRB", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/economia/tcu-abre-processo-para-apurar-possivel-omissao-do-bc-no-caso-master/" },
     ],
     x: 45, y: 75
   },
@@ -177,7 +177,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/phc.jpg",
     sources: [
-      { label: "CNN Brasil — 4ª fase: prisão do ex-presidente do BRB", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-prende-ex-presidente-do-brb-paulo-henrique-costa/" },
+      { label: "CNN Brasil — 4ª fase: prisão do ex-presidente do BRB", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/caso-master-pf-prende-ex-presidente-do-brb-paulo-henrique-costa/" },
     ],
     x: 55, y: 85
   },
@@ -200,7 +200,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/bc.jpg",
     sources: [
-      { label: "Banco Central — Liquidação do Master (18/11/2025)", url: "https://www.bcb.gov.br/detalhenoticia/692/nota" },
+      { label: "Banco Central — Liquidação do Master (18/11/2025)", url: "https://web.archive.org/web/2026*/https://www.bcb.gov.br/detalhenoticia/692/nota" },
     ],
     x: 65, y: 60
   },
@@ -213,7 +213,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/souza_santana.jpg",
     sources: [
-      { label: "CNN Brasil — Servidores do BC afastados", url: "https://www.cnnbrasil.com.br/economia/servidores-do-banco-central-sao-afastados-no-caso-master/" },
+      { label: "CNN Brasil — Servidores do BC afastados", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/economia/servidores-do-banco-central-sao-afastados-no-caso-master/" },
     ],
     x: 70, y: 50
   },
@@ -242,7 +242,7 @@ const NODES = [
       "Apreendidos em sua casa: motocicleta Honda CB1000, BMW 440i e malote de documentos."
     ],
     sources: [
-      { label: "CNN Brasil — 5ª fase: Ciro Nogueira alvo", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
+      { label: "CNN Brasil — 5ª fase: Ciro Nogueira alvo", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
       { label: "Wikipedia — Emenda Master (PEC 65/2023)", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
     ],
     x: 50, y: 85
@@ -256,8 +256,8 @@ const NODES = [
     summary: "Segundo a CPI do Crime Organizado, teria fechado com Vorcaro acordo de R$ 134 milhões para financiamento do filme 'Dark Horse' (sobre Jair Bolsonaro) — dos quais R$ 61 milhões já confirmados como pagos.",
     details: [],
     sources: [
-      { label: "BBC News Brasil — Flávio admite pedido de recursos a Vorcaro", url: "https://www.bbc.com/portuguese/articles/c5y15zeg4xgo" },
-      { label: "Intercept Brasil — Contrato do filme Dark Horse", url: "https://theintercept.com/2026/05/15/eduardo-bolsonaro-dark-horse-vorcaro/" },
+      { label: "BBC News Brasil — Flávio admite pedido de recursos a Vorcaro", url: "https://web.archive.org/web/2026*/https://www.bbc.com/portuguese/articles/c5y15zeg4xgo" },
+      { label: "Intercept Brasil — Contrato do filme Dark Horse", url: "https://web.archive.org/web/2026*/https://theintercept.com/2026/05/15/eduardo-bolsonaro-dark-horse-vorcaro/" },
     ],
     x: 60, y: 95
   },
@@ -273,7 +273,7 @@ const NODES = [
       "PF apura se a permanência de Eduardo nos EUA estaria sendo bancada por recursos de Vorcaro."
     ],
     sources: [
-      { label: "Intercept Brasil — Eduardo e o contrato do Dark Horse", url: "https://theintercept.com/2026/05/15/eduardo-bolsonaro-dark-horse-vorcaro/" },
+      { label: "Intercept Brasil — Eduardo e o contrato do Dark Horse", url: "https://web.archive.org/web/2026*/https://theintercept.com/2026/05/15/eduardo-bolsonaro-dark-horse-vorcaro/" },
     ],
     x: 68, y: 98
   },
@@ -291,7 +291,7 @@ const NODES = [
       "Defesa de Castro nega irregularidades."
     ],
     sources: [
-      { label: "Diário do Rio — Castro e a Rioprevidência", url: "https://diariodorio.com/claudio-castro-rioprevidencia-banco-master/" },
+      { label: "Diário do Rio — Castro e a Rioprevidência", url: "https://web.archive.org/web/2026*/https://diariodorio.com/claudio-castro-rioprevidencia-banco-master/" },
       { label: "Wikipedia — 8ª fase: Rioprevidência R$ 3 bi", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
     ],
     x: 35, y: 90
@@ -307,7 +307,7 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/rioprevidencia.jpg",
     sources: [
-      { label: "JGB — 8ª fase: R$ 3 bi do Rioprevidência", url: "https://jornalgrandebahia.com.br/2026/05/da-suspeita-financeira-ao-nucleo-politico-reveja-as-8-fases-da-operacao-compliance-zero-contra-o-banco-master/" },
+      { label: "JGB — 8ª fase: R$ 3 bi do Rioprevidência", url: "https://web.archive.org/web/2026*/https://jornalgrandebahia.com.br/2026/05/da-suspeita-financeira-ao-nucleo-politico-reveja-as-8-fases-da-operacao-compliance-zero-contra-o-banco-master/" },
     ],
     x: 28, y: 78
   },
@@ -343,7 +343,7 @@ const NODES = [
       "Relatório do COAF aponta que a empresa movimentou recursos 'acima de sua capacidade financeira declarada'."
     ],
     sources: [
-      { label: "O Globo — COAF: empresa de ACM Neto recebeu R$ 3,6 mi", url: "https://oglobo.globo.com/politica/noticia/2026/03/11/empresa-ligada-a-acm-neto-recebeu-r-36-milhoes-do-banco-master.ghtml" },
+      { label: "O Globo — COAF: empresa de ACM Neto recebeu R$ 3,6 mi", url: "https://web.archive.org/web/2026*/https://oglobo.globo.com/politica/noticia/2026/03/11/empresa-ligada-a-acm-neto-recebeu-r-36-milhoes-do-banco-master.ghtml" },
     ],
     x: 40, y: 100
   },
@@ -356,8 +356,8 @@ const NODES = [
     summary: "Segundo apontamento da PF em junho de 2026, teria recebido vantagens indevidas em troca de atuação política no Congresso — incluindo um apartamento em Salvador e R$ 3,5 milhões.",
     details: [],
     sources: [
-      { label: "CNN Brasil — 9ª fase: Wagner alvo da PF", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
-      { label: "O Estopim — 9ª fase detalhada", url: "https://www.oestopim.com/post/pf-deflagra-nova-fase-da-compliance-zero-e-amplia-cerco-sobre-o-caso-banco-master" },
+      { label: "CNN Brasil — 9ª fase: Wagner alvo da PF", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
+      { label: "O Estopim — 9ª fase detalhada", url: "https://web.archive.org/web/2026*/https://www.oestopim.com/post/pf-deflagra-nova-fase-da-compliance-zero-e-amplia-cerco-sobre-o-caso-banco-master" },
     ],
     x: 55, y: 100
   },
@@ -395,8 +395,8 @@ const NODES = [
       "Oposição articula no Congresso abertura de CPI para investigar o Banco Master e, por consequência, o casal Moraes."
     ],
     sources: [
-      { label: "Metrópoles — Mensagem de Vorcaro 2min antes da prisão", url: "https://www.metropoles.com/brasil/politica-brasil/vorcaro-mandou-mensagem-para-moraes-antes-de-ser-preso" },
-      { label: "CNN Brasil — Viviane Moraes e contrato com o Master", url: "https://www.cnnbrasil.com.br/politica/contrato-de-esposa-de-alexandre-de-moraes-com-banco-master/" },
+      { label: "Metrópoles — Mensagem de Vorcaro 2min antes da prisão", url: "https://web.archive.org/web/2026*/https://www.metropoles.com/brasil/politica-brasil/vorcaro-mandou-mensagem-para-moraes-antes-de-ser-preso" },
+      { label: "CNN Brasil — Viviane Moraes e contrato com o Master", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/contrato-de-esposa-de-alexandre-de-moraes-com-banco-master/" },
     ],
     x: 80, y: 35
   },
@@ -405,11 +405,11 @@ const NODES = [
     name: "Viviane Marci de Moraes",
     type: "JUDICIARIO",
     role: "Esposa de Alexandre de Moraes",
-    summary: "Contrato dela com o Banco Master foi noticiado em 11/12/2025, alimentando o escrutínio sobre a relação entre o ministro e Vorcaro. Reportagens posteriores apontam contrato de R$ 129 milhões, pagos em parcelas de R$ 3,6 milhões/mês ao escritório de advocacia dela — interrompido com a liquidação do banco.",
+    summary: "Contrato de R$ 129 milhões (36 parcelas de R$ 3,6 mi/mês) firmado entre o Master e o escritório Barci de Moraes, do qual é sócia. CPI do Crime Organizado confirmou pagamento de R$ 80,2 mi (22 parcelas) entre fev/2024 e nov/2025. Uma minuta de novo contrato de R$ 50 mi foi encontrada na delação de Vorcaro — não chegou a ser assinada. O escritório nega irregularidades. Alexandre de Moraes não comentou.",
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/viviane_moraes.jpg",
     sources: [
-      { label: "CNN Brasil — Contrato de R$ 129 mi da esposa de Moraes", url: "https://www.cnnbrasil.com.br/politica/contrato-de-esposa-de-alexandre-de-moraes-com-banco-master/" },
+      { label: "CNN Brasil — Contrato de R$ 129 mi da esposa de Moraes", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/contrato-de-esposa-de-alexandre-de-moraes-com-banco-master/" },
     ],
     x: 88, y: 28
   },
@@ -437,7 +437,7 @@ const NODES = [
       "29/11/2025 — TRF-1 (desembargadora Solange Salgado) solta Vorcaro, que passa a usar tornozeleira."
     ],
     sources: [
-      { label: "Brasil de Fato — Toffoli sorteado relator e voo a Lima", url: "https://brasildefato.com.br/2026/11/28/toffoli-e-sorteado-relator-do-caso-master-e-no-mesmo-dia-voa-a-lima" },
+      { label: "Brasil de Fato — Toffoli sorteado relator e voo a Lima", url: "https://web.archive.org/web/2026*/https://brasildefato.com.br/2026/11/28/toffoli-e-sorteado-relator-do-caso-master-e-no-mesmo-dia-voa-a-lima" },
       { label: "Wikipedia — Operação Compliance Zero", url: "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Compliance_Zero" },
     ],
     x: 90, y: 45
@@ -452,7 +452,7 @@ const NODES = [
     details: [],
     sources: [
       { label: "STF — Decisões de Mendonça nas fases 3 a 10", url: "https://noticias.stf.jus.br/postsnoticias/stf-autoriza-prisoes-e-medidas-cautelares-na-6a-fase-da-operacao-compliance-zero/" },
-      { label: "Rádio Itatiaia — 10ª fase: Projeto DV", url: "https://www.itatiaia.com.br/politica/operacao-compliance-zero-pf-banco-master-vorcaro-brasilia/" },
+      { label: "Rádio Itatiaia — 10ª fase: Projeto DV", url: "https://web.archive.org/web/2026*/https://www.itatiaia.com.br/politica/operacao-compliance-zero-pf-banco-master-vorcaro-brasilia/" },
     ],
     x: 92, y: 55
   },
@@ -490,8 +490,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/mourao.jpg",
     sources: [
-      { label: "Revista Fórum — A Turma e o núcleo de intimidação", url: "https://revistaforum.com.br/politica/compliance-zero-a-turma-banco-master/" },
-      { label: "Metrópoles — Morte de Mourão em custódia", url: "https://www.metropoles.com/brasil/policia-br/luiz-mourao-morre-em-custodia-da-policia-federal" },
+      { label: "Revista Fórum — A Turma e o núcleo de intimidação", url: "https://web.archive.org/web/2026*/https://revistaforum.com.br/politica/compliance-zero-a-turma-banco-master/" },
+      { label: "Metrópoles — Morte de Mourão em custódia", url: "https://web.archive.org/web/2026*/https://www.metropoles.com/brasil/policia-br/luiz-mourao-morre-em-custodia-da-policia-federal" },
     ],
     x: 25, y: 5
   },
@@ -514,8 +514,8 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/henrique_vorcaro.jpg",
     sources: [
-      { label: "CNN Brasil — 6ª fase: prisão do pai de Vorcaro", url: "https://www.cnnbrasil.com.br/politica/pf-deflagra-nova-fase-da-operacao-compliance-zero-pai-de-vorcaro-e-preso/" },
-      { label: "Jornal de Brasília — Decisão de Mendonça na 6ª fase", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/veja-trechos-da-decisao-de-andre-mendonca-que-autorizou-nova-fase-da-operacao-compliance-zero/" },
+      { label: "CNN Brasil — 6ª fase: prisão do pai de Vorcaro", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/pf-deflagra-nova-fase-da-operacao-compliance-zero-pai-de-vorcaro-e-preso/" },
+      { label: "Jornal de Brasília — Decisão de Mendonça na 6ª fase", url: "https://web.archive.org/web/2026*/https://jornaldebrasilia.com.br/noticias/politica-e-poder/veja-trechos-da-decisao-de-andre-mendonca-que-autorizou-nova-fase-da-operacao-compliance-zero/" },
     ],
     x: 35, y: 38
   },
@@ -658,7 +658,7 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/fictor.jpg",
     sources: [
-      { label: "Estadão — Bastidores da venda à Fictor", url: "https://www.estadao.com.br/politica/fictor-banco-master-emirados-arabes-temer/" },
+      { label: "Estadão — Bastidores da venda à Fictor", url: "https://web.archive.org/web/2026*/https://www.estadao.com.br/politica/fictor-banco-master-emirados-arabes-temer/" },
     ],
     x: 48, y: 18
   },
@@ -671,7 +671,7 @@ const NODES = [
     summary: "Segundo o Estadão, apresentou Vorcaro a um integrante da realeza dos Emirados Árabes na busca por investidores para o Master. CPI do Crime Organizado confirmou pagamentos do banco a ele.",
     details: [],
     sources: [
-      { label: "Estadão — Temer apresentou Vorcaro à realeza dos Emirados", url: "https://www.estadao.com.br/politica/fictor-banco-master-emirados-arabes-temer/" },
+      { label: "Estadão — Temer apresentou Vorcaro à realeza dos Emirados", url: "https://web.archive.org/web/2026*/https://www.estadao.com.br/politica/fictor-banco-master-emirados-arabes-temer/" },
     ],
     x: 55, y: 12
   },
@@ -716,7 +716,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/amprev.jpg",
     sources: [
-      { label: "Estadão — RPPS estaduais expostos ao Master", url: "https://www.estadao.com.br/economia/amprev-amapa-banco-master-compliance-zero/" },
+      { label: "Estadão — RPPS estaduais expostos ao Master", url: "https://web.archive.org/web/2026*/https://www.estadao.com.br/economia/amprev-amapa-banco-master-compliance-zero/" },
     ],
     x: 22, y: 60
   },
@@ -797,7 +797,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/karina_gama.jpg",
     sources: [
-      { label: "Intercept Brasil — SWIFTs e planilha da Go Up", url: "https://theintercept.com/2026/06/09/dark-horse-vorcaro-go-up-swift/" },
+      { label: "Intercept Brasil — SWIFTs e planilha da Go Up", url: "https://web.archive.org/web/2026*/https://theintercept.com/2026/06/09/dark-horse-vorcaro-go-up-swift/" },
     ],
     x: 70, y: 90
   },
@@ -815,9 +815,9 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/thiago_miranda.jpg",
     sources: [
-      { label: "CNN Brasil — Projeto DV e intimidação de jornalistas", url: "https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
-      { label: "O Cafezinho — 10ª fase: Miranda e o Projeto DV", url: "https://www.ocafezinho.com/2026/07/09/compliance-zero-pf-faz-operacao-contra-publicitario-de-vorcaro-suspeito-de-intimidar-jornalistas-e-atacar-o-bc" },
-      { label: "Gazeta do Paraná — Pagamentos de até R$ 2 mi a influenciadores", url: "https://gazetadoparana.com.br/artigo/operacao-compliance-zero-pf-aponta-pagamentos-de-ate-r-2-milhoes-a-influenciadores" },
+      { label: "CNN Brasil — Projeto DV e intimidação de jornalistas", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
+      { label: "O Cafezinho — 10ª fase: Miranda e o Projeto DV", url: "https://web.archive.org/web/2026*/https://www.ocafezinho.com/2026/07/09/compliance-zero-pf-faz-operacao-contra-publicitario-de-vorcaro-suspeito-de-intimidar-jornalistas-e-atacar-o-bc" },
+      { label: "Gazeta do Paraná — Pagamentos de até R$ 2 mi a influenciadores", url: "https://web.archive.org/web/2026*/https://gazetadoparana.com.br/artigo/operacao-compliance-zero-pf-aponta-pagamentos-de-ate-r-2-milhoes-a-influenciadores" },
     ],
     x: 22, y: 10
   },
@@ -830,7 +830,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/malu_gaspar.jpg",
     sources: [
-      { label: "CNN Brasil — Projeto DV e jornalistas monitorados", url: "https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
+      { label: "CNN Brasil — Projeto DV e jornalistas monitorados", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/projeto-dv-de-vorcaro-mirava-intimidacao-e-coacao-de-pessoas-diz-pf/" },
     ],
     x: 15, y: 8
   },
@@ -887,7 +887,7 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/valerio_marega.jpg",
     sources: [
-      { label: "O Estopim — 9ª fase: novos operadores de Wagner", url: "https://www.oestopim.com/post/pf-deflagra-nova-fase-da-compliance-zero-e-amplia-cerco-sobre-o-caso-banco-master" },
+      { label: "O Estopim — 9ª fase: novos operadores de Wagner", url: "https://web.archive.org/web/2026*/https://www.oestopim.com/post/pf-deflagra-nova-fase-da-compliance-zero-e-amplia-cerco-sobre-o-caso-banco-master" },
     ],
     x: 52, y: 96
   },
@@ -910,7 +910,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/guilherme_sodre.jpg",
     sources: [
-      { label: "CNN Brasil — 9ª fase: Guilherme Sodré como elo com Wagner", url: "https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
+      { label: "CNN Brasil — 9ª fase: Guilherme Sodré como elo com Wagner", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/caso-master-pf-nova-fase-operacao-compliance-zero/" },
     ],
     x: 58, y: 93
   },
@@ -970,8 +970,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/marcelao.jpg",
     sources: [
-      { label: "Revista Fórum — R$ 650 mil conecta Marcelão ao Projeto DV", url: "https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
-      { label: "Página 1 News — Trajetória de Marcelão", url: "https://pagina1news.com.br/marqueteiro-ligado-a-flavio-bolsonaro-recebeu-milhoes-em-contratos-publicos-e-entrou-no-radar-apos-repasse-de-vorcaro/" },
+      { label: "Revista Fórum — R$ 650 mil conecta Marcelão ao Projeto DV", url: "https://web.archive.org/web/2026*/https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
+      { label: "Página 1 News — Trajetória de Marcelão", url: "https://web.archive.org/web/2026*/https://pagina1news.com.br/marqueteiro-ligado-a-flavio-bolsonaro-recebeu-milhoes-em-contratos-publicos-e-entrou-no-radar-apos-repasse-de-vorcaro/" },
     ],
     x: 25, y: 3
   },
@@ -987,7 +987,7 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/anderson_nunes.jpg",
     sources: [
-      { label: "Brasil 247 — Unltd Network e o Projeto DV", url: "https://www.brasil247.com/brasilia/nova-fase-da-compliance-zero-escancara-a-gravidade-do-banditismo-de-colarinho-branco-dispara-lindbergh/" },
+      { label: "Brasil 247 — Unltd Network e o Projeto DV", url: "https://web.archive.org/web/2026*/https://www.brasil247.com/brasilia/nova-fase-da-compliance-zero-escancara-a-gravidade-do-banditismo-de-colarinho-branco-dispara-lindbergh/" },
     ],
     x: 30, y: 0
   },
@@ -1000,7 +1000,7 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/renato_gomes.jpg",
     sources: [
-      { label: "Revista Fórum — Renato Gomes alvo do Projeto DV", url: "https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
+      { label: "Revista Fórum — Renato Gomes alvo do Projeto DV", url: "https://web.archive.org/web/2026*/https://revistaforum.com.br/politica/650-mil-pix-marqueteiro-flavio-bolsonaro-vorcaro/" },
     ],
     x: 78, y: 58
   }
@@ -1020,9 +1020,9 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/raimundo_nogueira.jpg",
     sources: [
-      { label: "CNN Brasil — Quem é o irmão de Ciro Nogueira", url: "https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/" },
-      { label: "Times Brasil — 5ª fase: Green Investimentos e CNLF", url: "https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" },
-      { label: "Correio Braziliense — Irmão de Ciro com tornozeleira", url: "https://www.correiobraziliense.com.br/politica/2026/05/7414140-irmao-de-ciro-nogueira-e-alvo-da-pf-e-tera-de-usar-tornozeleira-eletronica.html" }
+      { label: "CNN Brasil — Quem é o irmão de Ciro Nogueira", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/" },
+      { label: "Times Brasil — 5ª fase: Green Investimentos e CNLF", url: "https://web.archive.org/web/2026*/https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" },
+      { label: "Correio Braziliense — Irmão de Ciro com tornozeleira", url: "https://web.archive.org/web/2026*/https://www.correiobraziliense.com.br/politica/2026/05/7414140-irmao-de-ciro-nogueira-e-alvo-da-pf-e-tera-de-usar-tornozeleira-eletronica.html" }
     ],
     x: 46, y: 88
   },
@@ -1039,7 +1039,7 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/green_investimentos.jpg",
     sources: [
-      { label: "Times Brasil — Green Investimentos e o esquema de propina", url: "https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" }
+      { label: "Times Brasil — Green Investimentos e o esquema de propina", url: "https://web.archive.org/web/2026*/https://timesbrasil.com.br/brasil/operacoes-da-pf/rascunho-automaticooperacao-compliance-zero-preso-primo-vorcaro-ciro-nogueira/" }
     ],
     x: 44, y: 82
   }
@@ -1058,8 +1058,8 @@ const NODES = [
     ],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/ibaneis_rocha.jpg",
     sources: [
-      { label: "CNN Brasil — Ibaneis desiste do Senado após caso Master", url: "https://www.cnnbrasil.com.br/politica/investigacoes-do-master-minam-candidaturas-ao-senado-no-rj-e-df/" },
-      { label: "Correio Braziliense — Desistência de Ibaneis mexe no cenário político", url: "https://www.correiobraziliense.com.br/cidades-df/2026/07/7457849-desistencia-de-ibaneis-da-corrida-ao-senado-mexe-no-cenario-politico.html" }
+      { label: "CNN Brasil — Ibaneis desiste do Senado após caso Master", url: "https://web.archive.org/web/2026*/https://www.cnnbrasil.com.br/politica/investigacoes-do-master-minam-candidaturas-ao-senado-no-rj-e-df/" },
+      { label: "Correio Braziliense — Desistência de Ibaneis mexe no cenário político", url: "https://web.archive.org/web/2026*/https://www.correiobraziliense.com.br/cidades-df/2026/07/7457849-desistencia-de-ibaneis-da-corrida-ao-senado-mexe-no-cenario-politico.html" }
     ],
     x: 42, y: 95
   },
@@ -1072,9 +1072,44 @@ const NODES = [
     details: [],
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/davi_alcolumbre.jpg",
     sources: [
-      { label: "Revista Fórum — Bancada do Master nas eleições 2026", url: "https://revistaforum.com.br/politica/bancada-do-master-eleicoes-2026/" }
+      { label: "Revista Fórum — Bancada do Master nas eleições 2026", url: "https://web.archive.org/web/2026*/https://revistaforum.com.br/politica/bancada-do-master-eleicoes-2026/" }
     ],
     x: 48, y: 98
+  }
+  ,
+  {
+    id: "campos_neto",
+    name: "Roberto Campos Neto",
+    type: "INSTITUICAO",
+    role: "Ex-presidente do Banco Central (2019–2024)",
+    summary: "Presidente do BC durante o crescimento do Banco Master. Em dezembro de 2024 convocou Vorcaro a uma reunião de emergência pedindo aporte de capital por problemas de liquidez — episódio que precipitou a busca pela venda do banco. Deixou o cargo em 31/12/2024, sendo sucedido por Gabriel Galípolo. Nomeado por Jair Bolsonaro em 2019. Após o BC que administrou deixar o esquema crescer por anos, a conduta da instituição sob sua gestão é foco de apuração.",
+    details: [
+      "Em dez/2024 convocou Vorcaro para reunião de emergência sobre liquidez do Master — evento que desencadeou a tentativa de venda ao BRB.",
+      "O BC nomeado por Bolsonaro supervisionou o crescimento do Master de R$ 219 mi para R$ 5 bi sem intervenção efetiva.",
+      "Após deixar o BC em jan/2025, foi nomeado vice-chairman do Nubank."
+    ],
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/campos_neto.jpg",
+    sources: [
+      { label: "Wikipedia — Roberto Campos Neto", url: "https://pt.wikipedia.org/wiki/Roberto_Campos_Neto" },
+      { label: "JOTA — O caso Master e a ordem constitucional", url: "https://web.archive.org/web/2026*/https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17171325/content" }
+    ],
+    x: 72, y: 38
+  },
+  {
+    id: "alessandro_vieira",
+    name: "Alessandro Vieira",
+    type: "POLITICO",
+    role: "Senador (MDB-SE) — autor de requerimento de CPI mista",
+    summary: "Um dos autores do requerimento de CPI Mista para investigar o Banco Master no Congresso. Também atuou na CPI do Crime Organizado pedindo quebra de sigilo de Viviane Barci de Moraes. O requerimento da CPI atende aos critérios formais mas permanece sem instalação por falta de apoio político, especialmente da base governista.",
+    details: [
+      "Apresentou requerimento de CPI Mista junto com o deputado Carlos Jordy (PL-RJ).",
+      "Pediu na CPI do Crime Organizado mais informações sobre pagamentos do Master ao escritório Barci de Moraes."
+    ],
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/alessandro_vieira.jpg",
+    sources: [
+      { label: "JOTA — CPIs do Banco Master paralisadas no Congresso", url: "https://web.archive.org/web/2026*/https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17181816/content" }
+    ],
+    x: 53, y: 88
   }
 
 ];
@@ -1229,6 +1264,15 @@ const EDGES = [
   { from: "ibaneis_rocha", to: "brb", label: "ex-governador do DF — acionista majoritário do BRB" },
   { from: "mansur", to: "ibaneis_rocha", label: "escritório de Ibaneis recebeu R$ 38 mi da Reag" },
   { from: "vorcaro", to: "davi_alcolumbre", label: "citado na rede política de Vorcaro (Revista Fórum)" },
+
+  // Roberto Campos Neto
+  { from: "campos_neto", to: "bc", label: "presidente do BC (2019-2024) — supervisionou crescimento do Master" },
+  { from: "campos_neto", to: "vorcaro", label: "convocou reunião de emergência em dez/2024 sobre liquidez" },
+  { from: "campos_neto", to: "galipolo", label: "sucedido na presidência do BC em jan/2025" },
+  // Alessandro Vieira / CPI
+  { from: "alessandro_vieira", to: "moraes", label: "pediu quebra de sigilo de Viviane Barci na CPI" },
+  { from: "alessandro_vieira", to: "viviane_moraes", label: "requereu investigação dos R$ 80,2 mi pagos pelo Master" },
+  { from: "vorcaro", to: "alessandro_vieira", label: "escândalo motivou requerimento de CPI Mista" },
 ];
 
 // ----------------------------------------------------------
@@ -1717,6 +1761,34 @@ const TIMELINE = [
     phase: "Desdobramentos",
     summary: "O Tempo e demais veículos destacam que o escândalo, longe do fim, está atravessando a pré-campanha de 2026. Ao menos 22 pré-candidatos têm ligação com a rede de Vorcaro; dois grandes nomes já desistiram (Castro e Ibaneis). PF mantém ritmo das investigações durante o período eleitoral, com previsão de novas fases.",
     actors: ["vorcaro", "claudio_castro", "ibaneis_rocha", "ciro_nogueira", "flavio_bolsonaro"]
+  },
+  {
+    date: "03/06/2026",
+    title: "Delação de Vorcaro cita contrato de R$ 50 mi não assinado com escritório de Moraes",
+    phase: "Desdobramentos",
+    summary: "Revelado pelo O Globo: a primeira proposta de delação de Vorcaro (rejeitada pela PF em maio) incluía referência a uma minuta de contrato de R$ 50 milhões entre empresa ligada ao Master e o escritório Barci de Moraes — a ser assinado em ago/2025 para complementar o contrato original de R$ 129 milhões (parcelas de R$ 3,6 mi/mês). O documento não chegou a ser assinado. O escritório nega qualquer relação com a minuta. Investigadores analisam se a intenção era garantir continuidade dos pagamentos com a venda iminente do banco.",
+    actors: ["vorcaro", "viviane_moraes", "moraes"]
+  },
+  {
+    date: "08/04/2026",
+    title: "CPI do Crime Organizado revela: Master pagou R$ 80,2 mi ao escritório Barci de Moraes",
+    phase: "Desdobramentos",
+    summary: "Documentos da Receita Federal enviados à CPI do Crime Organizado confirmam que o Banco Master declarou pagamentos de R$ 80,2 milhões ao escritório Barci de Moraes entre fev/2024 e nov/2025 — 22 das 36 parcelas de R$ 3,6 mi previstas no contrato original de R$ 129 mi. Viviane Barci já havia confirmado a prestação de serviços. O escritório nega que os dados sejam corretos, alegando vazamento ilícito. Alexandre de Moraes não comentou.",
+    actors: ["viviane_moraes", "moraes", "vorcaro"]
+  },
+  {
+    date: "Abr/2026 (em andamento)",
+    title: "CPIs do Banco Master paralisadas no Congresso às vésperas das eleições",
+    summary: "Ao menos 4 requerimentos de CPI sobre o caso Master (2 no Senado, 1 na Câmara, 1 mista) atendem aos requisitos formais mas não são instalados. Base governista resiste por receio de exposição de aliados. Parlamentares apostam na delação de Vorcaro como principal via investigativa.",
+    phase: "Desdobramentos",
+    actors: ["alessandro_vieira", "vorcaro"]
+  },
+  {
+    date: "Dez/2024",
+    title: "Campos Neto convoca Vorcaro para reunião de emergência no Banco Central",
+    phase: "Antecedentes",
+    summary: "O então presidente do BC, Roberto Campos Neto, convoca Vorcaro a uma reunião de emergência pedindo aporte de capital por problemas de liquidez do Master. O episódio precipita a tentativa de venda ao BRB e toda a crise subsequente. Campos Neto deixa o cargo em 31/12/2024.",
+    actors: ["campos_neto", "vorcaro", "bc"]
   },
 ];
 
