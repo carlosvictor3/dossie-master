@@ -2609,7 +2609,7 @@ function buildGraph(){
         '<span style="font-family:monospace;font-weight:700;font-size:'+fs+'px;color:rgba(255,255,255,.94);text-shadow:0 1px 3px rgba(0,0,0,.5);'+(n.photo?'display:none':'')+'">'+ initials +'</span>'+
       '</div>'+
       // Etiqueta
-      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?18:14)+'px;'+
+      '<div class="nl" style="font-family:monospace;font-size:'+(isCentral?22:17)+'px;'+
         'color:'+(isCentral?'#8c0000':'#2a1500')+';'+
         'background:'+(isCentral?'rgba(255,235,235,0.97)':'rgba(255,252,220,0.97)')+';'+
         'padding:7px 12px;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis;'+
@@ -2754,7 +2754,7 @@ function buildGraph(){
     var rect=graphWrap.getBoundingClientRect();
     var mx=e.clientX-rect.left, my=e.clientY-rect.top, old=zoom;
     var d=e.deltaMode===1?e.deltaY*30:e.deltaY;
-    zoom=Math.min(3,Math.max(0.18,zoom*Math.exp(-d*0.004)));
+    zoom=Math.min(3,Math.max(0.18,zoom*Math.exp(-d*0.0018)));
     panX=mx-(mx-panX)*(zoom/old); panY=my-(my-panY)*(zoom/old);
     applyTransform();
   },{passive:false});
