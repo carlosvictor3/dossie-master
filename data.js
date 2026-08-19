@@ -36,7 +36,7 @@ const NODES = [
       "42 anos, ex-controlador do Banco Master (ex-corretora Máxima).",
       "Patrimônio do banco teria saltado de R$ 219 milhões para mais de R$ 5 bilhões em cinco anos, via aquisições de empresas em dificuldade ('distress').",
       "Segundo a PF, ocultou R$ 2,24 bilhões em conta no nome do pai, Henrique Vorcaro.",
-      "Assinou termo de confidencialidade com a PGR em 19/03/2026, visando colaboração premiada.",
+      "Assinou termo de confidencialidade com a PGR em 19/03/2026 visando delação — duas propostas foram rejeitadas pela PF. Em julho/2026 desistiu da delação e contratou os advogados de Mauro Cid, buscando agora acordo de devolução de recursos sem citar envolvidos.",
       "Mensagens periciadas em seu celular embasaram prisões em múltiplas fases da operação."
     ],
     sources: [
@@ -283,7 +283,7 @@ const NODES = [
     photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/claudio_castro.jpg",
     type: "POLITICO",
     role: "Ex-governador do Rio de Janeiro",
-    summary: "PF identificou sequência de encontros e conversas entre Castro e Vorcaro antes de aportes milionários da Rioprevidência no Master. Em 14/05/2024, Vorcaro convidou Castro para degustação de whisky em Nova York (evento de US$ 1,013 milhão); no dia seguinte, a Rioprevidência aportou R$ 80 milhões em Letras Financeiras do Master.",
+    summary: "PF identificou sequência de encontros e conversas entre Castro e Vorcaro antes de aportes milionários da Rioprevidência no Master. Desistiu da candidatura ao Senado-RJ em 28/05/2026 para concentrar-se na defesa. Em 14/05/2024, Vorcaro convidou Castro para degustação de whisky em Nova York (evento de US$ 1,013 milhão); no dia seguinte, a Rioprevidência aportou R$ 80 milhões em Letras Financeiras do Master.",
     details: [
       "Maio/2023 — jantar em Nova York pago por Vorcaro (conta de US$ 13 mil).",
       "Nov/2023 — primeiros aportes da Rioprevidência: R$ 40 milhões, depois R$ 80 milhões.",
@@ -1043,6 +1043,39 @@ const NODES = [
     ],
     x: 44, y: 82
   }
+  ,
+  {
+    id: "ibaneis_rocha",
+    name: "Ibaneis Rocha",
+    type: "POLITICO",
+    role: "Ex-governador do DF (MDB) — desistiu da candidatura ao Senado",
+    summary: "Ex-governador do Distrito Federal por dois mandatos (2019–2026). Defendeu publicamente a compra do Master pelo BRB e chegou a comemorar o anúncio da operação em março de 2025. O BRB comprou R$ 21,9 bilhões em títulos do Master sob sua gestão — dos quais R$ 2,6 bilhões são títulos inexistentes e R$ 6,2 bilhões suspeitos de fraude ou supervalorizados. Renunciou ao governo para disputar o Senado, mas desistiu da candidatura em 08/07/2026, após desgaste com o escândalo. Nega envolvimento e diz que investigações não o mencionaram diretamente.",
+    details: [
+      "Escritório de advocacia de Ibaneis firmou contrato de R$ 38 milhões com a Reag Investimentos, ligada ao Master.",
+      "Investigações no STF registraram menções a encontros entre Ibaneis e Vorcaro.",
+      "Ao desistir da candidatura, afirmou: 'Já cuidei de Brasília, agora quero cuidar de mim'.",
+      "Defesa afirma que seu papel se limitou a 'acompanhar iniciativas de interesse da população e do GDF'."
+    ],
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/ibaneis_rocha.jpg",
+    sources: [
+      { label: "CNN Brasil — Ibaneis desiste do Senado após caso Master", url: "https://www.cnnbrasil.com.br/politica/investigacoes-do-master-minam-candidaturas-ao-senado-no-rj-e-df/" },
+      { label: "Correio Braziliense — Desistência de Ibaneis mexe no cenário político", url: "https://www.correiobraziliense.com.br/cidades-df/2026/07/7457849-desistencia-de-ibaneis-da-corrida-ao-senado-mexe-no-cenario-politico.html" }
+    ],
+    x: 42, y: 95
+  },
+  {
+    id: "davi_alcolumbre",
+    name: "Davi Alcolumbre",
+    type: "POLITICO",
+    role: "Senador (União Brasil-AP) — citado na rede política de Vorcaro",
+    summary: "Presidente do Senado Federal, citado como nome recorrente na rede política de Vorcaro segundo levantamento da Revista Fórum. Não disputa as eleições de 2026 pois seu mandato termina em 2031. Não foi alvo de operação policial.",
+    details: [],
+    photo: "https://raw.githubusercontent.com/carlosvictor3/dossie-master/main/fotos/davi_alcolumbre.jpg",
+    sources: [
+      { label: "Revista Fórum — Bancada do Master nas eleições 2026", url: "https://revistaforum.com.br/politica/bancada-do-master-eleicoes-2026/" }
+    ],
+    x: 48, y: 98
+  }
 
 ];
 
@@ -1190,6 +1223,12 @@ const EDGES = [
   { from: "felipe_cancado", to: "green_investimentos", label: "presidente da empresa" },
   { from: "vorcaro", to: "green_investimentos", label: "esquema via primo Felipe Cançado" },
   { from: "raimundo_nogueira", to: "ciro_nogueira", label: "apontado como cobertura documental para propina ao senador" },
+
+  // Impacto eleitoral
+  { from: "vorcaro", to: "ibaneis_rocha", label: "encontros registrados — BRB comprou R$ 21,9 bi em títulos do Master sob sua gestão" },
+  { from: "ibaneis_rocha", to: "brb", label: "ex-governador do DF — acionista majoritário do BRB" },
+  { from: "mansur", to: "ibaneis_rocha", label: "escritório de Ibaneis recebeu R$ 38 mi da Reag" },
+  { from: "vorcaro", to: "davi_alcolumbre", label: "citado na rede política de Vorcaro (Revista Fórum)" },
 ];
 
 // ----------------------------------------------------------
@@ -1636,6 +1675,48 @@ const TIMELINE = [
     phase: "Fase 5",
     summary: "PF revela esquema de propina via Green Investimentos: empresa de Felipe Cançado Vorcaro vendeu 30% de sua participação à CNLF (administrada pelo irmão de Ciro Nogueira, Raimundo Lima) por R$ 1 mi — valor de mercado estimado em R$ 13 mi pela CVM. STF suspende atividades de quatro empresas do esquema (CNLF, BRGD, Green Investimentos, Green Energia FIP). Raimundo Lima obrigado a usar tornozeleira eletrônica e entregar passaporte.",
     actors: ["ciro_nogueira", "raimundo_nogueira", "felipe_cancado", "green_investimentos", "mendonca"]
+  },
+  {
+    date: "11/07/2026",
+    title: "Vorcaro desiste da delação e troca equipe de defesa",
+    phase: "Desdobramentos",
+    summary: "Após duas propostas de delação rejeitadas pela PF — a primeira por omissão de dados, a segunda considerada insuficiente — Vorcaro desiste da colaboração premiada e muda de estratégia. Contrata os advogados Cezar e Vânia Bitencourt (defensores do tenente-coronel Mauro Cid) e passa a buscar acordo de devolução de recursos em troca de benefícios processuais, sem necessidade de citar outros envolvidos. Segundo pessoas próximas, Vorcaro estaria desanimado após a PF prender seu pai, primo e cunhado, o que teria comprometido a credibilidade das tratativas.",
+    actors: ["vorcaro"]
+  },
+  {
+    date: "09-10/07/2026",
+    title: "Passaporte de Thiago Miranda apreendido pela PF",
+    phase: "Fase 10",
+    summary: "Após a 10ª fase da Compliance Zero, a PF apreende o passaporte de Thiago Miranda, alegando possível risco de fuga do país. Especialistas em direito penal questionam a proporcionalidade da medida diante da ausência de condenação transitada em julgado. Miranda nega as acusações e afirma que colaborará com as investigações.",
+    actors: ["thiago_miranda"]
+  },
+  {
+    date: "28/05/2026",
+    title: "Cláudio Castro desiste da candidatura ao Senado",
+    phase: "Desdobramentos",
+    summary: "Ex-governador do Rio de Janeiro desiste de concorrer ao Senado para concentrar esforços em sua defesa. Alvo de dois mandados de busca e apreensão — um pelo caso Master/Rioprevidência e outro pela investigação sobre benefícios ao Grupo Refit. Castro nega irregularidades.",
+    actors: ["claudio_castro"]
+  },
+  {
+    date: "08/07/2026",
+    title: "Ibaneis Rocha desiste da candidatura ao Senado",
+    phase: "Desdobramentos",
+    summary: "Ex-governador do DF renuncia à pré-candidatura ao Senado após desgaste provocado pelo escândalo Master. Havia deixado o governo dentro do prazo de desincompatibilização justamente para disputar o Senado. Investigações no STF registram encontros com Vorcaro. Nega que o caso tenha influenciado a decisão.",
+    actors: ["ibaneis_rocha", "brb"]
+  },
+  {
+    date: "21/07/2026",
+    title: "Bancada do Master: 22 candidatos ligados a Vorcaro seguem na disputa de 2026",
+    phase: "Desdobramentos",
+    summary: "Levantamento da Revista Fórum identifica 22 pré-candidatos citados por contatos, negócios, doações ou ações políticas ligadas à rede de Vorcaro. Entre eles: Flávio Bolsonaro (candidato à presidência), Ciro Nogueira (Senado-PI) e Antonio Rueda (União Brasil). Jair Bolsonaro está inelegível; Zettel doou R$ 3 mi para sua campanha em 2022.",
+    actors: ["flavio_bolsonaro", "ciro_nogueira", "antonio_rueda", "davi_alcolumbre"]
+  },
+  {
+    date: "06/08/2026",
+    title: "Escândalo Master abala candidaturas e entra de vez na campanha eleitoral",
+    phase: "Desdobramentos",
+    summary: "O Tempo e demais veículos destacam que o escândalo, longe do fim, está atravessando a pré-campanha de 2026. Ao menos 22 pré-candidatos têm ligação com a rede de Vorcaro; dois grandes nomes já desistiram (Castro e Ibaneis). PF mantém ritmo das investigações durante o período eleitoral, com previsão de novas fases.",
+    actors: ["vorcaro", "claudio_castro", "ibaneis_rocha", "ciro_nogueira", "flavio_bolsonaro"]
   },
 ];
 
